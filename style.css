@@ -319,7 +319,7 @@ nav {
 
 .hero1 {
     grid-area: hero1;
-    background-image: url('/src/hero img/Main-Header-2 -compressed.webp');
+    background-image: url('./src/hero img/Main-Header-2 -compressed.webp');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
