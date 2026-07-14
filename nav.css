@@ -361,8 +361,7 @@ nav {
     }
 }
 
-
- .footer{
+.footer{
     background-color: white;
     background:var(--white);
     border-top:1px solid var(--border);
