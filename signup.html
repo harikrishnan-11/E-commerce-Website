@@ -85,7 +85,7 @@
 
 <div class="auth-shell">
   <div class="auth-wrap reveal">
-    <div class="auth-visual">
+    <div class="auth-visual" style="background-image:url('https://loremflickr.com/900/1100/technology,store?lock=108');">
       <div class="av-logo"><i class="fa-solid fa-bolt"></i> Stackly</div>
       <div class="av-mid">
         <h2>Join 248,000+ shoppers.</h2>
@@ -110,46 +110,80 @@
       <div class="divider-row"><span>or sign up with email</span></div>
 
       <form id="signupForm" novalidate>
+
+    <div class="form-group">
+        <label for="s-name">Full Name</label>
+        <input type="text" id="s-name" placeholder="Jordan Lee" autocomplete="name">
+        <small class="field-msg"></small>
+    </div>
+
+    <div class="form-row">
+
         <div class="form-group">
-          <label for="s-name">Full Name</label>
-          <input type="text" id="s-name" placeholder="Jordan Lee" autocomplete="name">
-          <div class="field-msg"></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
             <label for="s-email">Email Address</label>
             <input type="email" id="s-email" placeholder="you@email.com" autocomplete="email">
-            <div class="field-msg"></div>
-          </div>
-          <div class="form-group">
-            <label for="s-phone">Phone Number</label>
-            <input type="tel" id="s-phone" placeholder="+1 555 123 4567" autocomplete="tel">
-            <div class="field-msg"></div>
-          </div>
+            <small class="field-msg"></small>
         </div>
-        <div class="form-group">
-          <label for="s-password">Password</label>
-          <div class="password-field">
-            <input type="password" id="s-password" data-pw-strength placeholder="Create a password" autocomplete="new-password">
-            <i class="fa-solid fa-eye toggle-eye"></i>
-          </div>
-          <div class="pw-strength"><span></span><span></span><span></span><span></span></div>
-          <div class="field-msg"></div>
-        </div>
-        <div class="form-group">
-          <label for="s-confirm">Confirm Password</label>
-          <div class="password-field">
-            <input type="password" id="s-confirm" placeholder="Re-enter your password" autocomplete="new-password">
-            <i class="fa-solid fa-eye toggle-eye"></i>
-          </div>
-          <div class="field-msg"></div>
-        </div>
-        <div class="form-inline-row">
-          <label class="checkbox-row"><input type="checkbox" id="s-terms"> I agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a></label>
-        </div>
-        <button type="submit" class="btn-primary full"><i class="fa-solid fa-user-plus"></i> Create Account</button>
-      </form>
 
+        <div class="form-group">
+            <label for="s-phone">Phone Number</label>
+            <input type="tel" id="s-phone" placeholder="9876543210" maxlength="10">
+            <small class="field-msg"></small>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="s-password">Password</label>
+
+        <div class="password-field">
+            <input type="password" id="s-password" placeholder="Create a password">
+            <i class="fa-solid fa-eye toggle-eye"></i>
+        </div>
+
+        <small class="field-msg"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="s-confirm">Confirm Password</label>
+
+        <div class="password-field">
+            <input type="password" id="s-confirm" placeholder="Re-enter your password">
+            <i class="fa-solid fa-eye toggle-eye"></i>
+        </div>
+
+        <small class="field-msg"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="sRole">Register as</label>
+
+        <select id="sRole">
+            <option value="">Choose Role</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <small class="field-msg"></small>
+    </div>
+
+    <div class="form-inline-row">
+        <label class="checkbox-row">
+            <input type="checkbox" id="s-terms">
+            I agree to the
+            <a href="#">Terms & Conditions</a> &
+            <a href="#">Privacy Policy</a>
+        </label>
+    </div>
+
+    <small class="field-msg" id="termsError"></small>
+
+    <button type="submit" class="btn-primary full">
+        <i class="fa-solid fa-user-plus"></i>
+        Create Account
+    </button>
+
+</form>
       <div class="auth-switch">Already have an account? <a href="./login.html">Log in</a></div>
     </div>
   </div>
@@ -162,8 +196,11 @@
       <div class="brand-title">Stackly</div>
       <div class="hotline-label">Hotline 24/7</div>
       <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
-      <div class="addr"><i class="fa-solid fa-location-dot"></i> 257 Thatcher Road St, Brooklyn, Manhattan, NY 10092</div>
-      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@swootechmart.com</a>
+       <div class="addr"><i class="fa-solid fa-location-dot"></i>  MMR Complex,<br>
+                Chinna Thirupathi,<br>
+                Salem, Tamil Nadu 636008</div>
+      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@Stackly.com</a>
+
 
       <div class="social-row">
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -237,6 +274,150 @@
 <button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 <script src="navbar.js"></script>
 <script src="pages.js"></script>
+<script>
+  const form = document.getElementById("signupForm");
 
+const nameField = document.getElementById("s-name");
+const email = document.getElementById("s-email");
+const phone = document.getElementById("s-phone");
+const password = document.getElementById("s-password");
+const confirmPassword = document.getElementById("s-confirm");
+const role = document.getElementById("sRole");
+const terms = document.getElementById("s-terms");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    clearErrors();
+
+    let isValid = true;
+
+    // Name
+
+    if(nameField.value.trim()==""){
+
+        showError(nameField,"Full name is required");
+        isValid=false;
+
+    }
+
+    // Email
+
+    const emailRegex=/^[^\s@]+@[^\s@]+\.(com|in)$/i;
+
+    if(email.value.trim()==""){
+
+        showError(email,"Email is required");
+        isValid=false;
+
+    }
+    else if(!emailRegex.test(email.value.trim())){
+
+        showError(email,"Email must end with .com or .in");
+        isValid=false;
+
+    }
+
+    // Phone
+
+    const phoneRegex=/^[0-9]{10}$/;
+
+    if(phone.value.trim()==""){
+
+        showError(phone,"Phone number is required");
+        isValid=false;
+
+    }
+    else if(!phoneRegex.test(phone.value.trim())){
+
+        showError(phone,"Enter a valid 10 digit phone number");
+        isValid=false;
+
+    }
+
+    // Password
+
+    if(password.value.trim()==""){
+
+        showError(password,"Password is required");
+        isValid=false;
+
+    }
+    else if(password.value.length<6){
+
+        showError(password,"Minimum 6 characters required");
+        isValid=false;
+
+    }
+
+    // Confirm Password
+
+    if(confirmPassword.value.trim()==""){
+
+        showError(confirmPassword,"Confirm your password");
+        isValid=false;
+
+    }
+    else if(confirmPassword.value!==password.value){
+
+        showError(confirmPassword,"Passwords do not match");
+        isValid=false;
+
+    }
+
+    // Role
+
+    if(role.value==""){
+
+        showError(role,"Please select a role");
+        isValid=false;
+
+    }
+
+    // Terms
+
+    if(!terms.checked){
+
+        document.getElementById("termsError").textContent="Please accept Terms & Conditions";
+        isValid=false;
+
+    }
+
+    // Success
+
+    if(isValid){
+        window.location.href="login.html";
+
+    }
+
+});
+
+function showError(input,message){
+
+    input.classList.add("input-error");
+
+    input.closest(".form-group")
+         .querySelector(".field-msg")
+         .textContent=message;
+
+}
+
+function clearErrors(){
+
+    document.querySelectorAll(".field-msg").forEach(msg=>{
+
+        msg.textContent="";
+
+    });
+
+    document.querySelectorAll(".input-error").forEach(field=>{
+
+        field.classList.remove("input-error");
+
+    });
+
+}
+</script>
 </body>
 </html>

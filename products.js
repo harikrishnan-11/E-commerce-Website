@@ -35,7 +35,7 @@
         categories: [],
         brands: [],
         colors: [],
-        maxPrice: 5000,
+        maxPrice: 7000,
         minRating: 0,
         inStock: false,
         search: "",
@@ -109,7 +109,7 @@
         state.categories.forEach(c => chips.push({ label: c, type: "category", value: c }));
         state.brands.forEach(b => chips.push({ label: b, type: "brand", value: b }));
         state.colors.forEach(c => chips.push({ label: c, type: "color", value: c }));
-        if (state.maxPrice < 5000) chips.push({ label: "Under $" + state.maxPrice, type: "price" });
+        if (state.maxPrice < 7000) chips.push({ label: "Under $" + state.maxPrice, type: "price" });
         if (state.minRating > 0) chips.push({ label: state.minRating + "★ & up", type: "rating" });
         if (state.inStock) chips.push({ label: "In Stock Only", type: "stock" });
 
@@ -141,9 +141,9 @@
             state.colors = state.colors.filter(v => v !== value);
             syncColorSwatches();
         } else if (type === "price") {
-            state.maxPrice = 5000;
-            priceRange.value = 5000;
-            priceValue.textContent = "5000";
+            state.maxPrice = 7000;
+            priceRange.value = 7000;
+            priceValue.textContent = "7000";
         } else if (type === "rating") {
             state.minRating = 0;
             ratingFilter.value = "0";
@@ -168,12 +168,12 @@
     }
 
     function clearAllFilters() {
-        state = { categories: [], brands: [], colors: [], maxPrice: 5000, minRating: 0, inStock: false, search: "", sort: "default", perPage: state.perPage, page: 1 };
+        state = { categories: [], brands: [], colors: [], maxPrice: 7000, minRating: 0, inStock: false, search: "", sort: "default", perPage: state.perPage, page: 1 };
         categoryFilters.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         brandFilters.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         colorFilters.querySelectorAll("span").forEach(sw => sw.classList.remove("selected"));
-        priceRange.value = 5000;
-        priceValue.textContent = "5000";
+        priceRange.value = 7000;
+        priceValue.textContent = "7000";
         ratingFilter.value = "0";
         inStockOnly.checked = false;
         sortSelect.value = "default";
@@ -199,7 +199,8 @@
                     <button title="Quick View"><i class="fa-solid fa-eye"></i></button>
                     <button title="Compare"><i class="fa-solid fa-code-compare"></i></button>
                 </div>
-                <i class="fa-solid ${p.icon} product-icon"></i>
+                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <i class="fa-solid ${p.icon} product-icon" style="display:none;"></i>
             </div>
             <div class="product-content">
                 <p class="category">${p.category}</p>

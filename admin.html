@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./dashboard.css" />
+    <link rel="stylesheet" href="./dashboard2.css">
+    <title>Admin Dashboard — ShopStack</title>
+</head>
+<body class="dashboard-body">
+
+    <div class="dash-shell">
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <a href="./home.html" class="sidebar-logo">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="ShopStack logo" />
+                </a>
+                <button class="sidebar-close" id="sidebarClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-label">Main</p>
+                <a href="#overview" class="nav-link active" data-section="overview">
+                    <i class="fa-solid fa-grip"></i> Overview
+                </a>
+                <a href="#customers" class="nav-link" data-section="customers">
+                    <i class="fa-solid fa-user-group"></i> Customers
+                </a>
+                <a href="#team" class="nav-link" data-section="team">
+                    <i class="fa-solid fa-users"></i> Team
+                </a>
+                <a href="#orders" class="nav-link" data-section="orders">
+                    <i class="fa-solid fa-cart-shopping"></i> Orders
+                </a>
+                <a href="#products" class="nav-link" data-section="products">
+                    <i class="fa-solid fa-box"></i> Products
+                </a>
+
+                <p class="nav-label">Insights</p>
+                <a href="#analytics" class="nav-link" data-section="analytics">
+                    <i class="fa-solid fa-chart-line"></i> Analytics
+                </a>
+                <a href="#reports" class="nav-link" data-section="reports">
+                    <i class="fa-solid fa-file-lines"></i> Reports
+                </a>
+
+                <p class="nav-label">Account</p>
+                <a href="#settings" class="nav-link" data-section="settings">
+                    <i class="fa-solid fa-gear"></i> Settings
+                </a>
+                <a href="./login.html" class="nav-link nav-link-danger">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
+                </a>
+            </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- ============ MAIN ============ -->
+        <div class="dash-main">
+
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="topbar-search">
+                    Admin:
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notif-dot"></span>
+                    </button>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="topbar-user-text">
+                            <p class="topbar-user-name">Admin</p>
+                            <p class="topbar-user-email"><span id="userEmail"></span></p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ============ OVERVIEW ============ -->
+            <section class="dash-section active" id="overview">
+                <div class="section-head">
+                    <div>
+                        <h1>Store Overview</h1>
+                        <p class="section-sub">Real-time performance across your entire online store.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Add Product <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-dollar-sign"></i></span>
+                        <h3>$124.8K</h3>
+                        <p>Total revenue</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                        <h3>847</h3>
+                        <p>Orders this month</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-users"></i></span>
+                        <h3>3,421</h3>
+                        <p>Active customers</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-star"></i></span>
+                        <h3>4.8</h3>
+                        <p>Avg. rating</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-plus-circle"></i></span>
+                        New Product
+                    </a>
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-tag"></i></span>
+                        Create Discount
+                    </a>
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-file-lines"></i></span>
+                        Sales Report
+                    </a>
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-envelope"></i></span>
+                        Email Campaign
+                    </a>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Recent orders</h2>
+                            <a href="./404.html" class="link-read">Export <i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr><th>Order #</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ORD-4921</td><td>Emma Watson</td><td>Wireless Headphones, USB-C Hub</td>
+                                        <td>$247.00</td>
+                                        <td><span class="status status-transit">Shipped</span></td>
+                                        <td><a href="./404.html" class="link-read">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-4918</td><td>Arjun Mehta</td><td>Mechanical Keyboard, Mouse Pad</td>
+                                        <td>$179.50</td>
+                                        <td><span class="status status-delivered">Delivered</span></td>
+                                        <td><a href="./404.html" class="link-read">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-4902</td><td>Sophie Chen</td><td>4K Monitor, Ergonomic Chair</td>
+                                        <td>$1,320.00</td>
+                                        <td><span class="status status-pending">Processing</span></td>
+                                        <td><a href="./404.html" class="link-read">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-4897</td><td>Carlos Rivera</td><td>Smartphone, Case, Screen Protector</td>
+                                        <td>$899.00</td>
+                                        <td><span class="status status-transit">Shipped</span></td>
+                                        <td><a href="./404.html" class="link-read">View</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Store activity</h2>
+                            <a href="./404.html" class="link-read">View all</a>
+                        </div>
+                        <ul class="activity-feed">
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-transit"><i class="fa-solid fa-user-plus"></i></span>
+                                <div>
+                                    <p><strong>Sophie Chen</strong> created a new account</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-delivered"><i class="fa-solid fa-circle-check"></i></span>
+                                <div>
+                                    <p><strong>Arjun Mehta</strong> marked #ORD-4918 as delivered</p>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-pending"><i class="fa-solid fa-star"></i></span>
+                                <div>
+                                    <p><strong>Emma Watson</strong> left a 5-star review</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-transit"><i class="fa-solid fa-file-lines"></i></span>
+                                <div>
+                                    <p><strong>Rachel Collins</strong> generated the monthly sales report</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ CUSTOMERS ============ -->
+            <section class="dash-section" id="customers">
+                <div class="section-head">
+                    <div>
+                        <h1>Customers</h1>
+                        <p class="section-sub">All shoppers and registered accounts on the platform.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Add Customer <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-users"></i></span>
+                        <h3>3,421</h3>
+                        <p>Total customers</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-user-check"></i></span>
+                        <h3>3,188</h3>
+                        <p>Active accounts</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-user-slash"></i></span>
+                        <h3>233</h3>
+                        <p>Inactive</p>
+                    </div>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">VIP</button>
+                    <button class="filter-tab">Regular</button>
+                    <button class="filter-tab">New</button>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Name</th><th>Email</th><th>Tier</th><th>Status</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Emma Watson</td><td>emma.w@client.com</td>
+                                    <td><span class="role-badge role-admin">VIP</span></td>
+                                    <td><span class="status status-delivered">Active</span></td>
+                                    <td><a href="./404.html" class="link-read">Manage</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Arjun Mehta</td><td>arjun.m@client.com</td>
+                                    <td><span class="role-badge role-customer">Regular</span></td>
+                                    <td><span class="status status-delivered">Active</span></td>
+                                    <td><a href="./404.html" class="link-read">Manage</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Sophie Chen</td><td>sophie.c@client.com</td>
+                                    <td><span class="role-badge role-customer">Regular</span></td>
+                                    <td><span class="status status-delivered">Active</span></td>
+                                    <td><a href="./404.html" class="link-read">Manage</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Carlos Rivera</td><td>carlos.r@client.com</td>
+                                    <td><span class="role-badge role-customer">Regular</span></td>
+                                    <td><span class="status status-pending">Inactive</span></td>
+                                    <td><a href="./404.html" class="link-read">Manage</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ TEAM ============ -->
+            <section class="dash-section" id="team">
+                <div class="section-head">
+                    <div>
+                        <h1>Team</h1>
+                        <p class="section-sub">Manage staff roles and permissions across the store.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Add Member <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-users"></i></span>
+                        <h3>14</h3>
+                        <p>Total team members</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-sitemap"></i></span>
+                        <h3>4</h3>
+                        <p>Departments</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-user-clock"></i></span>
+                        <h3>2</h3>
+                        <p>Open roles</p>
+                    </div>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Sales</button>
+                    <button class="filter-tab">Marketing</button>
+                    <button class="filter-tab">Support</button>
+                    <button class="filter-tab">Fulfillment</button>
+                </div>
+
+                <div class="team-dash-grid">
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar">RC</div>
+                        <h3>Rachel Collins</h3>
+                        <p>Sales Director</p>
+                        <a href="./404.html" class="link-read">View profile</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar">CD</div>
+                        <h3>Corbin Dallas</h3>
+                        <p>Fulfillment Lead</p>
+                        <a href="./404.html" class="link-read">View profile</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar">DF</div>
+                        <h3>Deborah Fox</h3>
+                        <p>Marketing Manager</p>
+                        <a href="./404.html" class="link-read">View profile</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar">LL</div>
+                        <h3>Luisa Larson</h3>
+                        <p>Customer Support Lead</p>
+                        <a href="./404.html" class="link-read">View profile</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar">PH</div>
+                        <h3>Patrick Henderson</h3>
+                        <p>Product Manager</p>
+                        <a href="./404.html" class="link-read">View profile</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar">JS</div>
+                        <h3>Jessy Spencer</h3>
+                        <p>UX Designer</p>
+                        <a href="./404.html" class="link-read">View profile</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ ORDERS ============ -->
+            <section class="dash-section" id="orders">
+                <div class="section-head">
+                    <div>
+                        <h1>Orders</h1>
+                        <p class="section-sub">All orders placed across the store.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">New Order <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-spinner"></i></span>
+                        <h3>34</h3>
+                        <p>Processing</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-truck"></i></span>
+                        <h3>56</h3>
+                        <p>Shipped</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        <h3>757</h3>
+                        <p>Delivered</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>All orders</h2>
+                        <a href="./404.html" class="link-read">Filter <i class="fa-solid fa-sliders"></i></a>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Order #</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-4921</td><td>Emma Watson</td><td>2 items</td><td>$247.00</td>
+                                    <td><span class="status status-delivered">Paid</span></td>
+                                    <td><span class="status status-transit">Shipped</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4918</td><td>Arjun Mehta</td><td>2 items</td><td>$179.50</td>
+                                    <td><span class="status status-delivered">Paid</span></td>
+                                    <td><span class="status status-delivered">Delivered</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4902</td><td>Sophie Chen</td><td>2 items</td><td>$1,320.00</td>
+                                    <td><span class="status status-pending">Pending</span></td>
+                                    <td><span class="status status-pending">Processing</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4897</td><td>Carlos Rivera</td><td>3 items</td><td>$899.00</td>
+                                    <td><span class="status status-delivered">Paid</span></td>
+                                    <td><span class="status status-transit">Shipped</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4889</td><td>Neha Verma</td><td>1 item</td><td>$59.99</td>
+                                    <td><span class="status status-delivered">Paid</span></td>
+                                    <td><span class="status status-delivered">Delivered</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ PRODUCTS ============ -->
+            <section class="dash-section" id="products">
+                <div class="section-head">
+                    <div>
+                        <h1>Products</h1>
+                        <p class="section-sub">Manage your product catalog, inventory, and pricing.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Add Product <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-boxes"></i></span>
+                        <h3>2,847</h3>
+                        <p>Total products</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        <h3>2,631</h3>
+                        <p>In stock</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                        <h3>216</h3>
+                        <p>Low stock</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Top selling products</h2>
+                        <a href="./404.html" class="link-read">View all</a>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Product</th><th>Category</th><th>Price</th><th>Units sold</th><th>Revenue</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Wireless Headphones Pro</td><td>Electronics</td><td>$149.00</td><td>1,284</td><td>$191,316</td>
+                                    <td><a href="./404.html" class="link-read">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Mechanical Keyboard RGB</td><td>Electronics</td><td>$89.50</td><td>932</td><td>$83,414</td>
+                                    <td><a href="./404.html" class="link-read">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Smartphone 5G Ultra</td><td>Electronics</td><td>$799.00</td><td>547</td><td>$437,053</td>
+                                    <td><a href="./404.html" class="link-read">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Ergonomic Mesh Chair</td><td>Furniture</td><td>$349.00</td><td>312</td><td>$108,888</td>
+                                    <td><a href="./404.html" class="link-read">Edit</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ ANALYTICS ============ -->
+            <section class="dash-section" id="analytics">
+                <div class="section-head">
+                    <div>
+                        <h1>Analytics</h1>
+                        <p class="section-sub">Store performance across sales, traffic, and conversion.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Export Report <i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Revenue &amp; orders per month</h2>
+                            <a href="./404.html" class="link-read">Last 6 months</a>
+                        </div>
+                        <div class="bar-chart">
+                            <div class="bar-col"><span class="bar" style="--h:48%"></span><label>Feb</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:62%"></span><label>Mar</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:41%"></span><label>Apr</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:76%"></span><label>May</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:59%"></span><label>Jun</label></div>
+                            <div class="bar-col"><span class="bar bar-current" style="--h:94%"></span><label>Jul</label></div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Sales by category</h2>
+                        </div>
+                        <ul class="legend-list">
+                            <li><span class="legend-dot" style="--c:var(--primary)"></span> Electronics <strong>48%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--secondary)"></span> Furniture <strong>22%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--accent)"></span> Apparel <strong>18%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--text-light)"></span> Home &amp; Garden <strong>12%</strong></li>
+                        </ul>
+                        <div class="legend-bar">
+                            <span style="--w:48%; --c:var(--primary)"></span>
+                            <span style="--w:22%; --c:var(--secondary)"></span>
+                            <span style="--w:18%; --c:var(--accent)"></span>
+                            <span style="--w:12%; --c:var(--text-light)"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ REPORTS ============ -->
+            <section class="dash-section" id="reports">
+                <div class="section-head">
+                    <div>
+                        <h1>Reports</h1>
+                        <p class="section-sub">Generate and download store performance reports.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">New Report <i class="fa-solid fa-plus"></i></a>
+                </div>
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Generated reports</h2>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Report</th><th>Type</th><th>Generated</th><th>Size</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Monthly Sales — June</td><td>Sales</td><td>Jul 01, 2026</td><td>1.4 MB</td>
+                                    <td><a href="./404.html" class="link-read">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Revenue Summary — Q2</td><td>Finance</td><td>Jun 30, 2026</td><td>920 KB</td>
+                                    <td><a href="./404.html" class="link-read">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Customer Retention Report</td><td>Marketing</td><td>Jun 22, 2026</td><td>780 KB</td>
+                                    <td><a href="./404.html" class="link-read">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Traffic &amp; Conversion — May</td><td>Analytics</td><td>Jun 01, 2026</td><td>520 KB</td>
+                                    <td><a href="./404.html" class="link-read">Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ SETTINGS ============ -->
+            <section class="dash-section" id="settings">
+                <div class="section-head">
+                    <div>
+                        <h1>Settings</h1>
+                        <p class="section-sub">Store configuration and admin preferences.</p>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head"><h2>Profile</h2></div>
+                        <form class="settings-form" id="settingsForm">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="sName">Full name</label>
+                                    <input type="text" id="sName" value="Rachel Collins" />
+                                </div>
+                                <div class="field">
+                                    <label for="sEmail">Email</label>
+                                    <input type="email" id="sEmail" value="rachel.collins@shopstack.com" />
+                                </div>
+                                <div class="field">
+                                    <label for="sPhone">Phone</label>
+                                    <input type="tel" id="sPhone" placeholder="Add phone number" />
+                                </div>
+                                <div class="field">
+                                    <label for="sRole">Role</label>
+                                    <input type="text" id="sRole" value="Admin" disabled />
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary">Save changes <i class="fa-solid fa-check"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Store preferences</h2></div>
+                        <div class="toggle-row">
+                            <div>
+                                <p class="toggle-title">New order alerts</p>
+                                <p class="toggle-sub">Email when a customer places a new order</p>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div>
+                                <p class="toggle-title">Low stock alerts</p>
+                                <p class="toggle-sub">Notify when a product falls below threshold</p>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div>
+                                <p class="toggle-title">Weekly store digest</p>
+                                <p class="toggle-sub">Summary of sales, traffic, and customer activity</p>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

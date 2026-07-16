@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./dashboard.css" />
+    <link rel="stylesheet" href="./dashboard2.css">
+    <title>User Dashboard — ShopStack</title>
+</head>
+<body class="dashboard-body">
+
+    <div class="dash-shell">
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <a href="./home.html" class="sidebar-logo">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="ShopStack logo" />
+                </a>
+                <button class="sidebar-close" id="sidebarClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-label">Main</p>
+                <a href="#overview" class="nav-link active" data-section="overview">
+                    <i class="fa-solid fa-grip"></i> Dashboard
+                </a>
+                <a href="#users" class="nav-link" data-section="users">
+                    <i class="fa-solid fa-cart-shopping"></i> My Orders
+                </a>
+                <a href="#team" class="nav-link" data-section="team">
+                    <i class="fa-solid fa-heart"></i> Wishlist
+                </a>
+                <a href="#shipments" class="nav-link" data-section="shipments">
+                    <i class="fa-solid fa-truck-fast"></i> Shipments
+                </a>
+                <a href="#orders" class="nav-link" data-section="orders">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Order History
+                </a>
+
+                <p class="nav-label">Insights</p>
+                <a href="#analytics" class="nav-link" data-section="analytics">
+                    <i class="fa-solid fa-chart-simple"></i> My Stats
+                </a>
+                <a href="#reports" class="nav-link" data-section="reports">
+                    <i class="fa-solid fa-file-invoice"></i> Invoices
+                </a>
+
+                <p class="nav-label">Account</p>
+                <a href="#settings" class="nav-link" data-section="settings">
+                    <i class="fa-solid fa-gear"></i> Settings
+                </a>
+                <a href="./login.html" class="nav-link nav-link-danger">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
+                </a>
+            </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- ============ MAIN ============ -->
+        <div class="dash-main">
+
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="topbar-search">
+                    Welcome back,
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notif-dot"></span>
+                    </button>
+                    <div class="topbar-user">
+                        <div class="topbar-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="topbar-user-text">
+                            <p class="topbar-user-name">User</p>
+                            <p class="topbar-user-email"><span id="userEmail">alex.m@email.com</span></p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ============ OVERVIEW ============ -->
+            <section class="dash-section active" id="overview">
+                <div class="section-head">
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p class="section-sub">Welcome back! Here’s your store activity at a glance.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Browse Products <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                        <h3>24</h3>
+                        <p>Total orders</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-dollar-sign"></i></span>
+                        <h3>$4,283</h3>
+                        <p>Total spent</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-heart"></i></span>
+                        <h3>8</h3>
+                        <p>Wishlist items</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-truck"></i></span>
+                        <h3>3</h3>
+                        <p>Active shipments</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        Shop Now
+                    </a>
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-truck-fast"></i></span>
+                        Track Order
+                    </a>
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-cart-plus"></i></span>
+                        View Cart
+                    </a>
+                    <a href="./404.html" class="quick-action">
+                        <span class="quick-action-icon"><i class="fa-solid fa-headset"></i></span>
+                        Support
+                    </a>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Recent orders</h2>
+                            <a href="#users" class="link-read">View all <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr><th>Order #</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ORD-4921</td><td>Jul 15, 2026</td><td>2 items</td><td>$247.00</td>
+                                        <td><span class="status status-transit">Shipped</span></td>
+                                        <td><a href="./404.html" class="link-read">Details</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-4918</td><td>Jul 12, 2026</td><td>1 item</td><td>$179.50</td>
+                                        <td><span class="status status-delivered">Delivered</span></td>
+                                        <td><a href="./404.html" class="link-read">Details</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-4902</td><td>Jul 08, 2026</td><td>3 items</td><td>$1,320.00</td>
+                                        <td><span class="status status-pending">Processing</span></td>
+                                        <td><a href="./404.html" class="link-read">Details</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-4897</td><td>Jul 05, 2026</td><td>1 item</td><td>$899.00</td>
+                                        <td><span class="status status-transit">Shipped</span></td>
+                                        <td><a href="./404.html" class="link-read">Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Recent activity</h2>
+                            <a href="./404.html" class="link-read">View all</a>
+                        </div>
+                        <ul class="activity-feed">
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-transit"><i class="fa-solid fa-truck"></i></span>
+                                <div>
+                                    <p><strong>#ORD-4921</strong> has been shipped</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-delivered"><i class="fa-solid fa-circle-check"></i></span>
+                                <div>
+                                    <p><strong>#ORD-4918</strong> was delivered</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-pending"><i class="fa-solid fa-heart"></i></span>
+                                <div>
+                                    <p>Added <strong>Wireless Headphones</strong> to wishlist</p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-transit"><i class="fa-solid fa-dollar-sign"></i></span>
+                                <div>
+                                    <p>Payment confirmed for <strong>#ORD-4902</strong></p>
+                                    <span class="activity-time">3 days ago</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ USERS (My Orders) ============ -->
+            <section class="dash-section" id="users">
+                <div class="section-head">
+                    <div>
+                        <h1>My Orders</h1>
+                        <p class="section-sub">View and manage all the orders you’ve placed.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Shop Now <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                        <h3>24</h3>
+                        <p>Total orders</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-clock"></i></span>
+                        <h3>6</h3>
+                        <p>Processing</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        <h3>18</h3>
+                        <p>Completed</p>
+                    </div>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Processing</button>
+                    <button class="filter-tab">Shipped</button>
+                    <button class="filter-tab">Delivered</button>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Order #</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-4921</td><td>Jul 15, 2026</td><td>Wireless Headphones, USB-C Hub</td><td>$247.00</td>
+                                    <td><span class="status status-transit">Shipped</span></td>
+                                    <td><a href="./404.html" class="link-read">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4918</td><td>Jul 12, 2026</td><td>Mechanical Keyboard</td><td>$179.50</td>
+                                    <td><span class="status status-delivered">Delivered</span></td>
+                                    <td><a href="./404.html" class="link-read">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4902</td><td>Jul 08, 2026</td><td>4K Monitor, Ergonomic Chair, Cable Kit</td><td>$1,320.00</td>
+                                    <td><span class="status status-pending">Processing</span></td>
+                                    <td><a href="./404.html" class="link-read">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4897</td><td>Jul 05, 2026</td><td>Smartphone, Case</td><td>$899.00</td>
+                                    <td><span class="status status-transit">Shipped</span></td>
+                                    <td><a href="./404.html" class="link-read">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ TEAM (Wishlist) ============ -->
+            <section class="dash-section" id="team">
+                <div class="section-head">
+                    <div>
+                        <h1>My Wishlist</h1>
+                        <p class="section-sub">Products you’ve saved for later.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Browse More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-heart"></i></span>
+                        <h3>8</h3>
+                        <p>Total items</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-tag"></i></span>
+                        <h3>$2,319</h3>
+                        <p>Total value</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-clock"></i></span>
+                        <h3>4</h3>
+                        <p>Recently added</p>
+                    </div>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Electronics</button>
+                    <button class="filter-tab">Furniture</button>
+                    <button class="filter-tab">Apparel</button>
+                </div>
+
+                <div class="team-dash-grid">
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar"><i class="fa-solid fa-headphones"></i></div>
+                        <h3>Wireless Headphones Pro</h3>
+                        <p>$149.00</p>
+                        <a href="./404.html" class="link-read">View product</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar"><i class="fa-solid fa-chair"></i></div>
+                        <h3>Ergonomic Mesh Chair</h3>
+                        <p>$349.00</p>
+                        <a href="./404.html" class="link-read">View product</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar"><i class="fa-solid fa-keyboard"></i></div>
+                        <h3>RGB Mechanical Keyboard</h3>
+                        <p>$89.50</p>
+                        <a href="./404.html" class="link-read">View product</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <h3>Smartphone 5G Ultra</h3>
+                        <p>$799.00</p>
+                        <a href="./404.html" class="link-read">View product</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar"><i class="fa-solid fa-tv"></i></div>
+                        <h3>4K Monitor 27"</h3>
+                        <p>$429.00</p>
+                        <a href="./404.html" class="link-read">View product</a>
+                    </div>
+                    <div class="team-dash-card">
+                        <div class="team-dash-avatar"><i class="fa-solid fa-watch"></i></div>
+                        <h3>Smartwatch Series 7</h3>
+                        <p>$399.00</p>
+                        <a href="./404.html" class="link-read">View product</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ SHIPMENTS ============ -->
+            <section class="dash-section" id="shipments">
+                <div class="section-head">
+                    <div>
+                        <h1>My Shipments</h1>
+                        <p class="section-sub">Track all your orders in transit.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Track All <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-truck-fast"></i></span>
+                        <h3>3</h3>
+                        <p>In transit</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-clock"></i></span>
+                        <h3>1</h3>
+                        <p>Pending pickup</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-circle-check"></i></span>
+                        <h3>20</h3>
+                        <p>Delivered</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Active shipments</h2>
+                        <a href="./404.html" class="link-read">Filter <i class="fa-solid fa-sliders"></i></a>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Shipment #</th><th>Order #</th><th>Carrier</th><th>Status</th><th>ETA</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#SHP-912</td><td>#ORD-4921</td><td>FedEx</td>
+                                    <td><span class="status status-transit">In transit</span></td>
+                                    <td>Jul 20, 2026</td>
+                                    <td><a href="./404.html" class="link-read">Track</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#SHP-908</td><td>#ORD-4897</td><td>UPS</td>
+                                    <td><span class="status status-transit">In transit</span></td>
+                                    <td>Jul 18, 2026</td>
+                                    <td><a href="./404.html" class="link-read">Track</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#SHP-905</td><td>#ORD-4902</td><td>DHL</td>
+                                    <td><span class="status status-pending">Pending</span></td>
+                                    <td>Jul 22, 2026</td>
+                                    <td><a href="./404.html" class="link-read">Track</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#SHP-899</td><td>#ORD-4888</td><td>USPS</td>
+                                    <td><span class="status status-delivered">Delivered</span></td>
+                                    <td>Jul 10, 2026</td>
+                                    <td><a href="./404.html" class="link-read">Track</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ ORDERS (Order History) ============ -->
+            <section class="dash-section" id="orders">
+                <div class="section-head">
+                    <div>
+                        <h1>Order History</h1>
+                        <p class="section-sub">Complete list of all your past orders.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Reorder <i class="fa-solid fa-rotate"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+                        <h3>24</h3>
+                        <p>Total orders</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-dollar-sign"></i></span>
+                        <h3>$4,283</h3>
+                        <p>Total spent</p>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-star"></i></span>
+                        <h3>4.8</h3>
+                        <p>Avg. rating</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>All orders</h2>
+                        <a href="./404.html" class="link-read">Export <i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Order #</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-4921</td><td>Jul 15, 2026</td><td>2 items</td><td>$247.00</td>
+                                    <td><span class="status status-transit">Shipped</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4918</td><td>Jul 12, 2026</td><td>1 item</td><td>$179.50</td>
+                                    <td><span class="status status-delivered">Delivered</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4902</td><td>Jul 08, 2026</td><td>3 items</td><td>$1,320.00</td>
+                                    <td><span class="status status-pending">Processing</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4897</td><td>Jul 05, 2026</td><td>2 items</td><td>$899.00</td>
+                                    <td><span class="status status-transit">Shipped</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-4889</td><td>Jul 01, 2026</td><td>1 item</td><td>$59.99</td>
+                                    <td><span class="status status-delivered">Delivered</span></td>
+                                    <td><a href="./404.html" class="link-read">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ ANALYTICS (My Stats) ============ -->
+            <section class="dash-section" id="analytics">
+                <div class="section-head">
+                    <div>
+                        <h1>My Stats</h1>
+                        <p class="section-sub">Personal shopping statistics and trends.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Export <i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Spending over time</h2>
+                            <a href="./404.html" class="link-read">Last 6 months</a>
+                        </div>
+                        <div class="bar-chart">
+                            <div class="bar-col"><span class="bar" style="--h:35%"></span><label>Feb</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:52%"></span><label>Mar</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:28%"></span><label>Apr</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:68%"></span><label>May</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:45%"></span><label>Jun</label></div>
+                            <div class="bar-col"><span class="bar bar-current" style="--h:82%"></span><label>Jul</label></div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Category preferences</h2>
+                        </div>
+                        <ul class="legend-list">
+                            <li><span class="legend-dot" style="--c:var(--primary)"></span> Electronics <strong>54%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--secondary)"></span> Furniture <strong>22%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--accent)"></span> Apparel <strong>16%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--text-light)"></span> Home &amp; Garden <strong>8%</strong></li>
+                        </ul>
+                        <div class="legend-bar">
+                            <span style="--w:54%; --c:var(--primary)"></span>
+                            <span style="--w:22%; --c:var(--secondary)"></span>
+                            <span style="--w:16%; --c:var(--accent)"></span>
+                            <span style="--w:8%; --c:var(--text-light)"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ REPORTS (Invoices) ============ -->
+            <section class="dash-section" id="reports">
+                <div class="section-head">
+                    <div>
+                        <h1>My Invoices</h1>
+                        <p class="section-sub">Download invoices and receipts for your orders.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Request Invoice <i class="fa-solid fa-plus"></i></a>
+                </div>
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Available invoices</h2>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Invoice #</th><th>Order #</th><th>Date</th><th>Total</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#INV-2215</td><td>#ORD-4921</td><td>Jul 15, 2026</td><td>$247.00</td>
+                                    <td><a href="./404.html" class="link-read">Download PDF</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-2208</td><td>#ORD-4918</td><td>Jul 12, 2026</td><td>$179.50</td>
+                                    <td><a href="./404.html" class="link-read">Download PDF</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-2194</td><td>#ORD-4902</td><td>Jul 08, 2026</td><td>$1,320.00</td>
+                                    <td><a href="./404.html" class="link-read">Download PDF</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-2182</td><td>#ORD-4897</td><td>Jul 05, 2026</td><td>$899.00</td>
+                                    <td><a href="./404.html" class="link-read">Download PDF</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ SETTINGS ============ -->
+            <section class="dash-section" id="settings">
+                <div class="section-head">
+                    <div>
+                        <h1>Settings</h1>
+                        <p class="section-sub">Manage your account preferences and profile.</p>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head"><h2>Profile</h2></div>
+                        <form class="settings-form" id="settingsForm">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="sName">Full name</label>
+                                    <input type="text" id="sName" value="Alex Morgan" />
+                                </div>
+                                <div class="field">
+                                    <label for="sEmail">Email</label>
+                                    <input type="email" id="sEmail" value="alex.m@email.com" />
+                                </div>
+                                <div class="field">
+                                    <label for="sPhone">Phone</label>
+                                    <input type="tel" id="sPhone" placeholder="Add phone number" />
+                                </div>
+                                <div class="field">
+                                    <label for="sRole">Account type</label>
+                                    <input type="text" id="sRole" value="Standard" disabled />
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary">Save changes <i class="fa-solid fa-check"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Preferences</h2></div>
+                        <div class="toggle-row">
+                            <div>
+                                <p class="toggle-title">Order updates</p>
+                                <p class="toggle-sub">Email notifications for order status changes</p>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div>
+                                <p class="toggle-title">Promotions &amp; deals</p>
+                                <p class="toggle-sub">Receive special offers and discounts</p>
+                            </div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div>
+                                <p class="toggle-title">Weekly summary</p>
+                                <p class="toggle-sub">Get a recap of your recent activity</p>
+                            </div>
+                            <label class="switch"><input type="checkbox" /><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

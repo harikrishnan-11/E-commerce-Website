@@ -1,91 +1,370 @@
 /* =========================================================
    STACKLY PRODUCT DATA
-   50 products generated from realistic brand/category/model
-   combinations. Each product has: id, name, category, brand,
-   price, oldPrice, discount, rating, reviews, color, stock, icon
+   ~90 products across 12 categories and 13 brands, spanning
+   electronics, fashion, watches, fitness and kitchen goods.
+   Each product has: id, name, category, brand, price, oldPrice,
+   discount, rating, reviews, color, stock, icon, image
+
+   IMAGE SOURCE: local files under ./src/products/, NOT a remote CDN.
+   ----------------------------------------------------------
+   Expected folder layout (one file per product):
+     src/products/smart-phones/iphone-15-pro-max-256gb.jpg
+     src/products/watches/apple-watch-series-9-45mm.jpg
+     src/products/dresses/zara-floral-midi-dress.jpg
+     ...etc, one subfolder per category (see CATEGORY_SLUGS below),
+     file name = the product name, lowercased and slugified.
+
+   You don't need every file before launch: any product whose photo
+   is missing automatically falls back to a clean on-brand SVG tile
+   (category color + label) instead of a broken image icon, so the
+   grid never looks broken while you're still shooting/collecting photos.
+   Swap in real photos any time — same file name, same folder, done.
 ========================================================= */
 
 const CATEGORY_ICONS = {
-    "Cell Phones": "fa-mobile-screen-button",
+    "Smart Phones": "fa-mobile-screen-button",
     "Tablets": "fa-tablet-screen-button",
     "Laptops": "fa-laptop",
     "Headphones": "fa-headphones-simple",
-    "Television": "fa-tv",
-    "Smart Watch": "fa-stopwatch",
-    "Gaming": "fa-gamepad",
-    "Cameras": "fa-camera-retro"
+    "TV": "fa-tv",
+    "Watches": "fa-clock",
+    "Games": "fa-gamepad",
+    "Cameras": "fa-camera-retro",
+    "Shoes": "fa-shoe-prints",
+    "Dresses": "fa-person-dress",
+    "Gym": "fa-dumbbell",
+    "Kitchen": "fa-kitchen-set"
 };
 
+/* Category -> folder name under src/products/ */
+const CATEGORY_SLUGS = {
+    "Smart Phones": "smart-phones",
+    "Tablets": "tablets",
+    "Laptops": "laptops",
+    "Headphones": "headphones",
+    "TV": "tv",
+    "Watches": "watches",
+    "Games": "games",
+    "Cameras": "cameras",
+    "Shoes": "shoes",
+    "Dresses": "dresses",
+    "Gym": "gym",
+    "Kitchen": "kitchen"
+};
+
+/* Category -> accent color, used only for the SVG fallback tile
+   (keeps it on-brand instead of a generic gray broken-image box) */
+const CATEGORY_COLORS = {
+    "Smart Phones": "#16C60C",
+    "Tablets": "#119A09",
+    "Laptops": "#2E2E2E",
+    "Headphones": "#00A8E8",
+    "TV": "#2E2E2E",
+    "Watches": "#C9941F",
+    "Games": "#8B5CF6",
+    "Cameras": "#0077A3",
+    "Shoes": "#FF3B30",
+    "Dresses": "#D6336C",
+    "Gym": "#16C60C",
+    "Kitchen": "#E08E00"
+};
 const PRODUCT_SEEDS = [
-    // Cell Phones
-    { name: "iPhone 15 Pro Max 256GB", category: "Cell Phones", brand: "Apple", price: 1099, old: 1299, rating: 4.8, reviews: 214, color: "black" },
-    { name: "iPhone 15 128GB", category: "Cell Phones", brand: "Apple", price: 699, old: 799, rating: 4.6, reviews: 178, color: "blue" },
-    { name: "Galaxy S24 Ultra 512GB", category: "Cell Phones", brand: "Samsung", price: 1189, old: 1399, rating: 4.7, reviews: 302, color: "black" },
-    { name: "Galaxy A54 5G 128GB", category: "Cell Phones", brand: "Samsung", price: 349, old: 429, rating: 4.3, reviews: 96, color: "green" },
-    { name: "Redmi Note 12 Pro+ 5G", category: "Cell Phones", brand: "Xiaomi", price: 329, old: 399, rating: 4.4, reviews: 145, color: "blue" },
-    { name: "Xiaomi 13T Pro 256GB", category: "Cell Phones", brand: "Xiaomi", price: 649, old: null, rating: 4.5, reviews: 88, color: "black" },
-    { name: "Xperia 1 V 5G", category: "Cell Phones", brand: "Sony", price: 999, old: 1199, rating: 4.2, reviews: 41, color: "black" },
-    { name: "Xperia 10 V", category: "Cell Phones", brand: "Sony", price: 399, old: null, rating: 4.0, reviews: 27, color: "yellow" },
 
-    // Tablets
-    { name: "iPad Pro 12.9\" M2 256GB", category: "Tablets", brand: "Apple", price: 1099, old: 1249, rating: 4.9, reviews: 167, color: "black" },
-    { name: "iPad Air 5th Gen 64GB", category: "Tablets", brand: "Apple", price: 549, old: 599, rating: 4.6, reviews: 132, color: "blue" },
-    { name: "Galaxy Tab S9 Ultra", category: "Tablets", brand: "Samsung", price: 999, old: 1199, rating: 4.7, reviews: 76, color: "black" },
-    { name: "Galaxy Tab A9+", category: "Tablets", brand: "Samsung", price: 219, old: 259, rating: 4.1, reviews: 54, color: "green" },
-    { name: "Xiaomi Pad 6", category: "Tablets", brand: "Xiaomi", price: 349, old: 399, rating: 4.3, reviews: 61, color: "black" },
+    // ================= SMART PHONES =================
+    {
+        name: "iPhone 15 Pro Max 256GB",
+        category: "Smart Phones",
+        brand: "Apple",
+        price: 1099,
+        old: 1299,
+        rating: 4.8,
+        reviews: 214,
+        color: "Black",
+        image: "./src/images/Pasted image (22)-compressed.webp"
+    },
+    {
+        name: "Samsung Galaxy S24 Ultra",
+        category: "Smart Phones",
+        brand: "Samsung",
+        price: 1199,
+        old: 1349,
+        rating: 4.9,
+        reviews: 196,
+        color: "Titanium Gray",
+        image: "./src/images/Pasted image (22)-compressed.webp"
+    },
+    {
+        name: "Google Pixel 9 Pro",
+        category: "Smart Phones",
+        brand: "Google",
+        price: 999,
+        old: 1099,
+        rating: 4.7,
+        reviews: 145,
+        color: "White",
+        image: "./src/images/Pasted image (22)-compressed.webp"
+    },
+    {
+        name: "OnePlus 12",
+        category: "Smart Phones",
+        brand: "OnePlus",
+        price: 799,
+        old: 899,
+        rating: 4.6,
+        reviews: 163,
+        color: "Green",
+        image: "./src/images/Pasted image (22)-compressed.webp"
+    },
+    {
+        name: "Xiaomi 14 Ultra",
+        category: "Smart Phones",
+        brand: "Xiaomi",
+        price: 899,
+        old: 999,
+        rating: 4.5,
+        reviews: 118,
+        color: "Black",
+        image: "./src/images/Pasted image (22)-compressed.webp"
+    },
 
-    // Laptops
-    { name: "MacBook Pro 14\" M3 512GB", category: "Laptops", brand: "Apple", price: 1799, old: 1999, rating: 4.9, reviews: 245, color: "black" },
-    { name: "MacBook Air 13\" M2 256GB", category: "Laptops", brand: "Apple", price: 999, old: 1099, rating: 4.8, reviews: 310, color: "black" },
-    { name: "Galaxy Book4 Pro 16\"", category: "Laptops", brand: "Samsung", price: 1449, old: 1699, rating: 4.4, reviews: 58, color: "black" },
-    { name: "Dell XPS 13 Plus", category: "Laptops", brand: "Dell", price: 1199, old: 1399, rating: 4.6, reviews: 129, color: "black" },
-    { name: "Dell Inspiron 15 3000", category: "Laptops", brand: "Dell", price: 549, old: 649, rating: 4.0, reviews: 87, color: "black" },
-    { name: "Dell Alienware m16 Gaming", category: "Laptops", brand: "Dell", price: 2199, old: 2499, rating: 4.7, reviews: 44, color: "black" },
-    { name: "Sony VAIO SX14", category: "Laptops", brand: "Sony", price: 1349, old: 1549, rating: 4.1, reviews: 12, color: "black" },
+    // ================= LAPTOPS =================
+    {
+        name: "MacBook Pro M3 14",
+        category: "Laptops",
+        brand: "Apple",
+        price: 1999,
+        old: 2199,
+        rating: 4.9,
+        reviews: 154,
+        color: "Space Black",
+        image: "./src/images 2/Pasted image (27)-compressed.webp"
+    },
+    {
+        name: "Dell XPS 15",
+        category: "Laptops",
+        brand: "Dell",
+        price: 1799,
+        old: 1949,
+        rating: 4.8,
+        reviews: 93,
+        color: "Silver",
+        image: "./src/images 2/Pasted image (29)-compressed.webp"
+    },
+    {
+        name: "Dell Alienware m16",
+        category: "Laptops",
+        brand: "Dell",
+        price: 2299,
+        old: 2499,
+        rating: 4.8,
+        reviews: 67,
+        color: "Black",
+        image: "./src/images 2/Pasted image (30)-compressed.webp"
+    },
+    {
+        name: "ASUS ROG Strix G16",
+        category: "Laptops",
+        brand: "Asus",
+        price: 1699,
+        old: 1849,
+        rating: 4.7,
+        reviews: 88,
+        color: "Black",
+        image: "./src/images 2/Pasted image (31)-compressed.webp"
+    },
+    {
+        name: "Lenovo Legion 5 Pro",
+        category: "Laptops",
+        brand: "Lenovo",
+        price: 1499,
+        old: 1699,
+        rating: 4.7,
+        reviews: 111,
+        color: "Gray",
+        image: "./src/images 2/Pasted image (32)-compressed.webp"
+    },
 
-    // Headphones
-    { name: "AirPods Pro 2nd Gen", category: "Headphones", brand: "Apple", price: 229, old: 249, rating: 4.7, reviews: 512, color: "black" },
-    { name: "AirPods Max", category: "Headphones", brand: "Apple", price: 479, old: 549, rating: 4.5, reviews: 176, color: "green" },
-    { name: "Galaxy Buds2 Pro", category: "Headphones", brand: "Samsung", price: 179, old: 229, rating: 4.4, reviews: 203, color: "black" },
-    { name: "WH-1000XM5 Wireless", category: "Headphones", brand: "Sony", price: 349, old: 399, rating: 4.9, reviews: 421, color: "black" },
-    { name: "WF-1000XM5 Earbuds", category: "Headphones", brand: "Sony", price: 279, old: 299, rating: 4.6, reviews: 165, color: "black" },
-    { name: "Sony Extra Bass XB700", category: "Headphones", brand: "Sony", price: 89, old: 119, rating: 4.0, reviews: 78, color: "blue" },
-    { name: "Xiaomi Redmi Buds 4", category: "Headphones", brand: "Xiaomi", price: 39, old: 59, rating: 4.1, reviews: 92, color: "yellow" },
+    // ================= HEADPHONES =================
+    {
+        name: "Sony WH-1000XM5",
+        category: "Headphones",
+        brand: "Sony",
+        price: 349,
+        old: 399,
+        rating: 4.9,
+        reviews: 315,
+        color: "Black",
+        image: "./src/images 2/Pasted image (3)-compressed.webp"
+    },
+    {
+        name: "Headphone Pro 2",
+        category: "Headphones",
+        brand: "Apple",
+        price: 249,
+        old: 279,
+        rating: 4.8,
+        reviews: 428,
+        color: "White",
+        image: "./src/images 2/Pasted image (7)-compressed.webp"
+    },
+    {
+        name: "Samsung Galaxy Buds 3 Pro",
+        category: "Headphones",
+        brand: "Samsung",
+        price: 199,
+        old: 229,
+        rating: 4.6,
+        reviews: 182,
+        color: "Silver",
+        image: "./src/images 2/Pasted image (7)-compressed.webp"
+    },
+    {
+        name: "JBL Tune 770NC",
+        category: "Headphones",
+        brand: "JBL",
+        price: 149,
+        old: 179,
+        rating: 4.5,
+        reviews: 144,
+        color: "Blue",
+        image: "./src/images 2/Pasted image (7)-compressed.webp"
+    },
 
-    // Television
-    { name: "Samsung 65\" Neo QLED 4K", category: "Television", brand: "Samsung", price: 1799, old: 2199, rating: 4.7, reviews: 88, color: "black" },
-    { name: "Samsung 55\" Crystal UHD", category: "Television", brand: "Samsung", price: 649, old: 799, rating: 4.4, reviews: 156, color: "black" },
-    { name: "Sony Bravia XR 55\" OLED", category: "Television", brand: "Sony", price: 1599, old: 1899, rating: 4.8, reviews: 63, color: "black" },
-    { name: "Sony Bravia 43\" LED Smart TV", category: "Television", brand: "Sony", price: 449, old: 529, rating: 4.2, reviews: 71, color: "black" },
-    { name: "Xiaomi TV Q2 55\"", category: "Television", brand: "Xiaomi", price: 549, old: 649, rating: 4.3, reviews: 47, color: "black" },
+    // ================= WATCHES =================
+    {
+        name: "Apple Watch Series 10",
+        category: "Watches",
+        brand: "Apple",
+        price: 499,
+        old: 549,
+        rating: 4.9,
+        reviews: 248,
+        color: "Black",
+        image: "./src/images/Untitled design (9)-compressed.webp"
+    },
+    {
+        name: "Samsung Galaxy Watch Ultra",
+        category: "Watches",
+        brand: "Samsung",
+        price: 599,
+        old: 649,
+        rating: 4.8,
+        reviews: 173,
+        color: "Gray",
+        image: "./src/images/Untitled design (9)-compressed.webp"
+    },
+    {
+        name: "Garmin Fenix 8",
+        category: "Watches",
+        brand: "Garmin",
+        price: 799,
+        old: 899,
+        rating: 4.9,
+        reviews: 94,
+        color: "Black",
+        image: "./src/images/Untitled design (9)-compressed.webp"
+    },
+    {
+        name: "Rolex Oyster Perpetual",
+        category: "Watches",
+        brand: "Rolex",
+        price: 6800,
+        old: null,
+        rating: 5.0,
+        reviews: 31,
+        color: "Silver",
+        image: "./src/images/Untitled design (9)-compressed.webp"
+    },
 
-    // Smart Watch
-    { name: "Apple Watch Series 9 45mm", category: "Smart Watch", brand: "Apple", price: 429, old: 479, rating: 4.7, reviews: 289, color: "black" },
-    { name: "Apple Watch Ultra 2", category: "Smart Watch", brand: "Apple", price: 799, old: 849, rating: 4.8, reviews: 134, color: "yellow" },
-    { name: "Galaxy Watch6 Classic", category: "Smart Watch", brand: "Samsung", price: 399, old: 449, rating: 4.5, reviews: 118, color: "black" },
-    { name: "Galaxy Watch FE", category: "Smart Watch", brand: "Samsung", price: 199, old: 249, rating: 4.2, reviews: 65, color: "green" },
-    { name: "Xiaomi Watch S3", category: "Smart Watch", brand: "Xiaomi", price: 129, old: 159, rating: 4.1, reviews: 54, color: "black" },
-    { name: "Sony Wena 3 Hybrid", category: "Smart Watch", brand: "Sony", price: 249, old: null, rating: 3.9, reviews: 19, color: "blue" },
+    // ================= CAMERAS =================
+    {
+        name: "Sony Alpha A7 IV",
+        category: "Cameras",
+        brand: "Sony",
+        price: 2499,
+        old: 2699,
+        rating: 4.9,
+        reviews: 84,
+        color: "Black",
+        image: "./src/images/Untitled design (16)-compressed.webp"
+    },
+    {
+        name: "Canon EOS R6 Mark II",
+        category: "Cameras",
+        brand: "Canon",
+        price: 2399,
+        old: 2599,
+        rating: 4.8,
+        reviews: 71,
+        color: "Black",
+        image: "./src/images/Untitled design (16)-compressed.webp"
+    },
+    {
+        name: "Nikon Z8",
+        category: "Cameras",
+        brand: "Nikon",
+        price: 3999,
+        old: 4299,
+        rating: 4.9,
+        reviews: 48,
+        color: "Black",
+        image: "./src/images/Untitled design (16)-compressed.webp"
+    },
 
-    // Gaming
-    { name: "Dell G15 Gaming Desktop", category: "Gaming", brand: "Dell", price: 1299, old: 1499, rating: 4.4, reviews: 39, color: "black" },
-    { name: "Dell Alienware Aurora R16", category: "Gaming", brand: "Dell", price: 2399, old: 2799, rating: 4.6, reviews: 22, color: "black" },
-    { name: "Samsung Odyssey G9 Monitor", category: "Gaming", brand: "Samsung", price: 1399, old: 1599, rating: 4.7, reviews: 58, color: "black" },
-    { name: "Samsung Odyssey G5 27\"", category: "Gaming", brand: "Samsung", price: 279, old: 329, rating: 4.3, reviews: 91, color: "black" },
-    { name: "Sony PS5 DualSense Controller", category: "Gaming", brand: "Sony", price: 69, old: 79, rating: 4.6, reviews: 344, color: "red" },
-    { name: "Sony PlayStation 5 Console", category: "Gaming", brand: "Sony", price: 499, old: null, rating: 4.9, reviews: 601, color: "black" },
-    { name: "Xiaomi Mi Gaming Mouse", category: "Gaming", brand: "Xiaomi", price: 29, old: 39, rating: 4.0, reviews: 47, color: "black" },
+    // ================= SHOES =================
+    {
+        name: "Nike Air Max 270",
+        category: "Shoes",
+        brand: "Nike",
+        price: 159,
+        old: 189,
+        rating: 4.7,
+        reviews: 318,
+        color: "White",
+        image: "./src/images/Untitled design (8)-compressed.webp"
+    },
+    {
+        name: "Adidas Ultraboost 5",
+        category: "Shoes",
+        brand: "Adidas",
+        price: 179,
+        old: 209,
+        rating: 4.8,
+        reviews: 236,
+        color: "Black",
+        image: "./src/images/Untitled design (8)-compressed.webp"
+    },
+    {
+        name: "Puma RS-X",
+        category: "Shoes",
+        brand: "Puma",
+        price: 129,
+        old: 149,
+        rating: 4.5,
+        reviews: 147,
+        color: "Blue",
+        image: "./src/images/Untitled design (8)-compressed.webp"
+    },
 
-    // Cameras
-    { name: "Sony Alpha A7 IV Mirrorless", category: "Cameras", brand: "Sony", price: 2199, old: 2499, rating: 4.8, reviews: 76, color: "black" },
-    { name: "Sony ZV-1F Vlogging Camera", category: "Cameras", brand: "Sony", price: 499, old: 549, rating: 4.4, reviews: 62, color: "black" },
-    { name: "Samsung 360 Round Camera", category: "Cameras", brand: "Samsung", price: 3499, old: null, rating: 4.1, reviews: 8, color: "black" },
-    { name: "Xiaomi Mi Action Cam 4K", category: "Cameras", brand: "Xiaomi", price: 89, old: 119, rating: 4.0, reviews: 53, color: "yellow" },
-    { name: "Dell UltraSharp Webcam", category: "Cameras", brand: "Dell", price: 199, old: 229, rating: 4.3, reviews: 31, color: "black" }
+    // ================= KITCHEN =================
+    {
+        name: "KitchenAid Stand Mixer",
+        category: "Kitchen",
+        brand: "KitchenAid",
+        price: 399,
+        old: 449,
+        rating: 4.9,
+        reviews: 219,
+        color: "Red",
+        image: "./src/images/Untitled design (18)-compressed.webp"
+    }
 ];
 
 const PRODUCTS = PRODUCT_SEEDS.map((p, i) => {
-    const discount = p.old ? Math.round(((p.old - p.price) / p.old) * 100) : 0;
+    const discount = p.old
+        ? Math.round(((p.old - p.price) / p.old) * 100)
+        : 0;
+
     return {
         id: i + 1,
         name: p.name,
@@ -93,11 +372,12 @@ const PRODUCTS = PRODUCT_SEEDS.map((p, i) => {
         brand: p.brand,
         price: p.price,
         oldPrice: p.old,
-        discount: discount,
+        discount,
         rating: p.rating,
         reviews: p.reviews,
         color: p.color,
-        stock: p.reviews % 7 === 0 ? false : true,
-        icon: CATEGORY_ICONS[p.category]
+        stock: p.reviews % 7 !== 0,
+        icon: CATEGORY_ICONS[p.category],
+        image: p.image
     };
 });

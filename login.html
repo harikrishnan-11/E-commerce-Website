@@ -10,6 +10,36 @@
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="pages.css">
 
+    <style>
+      .form-group{
+    margin-bottom:20px;
+}
+
+.field-msg{
+    display:block;
+    margin-top:6px;
+    color:#e53935;
+    font-size:13px;
+    min-height:18px;
+}
+
+.input-error{
+    border:1px solid #e53935 !important;
+}
+
+.password-field{
+    position:relative;
+}
+
+.password-field i{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#777;
+}
+    </style>
 </head>
 <body>
     <div class="topbar">
@@ -85,7 +115,7 @@
 
 <div class="auth-shell">
   <div class="auth-wrap reveal">
-    <div class="auth-visual">
+    <div class="auth-visual" style="background-image:url('./src/image_8-compressed.webp');">
       <div class="av-logo"><i class="fa-solid fa-bolt"></i> Stackly</div>
       <div class="av-mid">
         <h2>Good to see you again.</h2>
@@ -109,26 +139,52 @@
       </div>
       <div class="divider-row"><span>or log in with email</span></div>
 
-      <form id="loginForm" novalidate>
-        <div class="form-group">
-          <label for="l-email">Email Address</label>
-          <input type="email" id="l-email" placeholder="you@email.com" autocomplete="email">
-          <div class="field-msg"></div>
-        </div>
-        <div class="form-group">
-          <label for="l-password">Password</label>
-          <div class="password-field">
-            <input type="password" id="l-password" placeholder="Enter your password" autocomplete="current-password">
+     <form id="loginForm" novalidate>
+
+    <div class="form-group">
+        <label for="l-email">Email Address</label>
+        <input type="email" id="l-email" placeholder="you@email.com" >
+        <small class="field-msg"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="l-password">Password</label>
+
+         <div class="password-field">
+            <input type="password" id="l-password" placeholder="Enter your password">
             <i class="fa-solid fa-eye toggle-eye"></i>
-          </div>
-          <div class="field-msg"></div>
         </div>
-        <div class="form-inline-row">
-          <label class="checkbox-row"><input type="checkbox"> Remember me</label>
-          <a href="#" class="forgot-link">Forgot password?</a>
-        </div>
-        <button type="submit" class="btn-primary full"><i class="fa-solid fa-right-to-bracket"></i> Log In</button>
-      </form>
+
+        <small class="field-msg"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="lRole">Log in as</label>
+
+        <select id="lRole">
+            <option value="" selected disabled>Choose an option</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <small class="field-msg"></small>
+    </div>
+
+    <div class="form-inline-row">
+        <label class="checkbox-row">
+            <input type="checkbox">
+            Remember me
+        </label>
+
+        <a href="#" class="forgot-link">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn-primary full">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Log In
+    </button>
+
+</form>
 
       <div class="auth-switch">New to Stackly? <a href="./signup.html">Create an account</a></div>
     </div>
@@ -139,11 +195,18 @@
 <div class="footer">
   <div class="footer-grid">
     <div class="footer-col">
-      <div class="brand-title">Stackly</div>
+      <div class="brand-title"><div class="logos">
+                <a href="./index.html">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
+                </a>
+            </div></div>
       <div class="hotline-label">Hotline 24/7</div>
       <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
-      <div class="addr"><i class="fa-solid fa-location-dot"></i> 257 Thatcher Road St, Brooklyn, Manhattan, NY 10092</div>
-      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@swootechmart.com</a>
+      <div class="addr"><i class="fa-solid fa-location-dot"></i>  MMR Complex,<br>
+                Chinna Thirupathi,<br>
+                Salem, Tamil Nadu 636008</div>
+      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@Stackly.com</a>
+
 
       <div class="social-row">
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -217,6 +280,121 @@
 <button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 <script src="navbar.js"></script>
 <script src="pages.js"></script>
+<script>
+const form = document.getElementById("loginForm");
 
+const email = document.getElementById("l-email");
+const password = document.getElementById("l-password");
+const role = document.getElementById("lRole");
+
+// Login Validation
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    clearErrors();
+
+    let isValid = true;
+
+    // Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.(com|in)$/i;
+
+    if (email.value.trim() === "") {
+        showError(email, "Email is required");
+        isValid = false;
+    } else if (!emailRegex.test(email.value.trim())) {
+        showError(email, "Email must end with .com or .in");
+        isValid = false;
+    }
+
+    // Password
+    if (password.value.trim() === "") {
+        showError(password, "Password is required");
+        isValid = false;
+    } else if (password.value.length < 6) {
+        showError(password, "Password must contain at least 6 characters");
+        isValid = false;
+    }
+
+    // Role
+    if (role.value === "") {
+        showError(role, "Please select a role");
+        isValid = false;
+    }
+
+    if (isValid) {
+
+        localStorage.setItem("userEmail", email.value);
+
+        if (role.value === "admin") {
+            window.location.href = "./admin.html";
+        } else {
+            window.location.href = "./user.html";
+        }
+
+    }
+
+});
+// Show Error
+function showError(element, message) {
+
+    element.classList.add("input-error");
+
+    const formGroup = element.closest(".form-group");
+    formGroup.querySelector(".field-msg").textContent = message;
+
+}
+
+// Clear Errors
+function clearErrors() {
+
+    document.querySelectorAll(".field-msg").forEach(msg => {
+        msg.textContent = "";
+    });
+
+    document.querySelectorAll(".input-error").forEach(input => {
+        input.classList.remove("input-error");
+    });
+
+}
+
+// Password Toggle
+const toggleEye = document.querySelector(".toggle-eye");
+
+toggleEye.addEventListener("click", function () {
+
+    if (password.type === "password") {
+
+        password.type = "text";
+        this.classList.remove("fa-eye");
+        this.classList.add("fa-eye-slash");
+
+    } else {
+
+        password.type = "password";
+        this.classList.remove("fa-eye-slash");
+        this.classList.add("fa-eye");
+
+    }
+
+});
+
+// Google Login
+const googleBtn = document.querySelector(".fa-google")?.closest("button");
+
+if (googleBtn) {
+    googleBtn.addEventListener("click", function () {
+        window.location.href = "404.html";
+    });
+}
+
+// Facebook Login
+const facebookBtn = document.querySelector(".fa-facebook")?.closest("button");
+
+if (facebookBtn) {
+    facebookBtn.addEventListener("click", function () {
+        window.location.href = "404.html";
+    });
+}
+</script>
 </body>
 </html>

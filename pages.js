@@ -162,44 +162,7 @@
     });
   }
 
-  /* ---------- LOGIN FORM ---------- */
-  const loginForm = document.getElementById("loginForm");
-  if(loginForm){
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      let valid = true;
-
-      const email = loginForm.querySelector("#l-email");
-      const pass = loginForm.querySelector("#l-password");
-      [email, pass].forEach(f => clearError(f.closest(".form-group")));
-
-      if(!EMAIL_RE.test(email.value.trim())){
-        setError(email.closest(".form-group"), "Enter a valid email address");
-        valid = false;
-      }
-      if(pass.value.length < 6){
-        setError(pass.closest(".form-group"), "Password must be at least 6 characters");
-        valid = false;
-      }
-      if(!valid) return;
-
-      const btn = loginForm.querySelector("button[type=submit]");
-      const original = btn.innerHTML;
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fa-solid fa-spinner"></i> Signing in...';
-
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.innerHTML = original;
-        showToast("Welcome back!", "Login successful. Redirecting...");
-        setTimeout(() => { window.location.href = "./home.html"; }, 1200);
-      }, 1100);
-    });
-
-    loginForm.querySelectorAll("input").forEach(f => {
-      f.addEventListener("input", () => clearError(f.closest(".form-group")));
-    });
-  }
+  
 
   /* ---------- SIGNUP FORM ---------- */
   const signupForm = document.getElementById("signupForm");

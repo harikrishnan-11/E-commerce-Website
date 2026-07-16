@@ -29,15 +29,15 @@
         <nav class="nav-container">
             <div class="logos">
                 <a href="./index.html">
-                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="">
                 </a>
             </div>
-            <div class="nav-links" id="navLinks">
+            <div class="nav-links">
                 <a href="./home.html">Home</a>
                 <a href="./about.html">About</a>
-                <a href="./products.html">Products</a>
+                <a href="./products.html" class="active">Products</a>
                 <a href="./blog.html">Blog</a>
-                <a href="./contact.html" class="active">Contact</a>
+                <a href="./contact.html">Contact</a>
                 <a href="./login.html" class="login-btn">Login</a>
             </div>
             <div class="quick-links">
@@ -51,11 +51,11 @@
                         <i class="fa-regular fa-heart"></i>
                     </a>
                     </p>
-                    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <div class="hamburger" id="hamburger">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </button>
+                    </div>
                 </div>
                 <div class="profile">
                     <p><i class="fa-regular fa-user"></i></p>
@@ -67,7 +67,6 @@
                 </div>
             </div>
         </nav>
-        <div class="nav-overlay" id="navOverlay"></div>
     </div>
     <div class="nav-footer">
         <div class="search-bar">
@@ -75,7 +74,7 @@
                 <i class="fa-solid fa-angle-down" ></i>
             </span>
         </p>
-            <input type="text" placeholder="Search anything...">
+            <input type="text" placeholder="Search anything..." id="productSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <p class="white">FREE SHIPPING OVER RS199</p>
@@ -88,99 +87,17 @@
 
         <ul class="breadcrumb">
 
-            <li><a href="#">Home</a></li>
+            <li><a href="./404.html">Home</a></li>
 
             <li>/</li>
 
-            <li><a href="#">Shop</a></li>
+            <li><a href="./404.html">Shop</a></li>
 
             <li>/</li>
 
             <li class="active">All Products</li>
 
         </ul>
-
-    </div>
-
-</section>
-<section class="hero-section">
-
-    <div class="container hero-container">
-
-        <!-- Left Banner -->
-        <div class="hero-slider">
-
-            <div class="slide active">
-
-                <div class="hero-content">
-
-                    <span>Noise Cancelling</span>
-
-                    <h1>Headphones</h1>
-
-                    <p>
-                        Bose Over-Ear Headphone<br>
-                        WiFi, Voice Assistant,<br>
-                        Low Latency Game Mode
-                    </p>
-
-                    <a href="#" class="hero-btn">BUY NOW</a>
-
-                </div>
-
-                <div class="hero-icon"><i class="fa-solid fa-headphones-simple"></i></div>
-
-            </div>
-
-            <div class="slide">
-
-                <div class="hero-content">
-
-                    <span>Latest</span>
-
-                    <h1>Smart Watch</h1>
-
-                    <p>
-                        Fitness Tracking<br>
-                        Heart Rate Monitor<br>
-                        Waterproof
-                    </p>
-
-                    <a href="#" class="hero-btn">SHOP NOW</a>
-
-                </div>
-
-                <div class="hero-icon"><i class="fa-solid fa-stopwatch"></i></div>
-
-            </div>
-
-            <!-- Controls -->
-
-            <button class="prev">&#10094;</button>
-
-            <button class="next">&#10095;</button>
-
-        </div>
-
-        <!-- Right Banner -->
-
-        <div class="side-banner">
-
-            <div class="side-content">
-
-                <h2>Redmi Note 12</h2>
-
-                <h3>Pro+ 5G</h3>
-
-                <p>Rise to the challenge</p>
-
-                <a href="#">SHOP NOW</a>
-
-            </div>
-
-            <div class="side-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-
-        </div>
 
     </div>
 
@@ -211,14 +128,18 @@
                 <h3>Product Categories</h3>
 
                 <ul class="filter-list" id="categoryFilters">
-                    <li><label><input type="checkbox" value="Cell Phones"> Cell Phones</label></li>
+                    <li><label><input type="checkbox" value="Smart Phones"> Smart Phones</label></li>
                     <li><label><input type="checkbox" value="Tablets"> Tablets</label></li>
                     <li><label><input type="checkbox" value="Laptops"> Laptops</label></li>
                     <li><label><input type="checkbox" value="Headphones"> Headphones</label></li>
-                    <li><label><input type="checkbox" value="Television"> Television</label></li>
-                    <li><label><input type="checkbox" value="Smart Watch"> Smart Watch</label></li>
-                    <li><label><input type="checkbox" value="Gaming"> Gaming</label></li>
+                    <li><label><input type="checkbox" value="TV"> TV</label></li>
+                    <li><label><input type="checkbox" value="Watches"> Watches</label></li>
+                    <li><label><input type="checkbox" value="Games"> Games</label></li>
                     <li><label><input type="checkbox" value="Cameras"> Cameras</label></li>
+                    <li><label><input type="checkbox" value="Shoes"> Shoes</label></li>
+                    <li><label><input type="checkbox" value="Dresses"> Dresses</label></li>
+                    <li><label><input type="checkbox" value="Gym"> Gym</label></li>
+                    <li><label><input type="checkbox" value="Kitchen"> Kitchen</label></li>
                 </ul>
             </div>
 
@@ -231,6 +152,14 @@
                     <label><input type="checkbox" value="Xiaomi"> Xiaomi</label>
                     <label><input type="checkbox" value="Sony"> Sony</label>
                     <label><input type="checkbox" value="Dell"> Dell</label>
+                    <label><input type="checkbox" value="Nike"> Nike</label>
+                    <label><input type="checkbox" value="Adidas"> Adidas</label>
+                    <label><input type="checkbox" value="Zara"> Zara</label>
+                    <label><input type="checkbox" value="H&M"> H&amp;M</label>
+                    <label><input type="checkbox" value="Fossil"> Fossil</label>
+                    <label><input type="checkbox" value="Rolex"> Rolex</label>
+                    <label><input type="checkbox" value="Philips"> Philips</label>
+                    <label><input type="checkbox" value="KitchenAid"> KitchenAid</label>
                 </div>
             </div>
 
@@ -238,9 +167,9 @@
             <div class="filter-box">
                 <h3>Price</h3>
 
-                <input type="range" min="0" max="5000" value="5000" id="priceRange">
+                <input type="range" min="0" max="7000" value="7000" id="priceRange">
 
-                <p>$0 - $<span id="priceValue">5000</span></p>
+                <p>$0 - $<span id="priceValue">7000</span></p>
             </div>
 
             <!-- Colors -->
@@ -354,21 +283,26 @@
 <div class="footer">
   <div class="footer-grid">
     <div class="footer-col">
-      <div class="brand-title">Stackly</div>
+      <div class="brand-title"><div class="logos">
+                <a href="./index.html">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
+                </a>
+            </div></div>
       <div class="hotline-label">Hotline 24/7</div>
       <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
-      <div class="addr"><i class="fa-solid fa-location-dot"></i> 257 Thatcher Road St, Brooklyn, Manhattan, NY 10092</div>
-      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contactStackly@gmail.com</a>
+      <div class="addr"><i class="fa-solid fa-location-dot"></i>  MMR Complex,<br>
+                Chinna Thirupathi,<br>
+                Salem, Tamil Nadu 636008</div>
+      <a class="mail-link" href="./404.html"><i class="fa-solid fa-envelope"></i> contact@Stackly.com</a>
+
 
       <div class="social-row">
-        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
         <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
         <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
       </div>
-
-
     </div>
 
     <div class="footer-col">
@@ -381,18 +315,17 @@
         <li><a href="./products.html">Gaming &amp; VR</a></li>
         <li><a href="./products.html">Networks</a></li>
         <li><a href="./products.html">Cameras</a></li>
-
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="./404.html">Home </a></li>
-        <li><a href="./404.html">About</a></li>
-        <li><a href="./404.html">Product</a></li>
-        <li><a href="./404.html">Blog</a></li>
-        <li><a href="./404.html">contact</a></li>
+        <li><a href="./home.html">Home </a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Product</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./contact.html">contact</a></li>
       </ul>
     </div>
 
@@ -404,7 +337,7 @@
         <li><a href="./404.html">Terms &amp; Conditions</a></li>
         <li><a href="./404.html">Track Order</a></li>
         <li><a href="./404.html">FAQs</a></li>
-        <li><a href="./404.html">My Account</a></li>
+        <li><a href="./login.html">My Account</a></li>
         <li><a href="./404.html">Product Support</a></li>
       </ul>
     </div>
@@ -418,12 +351,10 @@
         <li><a href="./404.html">Partnership</a></li>
       </ul>
     </div>
-
-
   </div>
 
   <div class="footer-bottom">
-    <div>© 2026 <strong>Stackly</strong>. All Rights Reserved</div>
+    <div>&copy; 2026 <strong>Stackly</strong>. All Rights Reserved</div>
     <div class="pay-icons">
       <i class="fa-brands fa-cc-paypal"></i>
       <i class="fa-brands fa-cc-mastercard"></i>
@@ -478,17 +409,11 @@ prev.onclick = ()=>{
 }
 
 setInterval(()=>{
-
     current++;
-
     if(current>=slides.length){
-
         current=0;
-
     }
-
     showSlide(current);
-
 },5000);
 </script>
 <script src="./navbar.js"></script>

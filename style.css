@@ -1,7 +1,7 @@
 :root {
   --primary: #16C60C;
   --primary-dark: #119A09;
-  --primary-light: #47D93F;
+  --primary-light: #000000;
   --secondary: #2E2E2E;
   --secondary-light: #5F5F5F;
   --bg-color: #F5F5F5;
@@ -55,7 +55,9 @@ a {
   text-decoration: none;
 
 }
-
+.topbar{
+  position: sticky;
+}
 ul {
   list-style: none;
 }
@@ -1802,8 +1804,8 @@ a.view-all:hover i {
   background: var(--primary);
   color: var(--white);
   border: none;
-  padding: 0 18px;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding:18px;
+  border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1842,6 +1844,9 @@ a.view-all:hover i {
   background: var(--primary-dark);
   color: rgb(247, 247, 247);
   margin-top: 10px;
+}
+.footer a{
+  text-decoration: none;
 }
 
 .footer-grid {
@@ -1897,11 +1902,12 @@ a.view-all:hover i {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  color: white;
   transition: color .2s var(--ease);
 }
 
 .footer-col .mail-link:hover {
-  color: var(--primary-light);
+  color:black;
 }
 
 .footer-col ul li {
@@ -1915,7 +1921,7 @@ a.view-all:hover i {
 }
 
 .footer-col ul li a:hover {
-  color: var(--primary-light);
+  color: var(--secondary);
   padding-left: 4px;
 }
 
@@ -1929,7 +1935,8 @@ a.view-all:hover i {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .08);
+  background: rgb(255, 255, 255);
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1939,6 +1946,7 @@ a.view-all:hover i {
 
 .social-row a:hover {
   background: var(--primary);
+  color: white;
   transform: translateY(-3px);
 }
 
