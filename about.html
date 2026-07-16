@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="./nav.css">
-    <link rel="stylesheet" href="./about.css">
+    <title>About Us - Stackly</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="pages.css">
 
 </head>
 <body>
-
-<div class="topbar">
+    <div class="topbar">
         <header>
             <div>
                 <p>Hotline 24/7</p>
-                <p><strong> 
+                <p><strong>
                     (025) 388 25 16
                 </strong>
             </p>
@@ -29,12 +29,12 @@
         <nav class="nav-container">
             <div class="logos">
                 <a href="./index.html">
-                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
                 </a>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="./home.html">Home</a>
-                <a href="./about.html">About</a>
+                <a href="./about.html" class="active">About</a>
                 <a href="./products.html">Products</a>
                 <a href="./blog.html">Blog</a>
                 <a href="./contact.html">Contact</a>
@@ -51,11 +51,11 @@
                         <i class="fa-regular fa-heart"></i>
                     </a>
                     </p>
-                    <div class="hamburger" id="hamburger">
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                 </div>
                 <div class="profile">
                     <p><i class="fa-regular fa-user"></i></p>
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </nav>
+        <div class="nav-overlay" id="navOverlay"></div>
     </div>
     <div class="nav-footer">
         <div class="search-bar">
@@ -81,354 +82,187 @@
         <P class="white">30 DAYS MONEY BACK </P>
         <P class="white">100% SECURE PAYMENT</P>
     </div>
-<section class="about-breadcrumb">
 
-    <div class="container">
+<div class="page-hero">
+    <div class="crumb"><a href="./home.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>About</span></div>
+    <h1>Built by people who hate slow shipping</h1>
+    <p>Stackly started as a two-person operation shipping gadgets out of a garage. Today we're a full electronics marketplace, but the obsession with speed and honesty hasn't changed.</p>
+</div>
 
-        <h1>About Us</h1>
+<div class="section">
 
-        <p>
-            Home
-            <span>/</span>
-            About Us
-        </p>
-
+  <div class="story-grid">
+    <div class="story-visual reveal">
+      <div class="orbit o1"></div>
+      <div class="orbit o2"></div>
+      <div class="core"><i class="fa-solid fa-bolt"></i></div>
+      <div class="float-chip chip-1"><i class="fa-solid fa-truck-fast"></i> Same-day dispatch</div>
+      <div class="float-chip chip-2"><i class="fa-solid fa-shield-halved"></i> Buyer protection</div>
     </div>
-
-</section>
-<section class="about-hero">
-
-    <div class="container about-wrapper">
-
-        <div class="about-image">
-
-            <!-- Your Image -->
-
+    <div class="story-copy reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2>From a garage shipment desk to a marketplace people trust</h2>
+      <p>We opened our first listing in 2016 selling refurbished headphones out of a two-room warehouse. The orders were slow, the packaging was ugly, and we promised ourselves we'd fix both before we scaled anything else.</p>
+      <p>Nine years later, that promise is still the whole business model: fewer categories done properly beats a catalog nobody can trust. Every product on Stackly is checked against the same sourcing standard we used on day one.</p>
+      <div class="story-signature">
+        <div class="sig-mark">SK</div>
+        <div>
+          <strong>Sana Khatri</strong>
+          <span>Co-Founder &amp; Head of Operations</span>
         </div>
-
-        <div class="about-content">
-
-            <span>WHO WE ARE</span>
-
-            <h2>
-                We Build Amazing Shopping Experiences
-            </h2>
-
-            <p>
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Tempora provident aliquam dignissimos dolore.
-
-            </p>
-
-            <ul>
-
-                <li>✔ Premium Products</li>
-
-                <li>✔ Secure Payments</li>
-
-                <li>✔ Fast Delivery</li>
-
-                <li>✔ 24/7 Customer Support</li>
-
-            </ul>
-
-        </div>
-
+      </div>
     </div>
+  </div>
 
-</section>
-<section class="why-us">
-
-    <div class="container">
-
-        <div class="title">
-
-            <h2>Why Choose Us</h2>
-
-        </div>
-
-        <div class="choose-grid">
-
-            <div class="choose-card">
-
-                <i class="fa-solid fa-truck-fast"></i>
-
-                <h3>Free Shipping</h3>
-
-                <p>Orders over $100</p>
-
-            </div>
-
-            <div class="choose-card">
-
-                <i class="fa-solid fa-shield"></i>
-
-                <h3>Secure Payment</h3>
-
-                <p>100% Secure Checkout</p>
-
-            </div>
-
-            <div class="choose-card">
-
-                <i class="fa-solid fa-rotate-left"></i>
-
-                <h3>Easy Returns</h3>
-
-                <p>30 Days Return</p>
-
-            </div>
-
-            <div class="choose-card">
-
-                <i class="fa-solid fa-headset"></i>
-
-                <h3>Support</h3>
-
-                <p>24/7 Customer Service</p>
-
-            </div>
-
-        </div>
-
+  <div class="stats-strip">
+    <div class="stat-card reveal">
+      <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+      <div class="stat-num" data-target="248000" data-suffix="+">0</div>
+      <div class="stat-label">Happy customers</div>
     </div>
+    <div class="stat-card reveal">
+      <div class="stat-icon"><i class="fa-solid fa-box-open"></i></div>
+      <div class="stat-num" data-target="12400" data-suffix="+">0</div>
+      <div class="stat-label">Products listed</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-icon"><i class="fa-solid fa-earth-americas"></i></div>
+      <div class="stat-num" data-target="34" data-suffix="">0</div>
+      <div class="stat-label">Countries shipped to</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+      <div class="stat-num" data-target="98" data-suffix="%">0</div>
+      <div class="stat-label">Satisfaction rate</div>
+    </div>
+  </div>
 
-</section>
-<section class="stats-section">
+  <div class="section-head reveal">
+    <span class="eyebrow">What drives us</span>
+    <h2>Mission, vision &amp; values</h2>
+    <p>Three ideas guide every decision, from what we sell to how fast we ship it.</p>
+  </div>
+  <div class="mission-grid">
+    <div class="mission-card reveal">
+      <div class="m-icon"><i class="fa-solid fa-bullseye"></i></div>
+      <h3>Our Mission</h3>
+      <p>Make genuine, well-tested electronics affordable and easy to find, without the guesswork that usually comes with buying tech online.</p>
+    </div>
+    <div class="mission-card reveal">
+      <div class="m-icon"><i class="fa-solid fa-eye"></i></div>
+      <h3>Our Vision</h3>
+      <p>Become the marketplace people default to when a product actually needs to work on arrival, not just look good in a photo.</p>
+    </div>
+    <div class="mission-card reveal">
+      <div class="m-icon"><i class="fa-solid fa-handshake"></i></div>
+      <h3>Our Values</h3>
+      <p>Honest listings, fair pricing, and a support team that picks up the phone instead of hiding behind a ticket queue.</p>
+    </div>
+  </div>
 
-<div class="container stats-grid">
+  <div class="section-head reveal">
+    <span class="eyebrow">Milestones</span>
+    <h2>How we got here</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot">16</div>
+      <div class="timeline-body">
+        <span class="t-year">2016</span>
+        <h4>First warehouse, first 100 orders</h4>
+        <p>Stackly launched with a single category — refurbished audio gear — and a promise to ship within 24 hours.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot">19</div>
+      <div class="timeline-body">
+        <span class="t-year">2019</span>
+        <h4>Marketplace expansion</h4>
+        <p>We opened Stackly to verified third-party sellers and grew from 400 to over 6,000 active listings in a year.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot">22</div>
+      <div class="timeline-body">
+        <span class="t-year">2022</span>
+        <h4>Same-day dispatch network</h4>
+        <p>Three regional fulfilment hubs went live, cutting average delivery time from 5 days to under 48 hours.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot">26</div>
+      <div class="timeline-body">
+        <span class="t-year">2026</span>
+        <h4>248,000+ customers served</h4>
+        <p>Today Stackly ships to 34 countries with a 98% satisfaction rate — and we're still run by the same operations-first mindset.</p>
+      </div>
+    </div>
+  </div>
 
-<div>
-
-<h2>10K+</h2>
-
-<p>Happy Customers</p>
+  <div class="section-head reveal">
+    <span class="eyebrow">The people</span>
+    <h2>Meet the team</h2>
+    <p>A small crew obsessed with sourcing, logistics, and getting your order right the first time.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-photo p1">SK</div>
+      <div class="team-info">
+        <h4>Sana Khatri</h4>
+        <span>Co-Founder &amp; Operations</span>
+        <div class="team-social">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-photo p2">RM</div>
+      <div class="team-info">
+        <h4>Rahul Mehta</h4>
+        <span>Co-Founder &amp; Sourcing</span>
+        <div class="team-social">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-photo p3">TA</div>
+      <div class="team-info">
+        <h4>Tara Ahn</h4>
+        <span>Head of Support</span>
+        <div class="team-social">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-photo p4">DO</div>
+      <div class="team-info">
+        <h4>Daniel Osei</h4>
+        <span>Logistics Lead</span>
+        <div class="team-social">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-<div>
-
-<h2>350+</h2>
-
-<p>Products</p>
-
+<div class="page">
+  <div class="cta-banner reveal">
+    <div class="cta-copy">
+      <h3>Ready to shop with people who ship fast?</h3>
+      <p>Browse over 12,400 checked products across electronics, gaming, and home tech.</p>
+    </div>
+    <a href="./products.html" class="btn-primary"><i class="fa-solid fa-bag-shopping"></i> Browse Products</a>
+  </div>
 </div>
 
-<div>
-
-<h2>25</h2>
-
-<p>Countries</p>
-
-</div>
-
-<div>
-
-<h2>12</h2>
-
-<p>Years Experience</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="team-section">
-
-<div class="container">
-
-<div class="section-heading">
-
-<h2>Meet Our Team</h2>
-
-<p>Professional people behind our success.</p>
-
-</div>
-
-<div class="team-grid">
-
-<div class="team-card">
-
-<img src="images/team1.jpg" alt="">
-
-<h3>John Smith</h3>
-
-<span>Founder</span>
-
-<div class="team-social">
-
-<i class="fab fa-facebook-f"></i>
-
-<i class="fab fa-instagram"></i>
-
-<i class="fab fa-linkedin-in"></i>
-
-</div>
-
-</div>
-
-<div class="team-card">
-
-<img src="images/team2.jpg" alt="">
-
-<h3>Sarah</h3>
-
-<span>Designer</span>
-
-<div class="team-social">
-
-<i class="fab fa-facebook-f"></i>
-
-<i class="fab fa-instagram"></i>
-
-<i class="fab fa-linkedin-in"></i>
-
-</div>
-
-</div>
-
-<div class="team-card">
-
-<img src="images/team3.jpg" alt="">
-
-<h3>David</h3>
-
-<span>Developer</span>
-
-<div class="team-social">
-
-<i class="fab fa-facebook-f"></i>
-
-<i class="fab fa-instagram"></i>
-
-<i class="fab fa-linkedin-in"></i>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="testimonial-section">
-
-<div class="container">
-
-<div class="section-heading">
-
-<h2>What Customers Say</h2>
-
-</div>
-
-<div class="testimonial-grid">
-
-<div class="testimonial-card">
-
-<img src="images/user1.jpg" alt="">
-
-<p>
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-</p>
-
-<h4>Robert</h4>
-
-★★★★★
-
-</div>
-
-<div class="testimonial-card">
-
-<img src="images/user2.jpg" alt="">
-
-<p>
-
-Excellent shopping experience.
-
-</p>
-
-<h4>Emma</h4>
-
-★★★★★
-
-</div>
-
-<div class="testimonial-card">
-
-<img src="images/user3.jpg" alt="">
-
-<p>
-
-Fast delivery and amazing quality.
-
-</p>
-
-<h4>James</h4>
-
-★★★★★
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="brand-section">
-
-<div class="container">
-
-<div class="brand-grid">
-
-<img src="images/brand1.png">
-
-<img src="images/brand2.png">
-
-<img src="images/brand3.png">
-
-<img src="images/brand4.png">
-
-<img src="images/brand5.png">
-
-<img src="images/brand6.png">
-
-</div>
-
-</div>
-
-</section>
-<section class="cta-section">
-
-<div class="container">
-
-<h2>
-
-Ready To Start Shopping?
-
-</h2>
-
-<p>
-
-Discover thousands of premium products at the best prices.
-
-</p>
-
-<a href="shop.html">
-
-Shop Now
-
-</a>
-
-</div>
-
-</section>
 
 <div class="footer">
   <div class="footer-grid">
@@ -440,69 +274,64 @@ Shop Now
       <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@swootechmart.com</a>
 
       <div class="social-row">
-        <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
         <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
-        <a href="./404.html".><i class="fa-brands fa-pinterest-p"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
       </div>
-
-    
     </div>
 
     <div class="footer-col">
       <h4>Top Categories</h4>
       <ul>
-        <li><a href="./products.html".>Laptops</a></li>
-        <li><a href="./products.html".>PC &amp; Computers</a></li>
-        <li><a href="./products.html".>Cell Phones</a></li>
-        <li><a href="./products.html".>Tablets</a></li>
-        <li><a href="./products.html".>Gaming &amp; VR</a></li>
-        <li><a href="./products.html".>Networks</a></li>
-        <li><a href="./products.html".>Cameras</a></li>
-        
+        <li><a href="./products.html">Laptops</a></li>
+        <li><a href="./products.html">PC &amp; Computers</a></li>
+        <li><a href="./products.html">Cell Phones</a></li>
+        <li><a href="./products.html">Tablets</a></li>
+        <li><a href="./products.html">Gaming &amp; VR</a></li>
+        <li><a href="./products.html">Networks</a></li>
+        <li><a href="./products.html">Cameras</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="./404.html".>Home </a></li>
-        <li><a href="./404.html".>About</a></li>
-        <li><a href="./404.html".>Product</a></li>
-        <li><a href="./404.html".>Blog</a></li>
-        <li><a href="./404.html".>contact</a></li>
+        <li><a href="./home.html">Home </a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Product</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./contact.html">contact</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Help Center</h4>
       <ul>
-        <li><a href="./404.html".>Customer Service</a></li>
-        <li><a href="./404.html".>Policy</a></li>
-        <li><a href="./404.html".>Terms &amp; Conditions</a></li>
-        <li><a href="./404.html".>Track Order</a></li>
-        <li><a href="./404.html".>FAQs</a></li>
-        <li><a href="./404.html".>My Account</a></li>
-        <li><a href="./404.html".>Product Support</a></li>
+        <li><a href="./404.html">Customer Service</a></li>
+        <li><a href="./404.html">Policy</a></li>
+        <li><a href="./404.html">Terms &amp; Conditions</a></li>
+        <li><a href="./404.html">Track Order</a></li>
+        <li><a href="./404.html">FAQs</a></li>
+        <li><a href="./login.html">My Account</a></li>
+        <li><a href="./404.html">Product Support</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Partner</h4>
       <ul>
-        <li><a href="./404.html".>Become Seller</a></li>
-        <li><a href="./404.html".>Affiliate</a></li>
-        <li><a href="./404.html".>Advertise</a></li>
-        <li><a href="./404.html".>Partnership</a></li>
+        <li><a href="./404.html">Become Seller</a></li>
+        <li><a href="./404.html">Affiliate</a></li>
+        <li><a href="./404.html">Advertise</a></li>
+        <li><a href="./404.html">Partnership</a></li>
       </ul>
     </div>
-
-   
   </div>
 
   <div class="footer-bottom">
-    <div>© 2024 <strong>Shawonetc3</strong>. All Rights Reserved</div>
+    <div>&copy; 2026 <strong>Stackly</strong>. All Rights Reserved</div>
     <div class="pay-icons">
       <i class="fa-brands fa-cc-paypal"></i>
       <i class="fa-brands fa-cc-mastercard"></i>
@@ -510,10 +339,12 @@ Shop Now
       <i class="fa-brands fa-cc-stripe"></i>
       <i class="fa-solid fa-k" title="Klarna"></i>
     </div>
-    <a class="mobile-link" href="./404.html".>Mobile Site</a>
+    <a class="mobile-link" href="./404.html">Mobile Site</a>
   </div>
 </div>
+<button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="navbar.js"></script>
+<script src="pages.js"></script>
 
-<script src="./navbar.js"></script>
 </body>
 </html>

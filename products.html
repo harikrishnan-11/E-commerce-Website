@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="./nav.css">
 
@@ -16,7 +16,7 @@
         <header>
             <div>
                 <p>Hotline 24/7</p>
-                <p><strong> 
+                <p><strong>
                     (025) 388 25 16
                 </strong>
             </p>
@@ -29,15 +29,15 @@
         <nav class="nav-container">
             <div class="logos">
                 <a href="./index.html">
-                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
                 </a>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="./home.html">Home</a>
                 <a href="./about.html">About</a>
                 <a href="./products.html">Products</a>
                 <a href="./blog.html">Blog</a>
-                <a href="./contact.html">Contact</a>
+                <a href="./contact.html" class="active">Contact</a>
                 <a href="./login.html" class="login-btn">Login</a>
             </div>
             <div class="quick-links">
@@ -51,11 +51,11 @@
                         <i class="fa-regular fa-heart"></i>
                     </a>
                     </p>
-                    <div class="hamburger" id="hamburger">
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                 </div>
                 <div class="profile">
                     <p><i class="fa-regular fa-user"></i></p>
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </nav>
+        <div class="nav-overlay" id="navOverlay"></div>
     </div>
     <div class="nav-footer">
         <div class="search-bar">
@@ -95,7 +96,7 @@
 
             <li>/</li>
 
-            <li class="active">Top Cell Phones & Tablets</li>
+            <li class="active">All Products</li>
 
         </ul>
 
@@ -127,7 +128,7 @@
 
                 </div>
 
-                <img src="images/headphone.png" alt="Headphone">
+                <div class="hero-icon"><i class="fa-solid fa-headphones-simple"></i></div>
 
             </div>
 
@@ -149,7 +150,7 @@
 
                 </div>
 
-                <img src="images/watch.png" alt="Watch">
+                <div class="hero-icon"><i class="fa-solid fa-stopwatch"></i></div>
 
             </div>
 
@@ -177,130 +178,69 @@
 
             </div>
 
-            <img src="images/redmi.png" alt="Phone">
+            <div class="side-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
 
         </div>
 
     </div>
 
 </section>
-<section class="categories">
 
-    <div class="section-title">
-        <h2>Popular Categories</h2>
-        <a href="products.html" class="view-all">View All →</a>
-    </div>
-
-    <div class="categories-grid">
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/shoes.png" alt="">
-            </div>
-            <h4>Shoes</h4>
-            <span>12 Products</span>
-        </div>
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/watch.png" alt="">
-            </div>
-            <h4>Watches</h4>
-            <span>8 Products</span>
-        </div>
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/tv.png" alt="">
-            </div>
-            <h4>TV</h4>
-            <span>15 Products</span>
-        </div>
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/game.png" alt="">
-            </div>
-            <h4>Gaming</h4>
-            <span>11 Products</span>
-        </div>
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/headphone.png" alt="">
-            </div>
-            <h4>Headphones</h4>
-            <span>20 Products</span>
-        </div>
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/dress.png" alt="">
-            </div>
-            <h4>Fashion</h4>
-            <span>10 Products</span>
-        </div>
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/gym.png" alt="">
-            </div>
-            <h4>Gym</h4>
-            <span>6 Products</span>
-        </div>
-
-        <div class="category-card">
-            <div class="category-img">
-                <img src="images/laptop.png" alt="">
-            </div>
-            <h4>Laptops</h4>
-            <span>25 Products</span>
-        </div>
-
-    </div>
-
-</section>
 <section class="shop-section">
 
     <div class="container shop-container">
 
+        <!-- ================= Filter toggle (mobile) ================= -->
+        <button class="filter-toggle" id="filterToggle">
+            <i class="fa-solid fa-sliders"></i> Filters
+        </button>
+
+        <div class="filter-overlay" id="filterOverlay"></div>
+
         <!-- ================= Sidebar ================= -->
 
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-head">
+                <h3>Filters</h3>
+                <button class="close-filters" id="closeFilters"><i class="fa-solid fa-xmark"></i></button>
+            </div>
 
             <!-- Categories -->
             <div class="filter-box">
                 <h3>Product Categories</h3>
 
-                <ul>
-                    <li><a href="#">Cell Phones</a></li>
-                    <li><a href="#">Tablets</a></li>
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Headphones</a></li>
-                    <li><a href="#">Television</a></li>
-                    <li><a href="#">Smart Watch</a></li>
-                    <li><a href="#">Gaming</a></li>
+                <ul class="filter-list" id="categoryFilters">
+                    <li><label><input type="checkbox" value="Cell Phones"> Cell Phones</label></li>
+                    <li><label><input type="checkbox" value="Tablets"> Tablets</label></li>
+                    <li><label><input type="checkbox" value="Laptops"> Laptops</label></li>
+                    <li><label><input type="checkbox" value="Headphones"> Headphones</label></li>
+                    <li><label><input type="checkbox" value="Television"> Television</label></li>
+                    <li><label><input type="checkbox" value="Smart Watch"> Smart Watch</label></li>
+                    <li><label><input type="checkbox" value="Gaming"> Gaming</label></li>
+                    <li><label><input type="checkbox" value="Cameras"> Cameras</label></li>
                 </ul>
             </div>
 
             <!-- Brands -->
             <div class="filter-box">
                 <h3>Brands</h3>
-
-                <label><input type="checkbox"> Apple</label>
-                <label><input type="checkbox"> Samsung</label>
-                <label><input type="checkbox"> Xiaomi</label>
-                <label><input type="checkbox"> Sony</label>
-                <label><input type="checkbox"> Dell</label>
+                <div id="brandFilters">
+                    <label><input type="checkbox" value="Apple"> Apple</label>
+                    <label><input type="checkbox" value="Samsung"> Samsung</label>
+                    <label><input type="checkbox" value="Xiaomi"> Xiaomi</label>
+                    <label><input type="checkbox" value="Sony"> Sony</label>
+                    <label><input type="checkbox" value="Dell"> Dell</label>
+                </div>
             </div>
 
             <!-- Price -->
             <div class="filter-box">
                 <h3>Price</h3>
 
-                <input type="range" min="100" max="5000">
+                <input type="range" min="0" max="5000" value="5000" id="priceRange">
 
-                <p>$100 - $5000</p>
+                <p>$0 - $<span id="priceValue">5000</span></p>
             </div>
 
             <!-- Colors -->
@@ -308,17 +248,37 @@
 
                 <h3>Colors</h3>
 
-                <div class="colors">
+                <div class="colors" id="colorFilters">
 
-                    <span class="red"></span>
-                    <span class="blue"></span>
-                    <span class="green"></span>
-                    <span class="black"></span>
-                    <span class="yellow"></span>
+                    <span class="red" data-color="red" title="Red"></span>
+                    <span class="blue" data-color="blue" title="Blue"></span>
+                    <span class="green" data-color="green" title="Green"></span>
+                    <span class="black" data-color="black" title="Black"></span>
+                    <span class="yellow" data-color="yellow" title="Yellow"></span>
 
                 </div>
 
             </div>
+
+            <!-- Rating -->
+            <div class="filter-box">
+                <h3>Minimum Rating</h3>
+                <select id="ratingFilter">
+                    <option value="0">Any Rating</option>
+                    <option value="4.5">4.5 &amp; up</option>
+                    <option value="4">4 &amp; up</option>
+                    <option value="3.5">3.5 &amp; up</option>
+                    <option value="3">3 &amp; up</option>
+                </select>
+            </div>
+
+            <!-- In stock only -->
+            <div class="filter-box">
+                <label><input type="checkbox" id="inStockOnly"> In Stock Only</label>
+            </div>
+
+            <button class="clear-filters" id="clearFilters">Clear All Filters</button>
+            <button class="apply-filters-mobile" id="applyFiltersMobile">Apply Filters</button>
 
         </aside>
 
@@ -332,7 +292,7 @@
 
                 <div class="toolbar-left">
 
-                    <p>Showing <strong>1–12</strong> of <strong>60</strong> Products</p>
+                    <p id="resultsCount">Showing <strong>0</strong> of <strong>0</strong> Products</p>
 
                 </div>
 
@@ -340,124 +300,48 @@
 
                     <div class="view-btns">
 
-                        <button class="active">
+                        <button class="active" id="gridViewBtn">
                             <i class="fa-solid fa-grip"></i>
                         </button>
 
-                        <button>
+                        <button id="listViewBtn">
                             <i class="fa-solid fa-list"></i>
                         </button>
 
                     </div>
 
-                    <select>
-                        <option>Default Sorting</option>
-                        <option>Latest</option>
-                        <option>Price Low → High</option>
-                        <option>Price High → Low</option>
+                    <select id="sortSelect">
+                        <option value="default">Default Sorting</option>
+                        <option value="latest">Latest</option>
+                        <option value="price-low">Price Low → High</option>
+                        <option value="price-high">Price High → Low</option>
+                        <option value="rating">Top Rated</option>
                     </select>
 
-                    <select>
-                        <option>12 Products</option>
-                        <option>24 Products</option>
-                        <option>36 Products</option>
+                    <select id="perPageSelect">
+                        <option value="12">12 Products</option>
+                        <option value="24">24 Products</option>
+                        <option value="36">36 Products</option>
                     </select>
 
                 </div>
 
             </div>
+
+            <!-- Active Filter Chips -->
+            <div class="active-chips" id="activeChips"></div>
 
             <!-- Product Grid -->
 
-            <div class="products-grid">
-
-                <!-- Product Card -->
-
-                <div class="product-card">
-
-                    <div class="product-image">
-
-                        <span class="discount">-25%</span>
-
-                        <div class="product-actions">
-
-                            <button><i class="fa-regular fa-heart"></i></button>
-
-                            <button><i class="fa-solid fa-eye"></i></button>
-
-                            <button><i class="fa-solid fa-code-compare"></i></button>
-
-                        </div>
-
-                        <img src="images/iphone.png" alt="iPhone">
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <p class="category">Smart Phones</p>
-
-                        <h3>
-                            Apple iPhone 15 Pro Max 256GB Natural Titanium
-                        </h3>
-
-                        <div class="rating">
-
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-
-                            <span>(124 Reviews)</span>
-
-                        </div>
-
-                        <div class="price">
-
-                            <span class="new-price">$1099</span>
-
-                            <span class="old-price">$1299</span>
-
-                        </div>
-
-                        <button class="add-cart">
-
-                            Add To Cart
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Copy Product Card Here -->
-                <!-- Product 2 -->
-                <!-- Product 3 -->
-                <!-- Product 4 -->
-
+            <div class="products-grid" id="productsGrid">
+                <!-- Products injected by JS -->
             </div>
+
+            <p class="no-results" id="noResults">No products match your filters. Try clearing some filters.</p>
 
             <!-- Pagination -->
 
-            <div class="pagination">
-
-                <button>
-                    <i class="fa-solid fa-angle-left"></i>
-                </button>
-
-                <button class="active">1</button>
-
-                <button>2</button>
-
-                <button>3</button>
-
-                <button>4</button>
-
-                <button>
-                    <i class="fa-solid fa-angle-right"></i>
-                </button>
-
+            <div class="pagination" id="pagination">
             </div>
 
         </div>
@@ -474,72 +358,72 @@
       <div class="hotline-label">Hotline 24/7</div>
       <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
       <div class="addr"><i class="fa-solid fa-location-dot"></i> 257 Thatcher Road St, Brooklyn, Manhattan, NY 10092</div>
-      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@swootechmart.com</a>
+      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contactStackly@gmail.com</a>
 
       <div class="social-row">
-        <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
         <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
-        <a href="./404.html".><i class="fa-brands fa-pinterest-p"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
       </div>
 
-    
+
     </div>
 
     <div class="footer-col">
       <h4>Top Categories</h4>
       <ul>
-        <li><a href="./products.html".>Laptops</a></li>
-        <li><a href="./products.html".>PC &amp; Computers</a></li>
-        <li><a href="./products.html".>Cell Phones</a></li>
-        <li><a href="./products.html".>Tablets</a></li>
-        <li><a href="./products.html".>Gaming &amp; VR</a></li>
-        <li><a href="./products.html".>Networks</a></li>
-        <li><a href="./products.html".>Cameras</a></li>
-        
+        <li><a href="./products.html">Laptops</a></li>
+        <li><a href="./products.html">PC &amp; Computers</a></li>
+        <li><a href="./products.html">Cell Phones</a></li>
+        <li><a href="./products.html">Tablets</a></li>
+        <li><a href="./products.html">Gaming &amp; VR</a></li>
+        <li><a href="./products.html">Networks</a></li>
+        <li><a href="./products.html">Cameras</a></li>
+
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="./404.html".>Home </a></li>
-        <li><a href="./404.html".>About</a></li>
-        <li><a href="./404.html".>Product</a></li>
-        <li><a href="./404.html".>Blog</a></li>
-        <li><a href="./404.html".>contact</a></li>
+        <li><a href="./404.html">Home </a></li>
+        <li><a href="./404.html">About</a></li>
+        <li><a href="./404.html">Product</a></li>
+        <li><a href="./404.html">Blog</a></li>
+        <li><a href="./404.html">contact</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Help Center</h4>
       <ul>
-        <li><a href="./404.html".>Customer Service</a></li>
-        <li><a href="./404.html".>Policy</a></li>
-        <li><a href="./404.html".>Terms &amp; Conditions</a></li>
-        <li><a href="./404.html".>Track Order</a></li>
-        <li><a href="./404.html".>FAQs</a></li>
-        <li><a href="./404.html".>My Account</a></li>
-        <li><a href="./404.html".>Product Support</a></li>
+        <li><a href="./404.html">Customer Service</a></li>
+        <li><a href="./404.html">Policy</a></li>
+        <li><a href="./404.html">Terms &amp; Conditions</a></li>
+        <li><a href="./404.html">Track Order</a></li>
+        <li><a href="./404.html">FAQs</a></li>
+        <li><a href="./404.html">My Account</a></li>
+        <li><a href="./404.html">Product Support</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Partner</h4>
       <ul>
-        <li><a href="./404.html".>Become Seller</a></li>
-        <li><a href="./404.html".>Affiliate</a></li>
-        <li><a href="./404.html".>Advertise</a></li>
-        <li><a href="./404.html".>Partnership</a></li>
+        <li><a href="./404.html">Become Seller</a></li>
+        <li><a href="./404.html">Affiliate</a></li>
+        <li><a href="./404.html">Advertise</a></li>
+        <li><a href="./404.html">Partnership</a></li>
       </ul>
     </div>
 
-   
+
   </div>
 
   <div class="footer-bottom">
-    <div>© 2024 <strong>Shawonetc3</strong>. All Rights Reserved</div>
+    <div>© 2026 <strong>Stackly</strong>. All Rights Reserved</div>
     <div class="pay-icons">
       <i class="fa-brands fa-cc-paypal"></i>
       <i class="fa-brands fa-cc-mastercard"></i>
@@ -547,7 +431,7 @@
       <i class="fa-brands fa-cc-stripe"></i>
       <i class="fa-solid fa-k" title="Klarna"></i>
     </div>
-    <a class="mobile-link" href="./404.html".>Mobile Site</a>
+    <a class="mobile-link" href="./404.html">Mobile Site</a>
   </div>
 </div>
 <script>
@@ -608,5 +492,7 @@ setInterval(()=>{
 },5000);
 </script>
 <script src="./navbar.js"></script>
+<script src="./products-data.js"></script>
+<script src="./products.js"></script>
 </body>
 </html>

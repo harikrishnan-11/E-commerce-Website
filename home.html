@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="nav.css">
 
@@ -15,7 +15,7 @@
         <header>
             <div>
                 <p>Hotline 24/7</p>
-                <p><strong> 
+                <p><strong>
                     (025) 388 25 16
                 </strong>
             </p>
@@ -28,11 +28,11 @@
         <nav class="nav-container">
             <div class="logos">
                 <a href="./index.html">
-                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
                 </a>
             </div>
-            <div class="nav-links">
-                <a href="./home.html">Home</a>
+            <div class="nav-links" id="navLinks">
+                <a href="./home.html" class="active">Home</a>
                 <a href="./about.html">About</a>
                 <a href="./products.html">Products</a>
                 <a href="./blog.html">Blog</a>
@@ -50,11 +50,11 @@
                         <i class="fa-regular fa-heart"></i>
                     </a>
                     </p>
-                    <div class="hamburger" id="hamburger">
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                 </div>
                 <div class="profile">
                     <p><i class="fa-regular fa-user"></i></p>
@@ -66,6 +66,7 @@
                 </div>
             </div>
         </nav>
+        <div class="nav-overlay" id="navOverlay"></div>
     </div>
     <div class="nav-footer">
         <div class="search-bar">
@@ -80,71 +81,71 @@
         <P class="white">30 DAYS MONEY BACK </P>
         <P class="white">100% SECURE PAYMENT</P>
     </div>
-    <p style="text-align: center; font-weight: 600"> Popular Products</p>
+    <p style="text-align: center; font-weight: 600;margin-top: 10px;" > Popular Products</p>
     <div class="popular-categories">
-        <div class="product">
+        <div class="product reveal">
                 <div class="product-img">
 
-    <img src="./src/images/Untitled design (8)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (8)-compressed.webp" alt="Shoes"></div>
     <p>Shoes</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
-    <img src="./src/images/Untitled design (9)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (9)-compressed.webp" alt="Watches"></div>
     <p>Watches</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
-    <img src="./src/images/Untitled design (10)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (10)-compressed.webp" alt="Tv"></div>
     <p>Tv</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
-    <img src="./src/images/Untitled design (11)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (11)-compressed.webp" alt="Games"></div>
     <p>Games</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
      <div class="product-img">
-    <img src="./src/images/Untitled design (12)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (12)-compressed.webp" alt="Headphones"></div>
     <p>Headphones</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
     <div class="product-img">
-        <img src="./src/images/Untitled design (13)-compressed-compressed-compressed-compressed.webp" alt="Laptop">
+        <img src="./src/images/Untitled design (13)-compressed-compressed-compressed-compressed.webp" alt="Dresses">
     </div>
     <p>Dresses</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
-    <img src="./src/images/Untitled design (14)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (14)-compressed.webp" alt="Gym"></div>
     <p>Gym</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
     <img src="./src/images/Untitled design (15)-compressed.webp" alt="Laptop"></div>
     <p>Laptop</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
-    <img src="./src/images/Untitled design (16)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (16)-compressed.webp" alt="Cameras"></div>
     <p>Cameras</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
-    <img src="./src/images/Untitled design (17)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (17)-compressed.webp" alt="Smart Phones"></div>
     <p>Smart Phones</p>
 </div>
-  <div class="product">
+  <div class="product reveal">
         <div class="product-img">
 
-    <img src="./src/images/Untitled design (18)-compressed.webp" alt="Laptop"></div>
+    <img src="./src/images/Untitled design (18)-compressed.webp" alt="Kitchen"></div>
     <p>Kitchen</p>
 </div>
 <a href="./products.html" class="view-all">View all</a>
@@ -153,7 +154,7 @@
 
 <section class="hero">
 
-    <div class="hero-item hero1">
+    <div class="hero-item hero1 reveal">
         <div>
             <h3>Humidifying Fan</h3>
             <p>From $299</p>
@@ -161,7 +162,7 @@
         <a href="./products.html" class="discover"><button>Discover Now</button></a>
     </div>
 
-    <div class="hero-item hero2">
+    <div class="hero-item hero2 reveal">
         <div>
             <h3>Noise Cancelling</h3>
             <p>Headphone</p>
@@ -171,10 +172,10 @@
             Wifi, Voice Assistant,<br>
         Low latency game mde</p>
                 <a href="./products.html" class="shopNow"><button>Shop Now</button></a>
-        
+
     </div>
 
-    <div class="hero-item hero3">
+    <div class="hero-item hero3 reveal">
         <div>
             <h3>GO PRO</h3>
             <P>
@@ -184,7 +185,7 @@
         <p>From <span>$179</span></p>
     </div>
 
-    <div class="hero-item hero4">
+    <div class="hero-item hero4 reveal">
         <div>
             <h3>Washing Machine</h3>
             <p>Anatico <br>
@@ -195,7 +196,7 @@ Max 2</p>
 
     </div>
 
-    <div class="hero-item hero5">
+    <div class="hero-item hero5 reveal">
         <h4>Air<br> Purifier</h4>
         <div>
         <p>From <span>
@@ -206,14 +207,14 @@ Max 2</p>
 
     </div>
 
-    <div class="hero-item hero6">
+    <div class="hero-item hero6 reveal">
         <h4>iPad mini <br>
 2022</h4>
 <p>Mega Power in mini size</p>
 <a href="./products.html" class="shopNow"><button>Shop Now</button></a>
     </div>
 
-    <div class="hero-item hero7">
+    <div class="hero-item hero7 reveal">
         <h4>Sono Playgo <br>
 from <span>
     $569
@@ -228,10 +229,10 @@ from <span>
 
 
 <div class="wrap">
- 
+
   <!-- Top Row -->
   <div class="top-row">
-    <div class="panel">
+    <div class="panel reveal">
       <div class="panel-head">
         <h3>FEATURED BRANDS</h3>
         <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
@@ -245,12 +246,12 @@ from <span>
         <div class="logo" style="color:#c0392b;"><img src="./src/brands  png/Pasted image (11)-compressed.webp" alt=""></div>
         <div class="logo" style="color:#2fae4e;"><img src="./src/brands  png/Pasted image (12)-compressed.webp" alt=""></div>
         <div class="logo"><img src="./src/brands  png/Pasted image (13)-compressed.webp" alt=""></div>
-        
-        
+
+
       </div>
     </div>
- 
-    <div class="panel">
+
+    <div class="panel reveal">
       <div class="panel-head">
         <h3>TOP CATEGORIES</h3>
         <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
@@ -275,24 +276,24 @@ from <span>
       </div>
     </div>
   </div>
- 
+
   <!-- Bottom Row -->
    <div class="page">
 
   <div class="bottom-row">
- 
+
     <!-- Deals of the Day -->
-    <div class="deal-card">
+    <div class="deal-card reveal">
       <div class="deal-banner">DEALS OF THE DAY</div>
       <div class="deal-body">
         <div class="thumb-col">
-        
+
         </div>
- 
+
         <div class="main-image-col">
           <img src="./src/images/Pasted image (5)-compressed.webp" alt="product" >
         </div>
- 
+
         <div class="info-col">
           <div class="rating">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
@@ -312,7 +313,7 @@ from <span>
             <span class="tag free-ship"><i class="fa-solid fa-truck-fast"></i> FREE SHIPPING</span>
             <span class="tag free-gift"><i class="fa-solid fa-gift"></i> FREE GIFT</span>
           </div>
- 
+
           <div class="countdown-row">
             <div class="countdown-label">HURRY UP! PROMOTION WILL EXPIRES IN</div>
             <div class="timers" id="timers">
@@ -322,7 +323,7 @@ from <span>
               <div class="timer-box"><strong id="secs">04</strong><span>s</span></div>
             </div>
           </div>
- 
+
           <div class="progress-wrap">
             <div class="progress-bar">
               <div class="progress-fill" style="width:35%;"></div>
@@ -332,35 +333,35 @@ from <span>
         </div>
       </div>
     </div>
- 
+
     <!-- Sale Banners -->
     <div class="sale-col">
-      <div class="sale-banner">
+      <div class="sale-banner reveal">
         <img class="bg" src="./src/images 2/Pasted image (60)-compressed.webp" alt="bg">
-      
+
       </div>
-      <div class="sale-banner" style="background:#e9eaec;">
+      <div class="sale-banner reveal" style="background:#e9eaec;">
         <img class="bg" src="./src/images/Pasted image (6)-compressed.webp" alt="bg">
-        
+
       </div>
     </div>
- 
+
   </div>
 </div>
 </div>
 </div>
 
 <div class="page">
- 
+
   <!-- ===================== SECTION 1: BEST SELLER ===================== -->
-  <div class="card">
+  <div class="card reveal">
     <div class="card-head">
       <div class="tabs">
         <span class="tab active">Best Seller</span>
       </div>
       <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
     </div>
- 
+
     <div class="product-grid">
       <div class="product-card">
         <div class="product-img">
@@ -375,7 +376,7 @@ from <span>
         </div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="badge">SAVE<small>$199.00</small></div>
         <div class="product-img">
@@ -389,7 +390,7 @@ from <span>
         </div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="badge">SAVE<small>$59.00</small></div>
         <div class="product-img">
@@ -403,7 +404,7 @@ from <span>
         </div>
         <div class="p-stock out"><i class="fa-solid fa-circle-xmark"></i> Out of stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="product-img">
           <img src="./src/images 2/Pasted image (10)-compressed.webp" alt="Watch">
@@ -416,7 +417,7 @@ from <span>
         </div>
         <div class="p-stock contact"><i class="fa-solid fa-clock"></i> Pre-order</div>
       </div>
- 
+
       <div class="product-card">
         <div class="badge">SAVE<small>$3.00</small></div>
         <div class="product-img">
@@ -430,17 +431,17 @@ from <span>
         </div>
         <div class="p-stock contact"><i class="fa-solid fa-phone"></i> Contact</div>
       </div>
-      
+
     </div>
   </div>
- 
+
   <!-- ===================== SECTION 2: BRAND NEW FOR YOU ===================== -->
-  <div class="card">
+  <div class="card reveal">
     <div class="card-head">
       <h2>Brand New For You</h2>
       <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
     </div>
- 
+
     <div class="promo-grid">
       <div class="promo-card">
         <div class="promo-media" style="background:var(--secondary);">
@@ -450,32 +451,32 @@ from <span>
         <p>And an option to upgrade every three years</p>
         <a class="btn-outline" href="#"><i class="fa-solid fa-bag-shopping"></i> Shop Now</a>
       </div>
- 
+
       <div class="promo-card">
         <div class="promo-media" style="background:var(--light-gray);">
           <img class="bg" src="./src/images/Pasted image (13)-compressed.webp" alt="monitor">
-         
+
         </div>
         <h3>Summer Sale with Sale up to 50% OFF for Foam Gaming Chair.</h3>
         <p>Limited time offer. Hurry up</p>
         <a class="btn-outline" href="#"><i class="fa-solid fa-bag-shopping"></i> Shop Now</a>
       </div>
- 
+
       <div class="promo-card">
         <div class="promo-media" style="background:var(--gray);">
           <img class="bg" src="./src/images/Pasted image (14)-compressed.webp" alt="chair">
           <div class="sale-off">50%<br>OFF</div>
-          
+
         </div>
         <h3>Summer Sale with Sale up to 50% OFF for Foam Gaming Chair.</h3>
         <p>Limited time offer. Hurry up</p>
         <a class="btn-outline" href="#"><i class="fa-solid fa-bag-shopping"></i> Shop Now</a>
       </div>
- 
+
       <div class="promo-card">
         <div class="promo-media" style="background:var(--secondary);">
           <img class="bg" src="./src/images/Pasted image (15)-compressed.webp" alt="ipad">
-          
+
         </div>
         <h3>iPed Pro Mini 6 - Powerful I in hand</h3>
         <p>From $19.99/month for 36 monthsFs $280.35 final payment due in month 37</p>
@@ -483,21 +484,21 @@ from <span>
       </div>
     </div>
   </div>
- 
+
   <!-- ===================== SECTION 3: TOP CELLPHONES & TABLETS ===================== -->
-  <div class="card">
+  <div class="card reveal">
     <div class="card-head">
       <h2>Top Cellphones &amp; Tablets</h2>
       <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
     </div>
- 
+
     <div class="split-top">
       <div class="split-promo" style="background-image: url(./src/images/Pasted\ image\ \(61\)-compressed.webp);background-position:center;background-repeat: no-repeat;background-size: cover;width: 600px;height: 200px;border-radius: 20px;">
         <h3>REDMI NOTE<br>12 PRO+ 5G</h3>
         <p class="tagline">Rise to the challenge</p>
         <a class="btn-dark" href="#"><i class="fa-solid fa-bag-shopping"></i> Shop Now</a>
       </div>
- 
+
       <div class="cat-icon-grid">
         <div class="cat-icon-item">
           <div class="icon-circle"><img src="./src/images 2/Pasted image (16)-compressed.webp" alt=""></div>
@@ -525,7 +526,7 @@ from <span>
         </div>
       </div>
     </div>
- 
+
     <div class="product-grid">
       <div class="product-card">
         <div class="badge">SAVE<small>$199.00</small></div>
@@ -536,7 +537,7 @@ from <span>
         <div class="p-tags"><span class="p-tag ship"><i class="fa-solid fa-truck-fast"></i> FREE SHIPPING</span></div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="badge new">NEW</div>
         <div class="product-img"><img src="./src/images/Pasted image (26)-compressed.webp" alt="tablet"></div>
@@ -546,7 +547,7 @@ from <span>
         <div class="p-tags"><span class="p-tag ship-cost"><i class="fa-solid fa-truck-fast"></i> $2.99 SHIPPING</span></div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="product-img"><img src="./src/images 2/Pasted image (23)-compressed.webp" alt="phone"></div>
         <div class="p-rating">(5)</div>
@@ -555,7 +556,7 @@ from <span>
         <div class="p-tags"><span class="p-tag ship"><i class="fa-solid fa-truck-fast"></i> FREE SHIPPING</span></div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="badge">SAVE<small>$59.00</small></div>
         <div class="product-img"><img src="./src/images 2/Pasted image (24)-compressed.webp" alt="phone"></div>
@@ -565,7 +566,7 @@ from <span>
         <div class="p-tags"><span class="p-tag ship"><i class="fa-solid fa-truck-fast"></i> FREE SHIPPING</span></div>
         <div class="p-stock contact"><i class="fa-solid fa-phone"></i> Contact</div>
       </div>
- 
+
       <div class="product-card">
         <div class="product-img"><img src="./src/images 2/Pasted image (25)-compressed.webp" alt="phone"></div>
         <div class="p-rating">(8)</div>
@@ -576,14 +577,14 @@ from <span>
       </div>
     </div>
   </div>
- 
+
   <!-- ===================== SECTION 4: BEST LAPTOPS & COMPUTERS ===================== -->
-  <div class="card">
+  <div class="card reveal">
     <div class="card-head">
       <h2>Best Laptops &amp; Computers</h2>
       <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
     </div>
- 
+
     <div class="split-top">
       <div class="split-promo" style="background: url('./src/images 2/Pasted image (62)-compressed.webp'); background-repeat: no-repeat;background-position: center;background-size: cover;height: 250px;border-radius: 20px;">
         <div class="text" style="color: white; margin-bottom: 10px;font-size: 1.2rem;"> <h2>
@@ -593,7 +594,7 @@ superchard
 by M2</div>
         <div class="price-preview">$1,199</div>
       </div>
- 
+
       <div class="cat-icon-grid">
         <div class="cat-icon-item">
           <div><div class="cat-label">Macbook</div><div class="cat-count">74 items</div></div>
@@ -621,7 +622,7 @@ by M2</div>
         </div>
       </div>
     </div>
- 
+
     <div class="product-grid" style="position:relative;">
       <div class="product-card">
         <div class="badge new">NEW</div>
@@ -632,7 +633,7 @@ by M2</div>
         <div class="p-tags"><span class="p-tag ship"><i class="fa-solid fa-truck-fast"></i> FREE SHIPPING</span></div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="badge new">NEW</div>
         <div class="product-img"><img src="./src/images/Pasted image (34)-compressed.webp" alt="speaker"></div>
@@ -643,7 +644,7 @@ by M2</div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
         <div class="swatches"><span style="background:var(--secondary);"></span><span style="background:var(--white);"></span></div>
       </div>
- 
+
       <div class="product-card">
         <div class="product-img"><img src="./src/images 2/Pasted image (35)-compressed.webp" alt="case"></div>
         <div class="p-rating">(5)</div>
@@ -652,7 +653,7 @@ by M2</div>
         <div class="p-tags"></div>
         <div class="p-stock in"><i class="fa-solid fa-circle-check"></i> In stock</div>
       </div>
- 
+
       <div class="product-card">
         <div class="badge">SAVE<small>$59.00</small></div>
         <div class="product-img"><img src="./src/images 2/Pasted image (28)-compressed.webp" alt="pc"></div>
@@ -662,7 +663,7 @@ by M2</div>
         <div class="p-tags"><span class="p-tag ship-cost"><i class="fa-solid fa-truck-fast"></i> $2.99 SHIPPING</span></div>
         <div class="p-stock contact"><i class="fa-solid fa-phone"></i> Contact</div>
       </div>
- 
+
       <div class="product-card">
         <div class="product-img"><img src="./src/images 2/Pasted image (37)-compressed.webp" alt="imac"></div>
         <div class="p-rating">(8)</div>
@@ -673,11 +674,11 @@ by M2</div>
       </div>
     </div>
   </div>
- 
+
   <!-- ===================== SECTION 5: AUDIOS / GAMING / OFFICE ===================== -->
   <div class="tri-grid">
- 
-    <div class="tri-panel">
+
+    <div class="tri-panel reveal">
       <div class="card-head" style="margin-bottom:0;">
         <h2>Audios &amp; Cameras</h2>
         <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
@@ -714,8 +715,8 @@ by M2</div>
         </div>
       </div>
     </div>
- 
-    <div class="tri-panel">
+
+    <div class="tri-panel reveal">
       <div class="card-head" style="margin-bottom:0;">
         <h2>Gaming</h2>
         <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
@@ -752,8 +753,8 @@ by M2</div>
         </div>
       </div>
     </div>
- 
-    <div class="tri-panel">
+
+    <div class="tri-panel reveal">
       <div class="card-head" style="margin-bottom:0;">
         <h2>Office Equipments</h2>
         <a class="view-all" href="#">View All <i class="fa-solid fa-chevron-right"></i></a>
@@ -762,7 +763,7 @@ by M2</div>
         <img class="bg" src="./src/images/Pasted image (40)-compressed.webp" alt="projector">
         <div class="banner-text">
           <i class="fa-solid fa-video" style="font-size:22px; display:block; margin-bottom:8px;"></i>
-          
+
         </div>
       </div>
       <div class="tri-divider"></div>
@@ -789,15 +790,15 @@ by M2</div>
         </div>
       </div>
     </div>
- 
+
   </div>
- 
+
 </div>
 <div class="page">
- 
+
   <!-- ===================== PROMO BANNERS ===================== -->
   <div class="banner-row">
-    <div class="banner cashback">
+    <div class="banner cashback reveal">
       <i class="fa-solid fa-credit-card banner-icon"></i>
       <div>
         <div class="b-title">10% <span class="accent">Back</span></div>
@@ -805,23 +806,23 @@ by M2</div>
       </div>
       <div class="banner-visual"><i class="fa-solid fa-wallet"></i></div>
     </div>
- 
-    <div class="banner app">
+
+    <div class="banner app reveal">
       <i class="fa-solid fa-mobile-screen-button banner-icon"></i>
       <div>
         <div class="b-title">Download our app</div>
         <div class="b-text">Enter your phone number and we'll send you a download link.</div>
-        <form class="app-form">
+        <form class="app-form" onsubmit="return false;">
           <input type="text" placeholder="(+xx) xxx...">
           <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send link</button>
         </form>
       </div>
     </div>
   </div>
- 
+
 
   <!-- ===================== FOOTER ===================== -->
-  
+
 </div>
 <div class="footer">
   <div class="footer-grid">
@@ -833,69 +834,69 @@ by M2</div>
       <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@swootechmart.com</a>
 
       <div class="social-row">
-        <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
         <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
-        <a href="./404.html".><i class="fa-brands fa-pinterest-p"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
       </div>
 
-    
+
     </div>
 
     <div class="footer-col">
       <h4>Top Categories</h4>
       <ul>
-        <li><a href="./products.html".>Laptops</a></li>
-        <li><a href="./products.html".>PC &amp; Computers</a></li>
-        <li><a href="./products.html".>Cell Phones</a></li>
-        <li><a href="./products.html".>Tablets</a></li>
-        <li><a href="./products.html".>Gaming &amp; VR</a></li>
-        <li><a href="./products.html".>Networks</a></li>
-        <li><a href="./products.html".>Cameras</a></li>
-        
+        <li><a href="./products.html">Laptops</a></li>
+        <li><a href="./products.html">PC &amp; Computers</a></li>
+        <li><a href="./products.html">Cell Phones</a></li>
+        <li><a href="./products.html">Tablets</a></li>
+        <li><a href="./products.html">Gaming &amp; VR</a></li>
+        <li><a href="./products.html">Networks</a></li>
+        <li><a href="./products.html">Cameras</a></li>
+
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="./404.html".>Home </a></li>
-        <li><a href="./404.html".>About</a></li>
-        <li><a href="./404.html".>Product</a></li>
-        <li><a href="./404.html".>Blog</a></li>
-        <li><a href="./404.html".>contact</a></li>
+        <li><a href="./404.html">Home </a></li>
+        <li><a href="./404.html">About</a></li>
+        <li><a href="./404.html">Product</a></li>
+        <li><a href="./404.html">Blog</a></li>
+        <li><a href="./404.html">contact</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Help Center</h4>
       <ul>
-        <li><a href="./404.html".>Customer Service</a></li>
-        <li><a href="./404.html".>Policy</a></li>
-        <li><a href="./404.html".>Terms &amp; Conditions</a></li>
-        <li><a href="./404.html".>Track Order</a></li>
-        <li><a href="./404.html".>FAQs</a></li>
-        <li><a href="./404.html".>My Account</a></li>
-        <li><a href="./404.html".>Product Support</a></li>
+        <li><a href="./404.html">Customer Service</a></li>
+        <li><a href="./404.html">Policy</a></li>
+        <li><a href="./404.html">Terms &amp; Conditions</a></li>
+        <li><a href="./404.html">Track Order</a></li>
+        <li><a href="./404.html">FAQs</a></li>
+        <li><a href="./404.html">My Account</a></li>
+        <li><a href="./404.html">Product Support</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Partner</h4>
       <ul>
-        <li><a href="./404.html".>Become Seller</a></li>
-        <li><a href="./404.html".>Affiliate</a></li>
-        <li><a href="./404.html".>Advertise</a></li>
-        <li><a href="./404.html".>Partnership</a></li>
+        <li><a href="./404.html">Become Seller</a></li>
+        <li><a href="./404.html">Affiliate</a></li>
+        <li><a href="./404.html">Advertise</a></li>
+        <li><a href="./404.html">Partnership</a></li>
       </ul>
     </div>
 
-   
+
   </div>
 
   <div class="footer-bottom">
-    <div>© 2024 <strong>Shawonetc3</strong>. All Rights Reserved</div>
+    <div>© 2026 <strong>Stackly</strong>. All Rights Reserved</div>
     <div class="pay-icons">
       <i class="fa-brands fa-cc-paypal"></i>
       <i class="fa-brands fa-cc-mastercard"></i>
@@ -903,9 +904,11 @@ by M2</div>
       <i class="fa-brands fa-cc-stripe"></i>
       <i class="fa-solid fa-k" title="Klarna"></i>
     </div>
-    <a class="mobile-link" href="./404.html".>Mobile Site</a>
+    <a class="mobile-link" href="./404.html">Mobile Site</a>
   </div>
 </div>
+<button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 <script src="navbar.js"></script>
+<script src="animation .js"></script>
 </body>
 </html>

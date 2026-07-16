@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Stackly</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="pages.css">
+
+</head>
+<body>
+    <div class="topbar">
+        <header>
+            <div>
+                <p>Hotline 24/7</p>
+                <p><strong>
+                    (025) 388 25 16
+                </strong>
+            </p>
+            </div>
+            <div>
+                <a href="./404.html"> Sell on Stackly</a>
+                <a href="./404.html" class="highlight">Tract Order</a>
+            </div>
+        </header>
+        <nav class="nav-container">
+            <div class="logos">
+                <a href="./index.html">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
+                </a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="./home.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./products.html">Products</a>
+                <a href="./blog.html" class="active">Blog</a>
+                <a href="./contact.html">Contact</a>
+                <a href="./login.html" class="login-btn">Login</a>
+            </div>
+            <div class="quick-links">
+                <div class="quick-nav">
+                   <p><a href="./404.html">
+                       <i class="fa-solid fa-cart-shopping"></i>
+                   </a>
+                </p>
+                   <p>
+                    <a href="./404.html">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                    </p>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="profile">
+                    <p><i class="fa-regular fa-user"></i></p>
+                    <div class="profile-text">
+                        <p>Welcome</p>
+                        <a href="./login.html">Login</a>/ <span>
+                            <a href="./signup.html">Register</a></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-overlay" id="navOverlay"></div>
+    </div>
+    <div class="nav-footer">
+        <div class="search-bar">
+            <p class="categories-txt">All Categories <span>
+                <i class="fa-solid fa-angle-down" ></i>
+            </span>
+        </p>
+            <input type="text" placeholder="Search anything...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <p class="white">FREE SHIPPING OVER RS199</p>
+        <P class="white">30 DAYS MONEY BACK </P>
+        <P class="white">100% SECURE PAYMENT</P>
+    </div>
+
+<div class="page-hero">
+    <div class="crumb"><a href="./home.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Blog</span></div>
+    <h1>Guides, teardowns &amp; buying advice</h1>
+    <p>Straight answers on what to buy and why, written by the same team that sources everything on Stackly.</p>
+</div>
+
+<div class="section">
+  <div class="blog-layout">
+
+    <div class="blog-main">
+
+      <div class="featured-post reveal">
+        <span class="fp-badge">Editor's Pick</span>
+        <div class="fp-body">
+          <div class="fp-meta">
+            <span><i class="fa-solid fa-user"></i> Tara Ahn</span>
+            <span><i class="fa-solid fa-calendar"></i> July 10, 2026</span>
+            <span><i class="fa-solid fa-clock"></i> 7 min read</span>
+          </div>
+          <h2>Laptop buying guide 2026: what actually matters beyond the spec sheet</h2>
+          <p>RAM and CPU numbers get all the attention, but battery health reporting, port selection, and repairability are what decide whether you're happy in year two. Here's what to check before you check out.</p>
+          <a href="#" class="fp-link">Read the full guide <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="blog-filters reveal">
+        <button class="filter-pill active" data-filter="all">All Posts</button>
+        <button class="filter-pill" data-filter="guides">Buying Guides</button>
+        <button class="filter-pill" data-filter="reviews">Reviews</button>
+        <button class="filter-pill" data-filter="tech">Tech News</button>
+        <button class="filter-pill" data-filter="tips">Tips &amp; Tricks</button>
+      </div>
+
+      <div class="blog-grid">
+
+        <div class="blog-card reveal" data-category="reviews">
+          <div class="blog-thumb t1"><span class="cat-tag">Reviews</span><i class="fa-solid fa-headphones"></i></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 8, 2026</span><span><i class="fa-solid fa-clock"></i> 5 min</span></div>
+            <h3><a href="#">BOSO 2 Wireless On-Ear Headphones, three weeks in</a></h3>
+            <p>The noise cancelling holds up on flights, but the app's EQ presets are hit or miss. Full breakdown inside.</p>
+            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="guides">
+          <div class="blog-thumb t2"><span class="cat-tag">Guides</span><i class="fa-solid fa-camera"></i></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 5, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
+            <h3><a href="#">DSLR vs mirrorless in 2026: which one should you actually buy</a></h3>
+            <p>Mirrorless has mostly won, but there's still a case for DSLR if you already own glass. Here's how to decide.</p>
+            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="tech">
+          <div class="blog-thumb t3"><span class="cat-tag">Tech News</span><i class="fa-solid fa-microchip"></i></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 2, 2026</span><span><i class="fa-solid fa-clock"></i> 4 min</span></div>
+            <h3><a href="#">What the new DDR5 price drop means for your next PC build</a></h3>
+            <p>Memory prices are down nearly 20% quarter over quarter. We break down whether now's the time to buy.</p>
+            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="tips">
+          <div class="blog-thumb t4"><span class="cat-tag">Tips</span><i class="fa-solid fa-battery-full"></i></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 28, 2026</span><span><i class="fa-solid fa-clock"></i> 3 min</span></div>
+            <h3><a href="#">5 charging habits that are quietly wrecking your battery</a></h3>
+            <p>Topping up overnight isn't the villain you think it is — but these five habits actually do the damage.</p>
+            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="reviews">
+          <div class="blog-thumb t5"><span class="cat-tag">Reviews</span><i class="fa-solid fa-tablet-screen-button"></i></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 24, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
+            <h3><a href="#">OPod Pro 12.9" review: the case for buying last year's tablet</a></h3>
+            <p>Same silicon as the newest model, better resale value, and it's currently $190 cheaper on Stackly.</p>
+            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="guides">
+          <div class="blog-thumb t6"><span class="cat-tag">Guides</span><i class="fa-solid fa-gamepad"></i></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 20, 2026</span><span><i class="fa-solid fa-clock"></i> 8 min</span></div>
+            <h3><a href="#">Building a $900 gaming PC that doesn't feel like a compromise</a></h3>
+            <p>A full parts list, benchmarked at 1080p and 1440p, with swap-out options if your budget moves either way.</p>
+            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="blog-pagination reveal">
+        <button class="page-btn nav-btn" disabled><i class="fa-solid fa-arrow-left"></i> Prev</button>
+        <button class="page-btn active" data-page="1">1</button>
+        <button class="page-btn" data-page="2">2</button>
+        <button class="page-btn" data-page="3">3</button>
+        <button class="page-btn nav-btn" data-page="2">Next <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+
+    </div>
+
+    <aside class="blog-sidebar">
+      <div class="side-card reveal">
+        <h4><i class="fa-solid fa-magnifying-glass"></i> Search</h4>
+        <div class="side-search">
+          <input type="text" placeholder="Search articles...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+
+      <div class="side-card reveal">
+        <h4><i class="fa-solid fa-layer-group"></i> Categories</h4>
+        <ul class="cat-list">
+          <li><a href="#">Buying Guides <span class="count">18</span></a></li>
+          <li><a href="#">Reviews <span class="count">27</span></a></li>
+          <li><a href="#">Tech News <span class="count">14</span></a></li>
+          <li><a href="#">Tips &amp; Tricks <span class="count">21</span></a></li>
+          <li><a href="#">Deals Roundup <span class="count">9</span></a></li>
+        </ul>
+      </div>
+
+      <div class="side-card reveal">
+        <h4><i class="fa-solid fa-clock-rotate-left"></i> Recent Posts</h4>
+        <div class="recent-post">
+          <div class="rp-thumb" style="background:linear-gradient(135deg,#16C60C,#0e8a08);"><i class="fa-solid fa-headphones"></i></div>
+          <div class="rp-body"><h5><a href="#">BOSO 2 Headphones, three weeks in</a></h5><span>Jul 8, 2026</span></div>
+        </div>
+        <div class="recent-post">
+          <div class="rp-thumb" style="background:linear-gradient(135deg,#00A8E8,#0077a3);"><i class="fa-solid fa-microchip"></i></div>
+          <div class="rp-body"><h5><a href="#">The DDR5 price drop, explained</a></h5><span>Jul 2, 2026</span></div>
+        </div>
+        <div class="recent-post">
+          <div class="rp-thumb" style="background:linear-gradient(135deg,#FFC107,#c98a00);"><i class="fa-solid fa-battery-full"></i></div>
+          <div class="rp-body"><h5><a href="#">5 habits wrecking your battery</a></h5><span>Jun 28, 2026</span></div>
+        </div>
+      </div>
+
+      <div class="side-card reveal">
+        <h4><i class="fa-solid fa-tags"></i> Popular Tags</h4>
+        <div class="tag-cloud">
+          <a href="#">Laptops</a>
+          <a href="#">Audio</a>
+          <a href="#">Gaming PC</a>
+          <a href="#">Cameras</a>
+          <a href="#">Deals</a>
+          <a href="#">Tablets</a>
+          <a href="#">How-To</a>
+        </div>
+      </div>
+
+      <div class="side-card side-newsletter reveal">
+        <h4><i class="fa-solid fa-envelope-open-text"></i> Stay in the loop</h4>
+        <p>New guides and early access to flash sales, once a week, no spam.</p>
+        <form onsubmit="return false;">
+          <div class="form-group"><input type="email" placeholder="you@email.com" required></div>
+          <button type="submit" class="btn-primary full"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+        </form>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+
+<div class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="brand-title">Stackly</div>
+      <div class="hotline-label">Hotline 24/7</div>
+      <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
+      <div class="addr"><i class="fa-solid fa-location-dot"></i> 257 Thatcher Road St, Brooklyn, Manhattan, NY 10092</div>
+      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@swootechmart.com</a>
+
+      <div class="social-row">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Top Categories</h4>
+      <ul>
+        <li><a href="./products.html">Laptops</a></li>
+        <li><a href="./products.html">PC &amp; Computers</a></li>
+        <li><a href="./products.html">Cell Phones</a></li>
+        <li><a href="./products.html">Tablets</a></li>
+        <li><a href="./products.html">Gaming &amp; VR</a></li>
+        <li><a href="./products.html">Networks</a></li>
+        <li><a href="./products.html">Cameras</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="./home.html">Home </a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Product</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./contact.html">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Help Center</h4>
+      <ul>
+        <li><a href="./404.html">Customer Service</a></li>
+        <li><a href="./404.html">Policy</a></li>
+        <li><a href="./404.html">Terms &amp; Conditions</a></li>
+        <li><a href="./404.html">Track Order</a></li>
+        <li><a href="./404.html">FAQs</a></li>
+        <li><a href="./login.html">My Account</a></li>
+        <li><a href="./404.html">Product Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Partner</h4>
+      <ul>
+        <li><a href="./404.html">Become Seller</a></li>
+        <li><a href="./404.html">Affiliate</a></li>
+        <li><a href="./404.html">Advertise</a></li>
+        <li><a href="./404.html">Partnership</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>&copy; 2026 <strong>Stackly</strong>. All Rights Reserved</div>
+    <div class="pay-icons">
+      <i class="fa-brands fa-cc-paypal"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-stripe"></i>
+      <i class="fa-solid fa-k" title="Klarna"></i>
+    </div>
+    <a class="mobile-link" href="./404.html">Mobile Site</a>
+  </div>
+</div>
+<button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="navbar.js"></script>
+<script src="pages.js"></script>
+
+</body>
+</html>

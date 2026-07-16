@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Stackly</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="pages.css">
+
+</head>
+<body>
+    <div class="topbar">
+        <header>
+            <div>
+                <p>Hotline 24/7</p>
+                <p><strong>
+                    (025) 388 25 16
+                </strong>
+            </p>
+            </div>
+            <div>
+                <a href="./404.html"> Sell on Stackly</a>
+                <a href="./404.html" class="highlight">Tract Order</a>
+            </div>
+        </header>
+        <nav class="nav-container">
+            <div class="logos">
+                <a href="./index.html">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
+                </a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="./home.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./products.html">Products</a>
+                <a href="./blog.html">Blog</a>
+                <a href="./contact.html">Contact</a>
+                <a href="./login.html" class="active">Login</a>
+            </div>
+            <div class="quick-links">
+                <div class="quick-nav">
+                   <p><a href="./404.html">
+                       <i class="fa-solid fa-cart-shopping"></i>
+                   </a>
+                </p>
+                   <p>
+                    <a href="./404.html">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                    </p>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="profile">
+                    <p><i class="fa-regular fa-user"></i></p>
+                    <div class="profile-text">
+                        <p>Welcome</p>
+                        <a href="./login.html">Login</a>/ <span>
+                            <a href="./signup.html">Register</a></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-overlay" id="navOverlay"></div>
+    </div>
+    <div class="nav-footer">
+        <div class="search-bar">
+            <p class="categories-txt">All Categories <span>
+                <i class="fa-solid fa-angle-down" ></i>
+            </span>
+        </p>
+            <input type="text" placeholder="Search anything...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <p class="white">FREE SHIPPING OVER RS199</p>
+        <P class="white">30 DAYS MONEY BACK </P>
+        <P class="white">100% SECURE PAYMENT</P>
+    </div>
+
+<div class="auth-shell">
+  <div class="auth-wrap reveal">
+    <div class="auth-visual">
+      <div class="av-logo"><i class="fa-solid fa-bolt"></i> Stackly</div>
+      <div class="av-mid">
+        <h2>Join 248,000+ shoppers.</h2>
+        <p>Create an account to unlock member pricing, faster checkout, and order tracking.</p>
+        <ul class="auth-feature-list">
+          <li><i class="fa-solid fa-circle-check"></i> Exclusive member-only deals</li>
+          <li><i class="fa-solid fa-circle-check"></i> Free returns within 30 days</li>
+          <li><i class="fa-solid fa-circle-check"></i> Early access to flash sales</li>
+        </ul>
+      </div>
+      <div class="av-quote">Takes less than a minute to set up.</div>
+    </div>
+
+    <div class="auth-form-panel">
+      <h2>Create your account</h2>
+      <p class="sub">Already have one? <a href="./login.html" style="color:var(--primary-dark); font-weight:700;">Log in</a></p>
+
+      <div class="social-auth">
+        <button type="button" class="social-btn"><i class="fa-brands fa-google"></i> Google</button>
+        <button type="button" class="social-btn"><i class="fa-brands fa-facebook"></i> Facebook</button>
+      </div>
+      <div class="divider-row"><span>or sign up with email</span></div>
+
+      <form id="signupForm" novalidate>
+        <div class="form-group">
+          <label for="s-name">Full Name</label>
+          <input type="text" id="s-name" placeholder="Jordan Lee" autocomplete="name">
+          <div class="field-msg"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="s-email">Email Address</label>
+            <input type="email" id="s-email" placeholder="you@email.com" autocomplete="email">
+            <div class="field-msg"></div>
+          </div>
+          <div class="form-group">
+            <label for="s-phone">Phone Number</label>
+            <input type="tel" id="s-phone" placeholder="+1 555 123 4567" autocomplete="tel">
+            <div class="field-msg"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="s-password">Password</label>
+          <div class="password-field">
+            <input type="password" id="s-password" data-pw-strength placeholder="Create a password" autocomplete="new-password">
+            <i class="fa-solid fa-eye toggle-eye"></i>
+          </div>
+          <div class="pw-strength"><span></span><span></span><span></span><span></span></div>
+          <div class="field-msg"></div>
+        </div>
+        <div class="form-group">
+          <label for="s-confirm">Confirm Password</label>
+          <div class="password-field">
+            <input type="password" id="s-confirm" placeholder="Re-enter your password" autocomplete="new-password">
+            <i class="fa-solid fa-eye toggle-eye"></i>
+          </div>
+          <div class="field-msg"></div>
+        </div>
+        <div class="form-inline-row">
+          <label class="checkbox-row"><input type="checkbox" id="s-terms"> I agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a></label>
+        </div>
+        <button type="submit" class="btn-primary full"><i class="fa-solid fa-user-plus"></i> Create Account</button>
+      </form>
+
+      <div class="auth-switch">Already have an account? <a href="./login.html">Log in</a></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="brand-title">Stackly</div>
+      <div class="hotline-label">Hotline 24/7</div>
+      <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
+      <div class="addr"><i class="fa-solid fa-location-dot"></i> 257 Thatcher Road St, Brooklyn, Manhattan, NY 10092</div>
+      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@swootechmart.com</a>
+
+      <div class="social-row">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
+        <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Top Categories</h4>
+      <ul>
+        <li><a href="./products.html">Laptops</a></li>
+        <li><a href="./products.html">PC &amp; Computers</a></li>
+        <li><a href="./products.html">Cell Phones</a></li>
+        <li><a href="./products.html">Tablets</a></li>
+        <li><a href="./products.html">Gaming &amp; VR</a></li>
+        <li><a href="./products.html">Networks</a></li>
+        <li><a href="./products.html">Cameras</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="./home.html">Home </a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./products.html">Product</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./contact.html">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Help Center</h4>
+      <ul>
+        <li><a href="./404.html">Customer Service</a></li>
+        <li><a href="./404.html">Policy</a></li>
+        <li><a href="./404.html">Terms &amp; Conditions</a></li>
+        <li><a href="./404.html">Track Order</a></li>
+        <li><a href="./404.html">FAQs</a></li>
+        <li><a href="./login.html">My Account</a></li>
+        <li><a href="./404.html">Product Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Partner</h4>
+      <ul>
+        <li><a href="./404.html">Become Seller</a></li>
+        <li><a href="./404.html">Affiliate</a></li>
+        <li><a href="./404.html">Advertise</a></li>
+        <li><a href="./404.html">Partnership</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>&copy; 2026 <strong>Stackly</strong>. All Rights Reserved</div>
+    <div class="pay-icons">
+      <i class="fa-brands fa-cc-paypal"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-stripe"></i>
+      <i class="fa-solid fa-k" title="Klarna"></i>
+    </div>
+    <a class="mobile-link" href="./404.html">Mobile Site</a>
+  </div>
+</div>
+<button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="navbar.js"></script>
+<script src="pages.js"></script>
+
+</body>
+</html>
