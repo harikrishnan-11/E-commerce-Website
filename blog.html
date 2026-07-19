@@ -6,23 +6,444 @@
     <title>Blog - Stackly</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="nav.css">
-    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="./blog.css">
+    <style>
+      /* =========================================================
+   BLOG.CSS — everything the blog page needs, self-contained
+========================================================= */
 
+:root{
+  --primary:#16C60C;
+  --primary-dark:#119A09;
+  --primary-light:#000000;
+  --secondary:#2E2E2E;
+  --secondary-light:#5F5F5F;
+  --bg-color:#F5F5F5;
+  --white:#FFFFFF;
+  --light-gray:#F1F1F1;
+  --gray:#D9D9D9;
+  --border:#E8E8E8;
+  --text-primary:#222222;
+  --text-secondary:#666666;
+  --text-light:#999999;
+  --danger:#FF3B30;
+  --warning:#FFC107;
+  --success:#16C60C;
+  --info:#00A8E8;
+  --btn-primary:#16C60C;
+  --btn-primary-hover:#119A09;
+  --shadow-sm:0 2px 6px rgba(0,0,0,.08);
+  --shadow-md:0 6px 16px rgba(0,0,0,.12);
+  --shadow-lg:0 10px 30px rgba(0,0,0,.15);
+  --radius-sm:6px;
+  --radius-md:10px;
+  --radius-lg:16px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  font-size:16px;
+}
+
+*, *::before, *::after{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ scroll-behavior:smooth; }
+html, body{
+  overflow-x:hidden;
+  max-width:100%;
+  background-color:var(--light-gray);
+  width:100%;
+  font-family:"Segoe UI", Arial, sans-serif;
+  color:var(--text-primary);
+}
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+button, input{ font-family:inherit; }
+button{ cursor:pointer; border:none; background:none; }
+img{ max-width:100%; display:block; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* =========================================================
+   TOPBAR / NAV
+========================================================= */
+.topbar{ background:var(--secondary); position:sticky; top:0; z-index:1000; }
+.nav-links a.login-btn{ display:none; }
+
+.topbar > header{
+  max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between;
+  padding:8px 30px; font-size:13px; color:rgba(255,255,255,.85);
+}
+.topbar > header > div:first-child{ display:flex; align-items:center; gap:6px; }
+.topbar > header strong{ color:var(--white); }
+.topbar > header > div:last-child{ display:flex; gap:22px; }
+.topbar > header a{ color:rgba(255,255,255,.85); font-size:13px; transition:color .2s ease; }
+.topbar > header a:hover{ color:var(--primary-light); }
+.topbar > header a.highlight{ color:var(--primary-light); font-weight:700; }
+
+.nav-container{
+  max-width:1400px; margin:0 auto; background:var(--white); display:flex; align-items:center;
+  justify-content:space-between; gap:24px; padding:14px 30px; flex-wrap:wrap;
+}
+.logos{ width:180px; height:60px; flex-shrink:0; }
+.logos img{ height:100%; width:100%; object-fit:cover; display:block; transition:transform .25s ease; }
+.logos a:hover img{ transform:scale(1.04); }
+
+.nav-links{ display:flex; align-items:center; gap:28px; }
+.nav-links a{ position:relative; font-size:14.5px; font-weight:600; color:var(--text-primary); padding:6px 0; transition:color .2s ease; }
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--primary); transition:width .25s ease;
+}
+.nav-links a:hover, .nav-links a.active{ color:var(--primary-dark); }
+.nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+.nav-links a.login-btn{
+  background:var(--primary); color:var(--white) !important; padding:9px 20px; border-radius:30px; font-weight:700;
+  transition:background .2s ease, transform .2s ease;
+}
+.nav-links a.login-btn::after{ display:none; }
+.nav-links a.login-btn:hover{ background:var(--primary-dark); color:var(--white) !important; transform:translateY(-2px); }
+
+.quick-links{ display:flex; align-items:center; gap:26px; }
+.quick-nav{ display:flex; align-items:center; gap:18px; }
+.quick-nav a{ font-size:18px; color:var(--text-primary); position:relative; transition:color .2s ease, transform .2s ease; }
+.quick-nav a:hover{ color:var(--primary); transform:translateY(-2px); }
+
+.profile{ display:flex; align-items:center; gap:10px; font-size:18px; color:var(--text-primary); }
+.profile-text p{ font-size:11px; color:var(--text-light); margin:0; line-height:1.3; }
+.profile-text a{ font-size:12.5px; font-weight:700; color:var(--text-primary); }
+.profile-text span a{ color:var(--primary-dark); }
+
+.hamburger{
+  display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+  width:38px; height:38px; background:transparent; border:none; cursor:pointer; z-index:1201;
+}
+.hamburger span{ width:24px; height:2.5px; background:var(--text-primary); border-radius:2px; transition:transform .3s ease, opacity .3s ease, background .3s ease; }
+.hamburger.open span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+
+.nav-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.45); opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:1150; }
+.nav-overlay.show{ opacity:1; pointer-events:auto; }
+
+.nav-footer{
+  max-width:1400px; margin:0 auto; background:var(--primary); display:flex; align-items:center;
+  justify-content:space-between; gap:20px; padding:12px 30px; flex-wrap:wrap;
+}
+.search-bar{
+  display:flex; align-items:center; background:var(--white); border-radius:30px; overflow:hidden;
+  flex:1 1 220px; max-width:520px; min-width:0; padding:0 0 0 18px;
+}
+.categories-txt{
+  font-size:13px; font-weight:600; color:var(--text-primary); white-space:nowrap; display:flex; align-items:center;
+  gap:6px; padding-right:14px; border-right:1px solid var(--border); cursor:pointer;
+}
+.search-bar input{ border:none; outline:none; flex:1; min-width:0; padding:11px 12px; font-size:13px; background:transparent; }
+.search-bar > i{
+  background:var(--primary); color:var(--white); width:38px; height:38px; border-radius:50%; display:flex;
+  align-items:center; justify-content:center; flex-shrink:0; cursor:pointer; transition:background .2s ease;
+}
+.search-bar > i:hover{ background:var(--primary-dark); }
+.nav-footer .white{ color:rgba(255,255,255,.95); font-size:12.5px; font-weight:600; white-space:nowrap; }
+
+@media (max-width:992px){
+  .topbar > header{ padding:8px 20px; }
+  .nav-container{ padding:12px 20px; }
+  .nav-links{ gap:18px; }
+  .nav-links a{ font-size:13.5px; }
+  .nav-footer{ padding:10px 20px; }
+}
+
+@media (max-width:860px){
+  .hamburger{ display:flex; }
+  .nav-links{
+    position:fixed; top:0; right:0; height:100vh; width:min(78vw, 320px); background:var(--white);
+    flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:6px; padding:90px 30px 30px;
+    transform:translateX(100%); transition:transform .35s ease; z-index:1200; box-shadow:-8px 0 30px rgba(0,0,0,.15);
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ width:100%; padding:14px 0; border-bottom:1px solid var(--border); font-size:15px; }
+  .nav-links a::after{ display:none; }
+  .nav-links a.login-btn{ text-align:center; margin-top:12px; border:none; }
+  .quick-links{ gap:16px; }
+  .profile-text{ display:none; }
+}
+
+@media (max-width:768px){
+  .topbar > header{ align-items:flex-start; gap:4px; font-size:12px; padding:8px 16px; }
+  .topbar > header > div:last-child{ gap:14px; }
+  .nav-container{ padding:12px 16px; }
+  .nav-footer{ flex-wrap:wrap; padding:10px 16px; }
+  .search-bar{ order:1; flex:1 1 100%; max-width:none; }
+  .nav-footer .white{ order:2; font-size:11px; }
+}
+
+@media (max-width:480px){
+  .topbar > header{ display:none; }
+  .logos{ height:40px; width:100px; }
+  .categories-txt{ display:none; }
+  .search-bar{ padding-left:14px; }
+  .nav-footer .white:nth-child(3), .nav-footer .white:nth-child(4){ display:none; }
+}
+
+/* =========================================================
+   PAGE HERO / BREADCRUMB
+========================================================= */
+.page-hero{
+  max-width:1400px; margin:0 auto; padding:46px 30px; display:flex; flex-direction:column; gap:10px;
+  animation:fadeInDown .6s var(--ease) both;
+}
+.page-hero.has-image{
+  margin-top:10px; border-radius:20px; position:relative; overflow:hidden;
+  min-height:300px; justify-content:center; padding:60px 30px; background-size:cover; background-position:center;
+}
+.page-hero.has-image::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(100deg, rgba(20,20,20,.86) 0%, rgba(20,20,20,.62) 45%, rgba(20,20,20,.3) 100%);
+}
+.page-hero.has-image > *{ position:relative; z-index:1; max-width:1400px; margin:0 auto; width:100%; }
+.page-hero.has-image .crumb, .page-hero.has-image .crumb a{ color:rgba(255,255,255,.75); }
+.page-hero.has-image .crumb a:hover{ color:var(--primary-light); }
+.page-hero.has-image .crumb i{ color:rgba(255,255,255,.5); }
+.page-hero.has-image h1{ color:var(--white); }
+.page-hero.has-image p{ color:rgba(255,255,255,.82); }
+.page-hero .crumb{ font-size:13px; color:var(--text-light); display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.page-hero .crumb a{ color:var(--text-secondary); transition:color .2s var(--ease); }
+.page-hero .crumb a:hover{ color:var(--primary-dark); }
+.page-hero .crumb i{ font-size:9px; color:var(--text-light); }
+.page-hero h1{ font-size:clamp(24px, 4vw, 42px); font-weight:800; letter-spacing:-.5px; }
+.page-hero p{ color:var(--text-secondary); font-size:15px; max-width:560px; }
+
+.section{ max-width:1400px; margin:0 auto; padding:10px 30px 60px; width:100%; }
+
+.btn-primary{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  background:var(--btn-primary); color:var(--white); font-weight:700; font-size:14px;
+  padding:14px 26px; border-radius:30px; border:none; cursor:pointer;
+  transition:background .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.btn-primary:hover{ background:var(--btn-primary-hover); transform:translateY(-2px); box-shadow:var(--shadow-md); }
+.btn-primary.full{ width:100%; }
+
+/* =========================================================
+   BLOG LAYOUT
+========================================================= */
+.blog-layout{ display:grid; grid-template-columns:2.1fr 1fr; gap:34px; align-items:start; }
+
+.featured-post{
+  position:relative; border-radius:var(--radius-lg); overflow:hidden; min-height:300px;
+  display:flex; align-items:flex-end; padding:34px; color:var(--white); margin-bottom:34px;
+  background-size:cover; background-position:center;
+}
+.featured-post::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(0deg, rgba(15,20,15,.92) 0%, rgba(15,20,15,.55) 45%, rgba(15,20,15,.15) 100%);
+}
+.featured-post .fp-badge{
+  position:absolute; top:24px; left:24px; z-index:1; background:var(--primary); color:var(--white);
+  font-size:11px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:7px 14px; border-radius:20px;
+}
+.featured-post .fp-body{ position:relative; z-index:1; max-width:500px; }
+.featured-post .fp-meta{ display:flex; gap:14px; font-size:12px; color:rgba(255,255,255,.75); margin-bottom:12px; flex-wrap:wrap; }
+.featured-post .fp-meta span{ display:flex; align-items:center; gap:6px; }
+.featured-post h2{ font-size:clamp(20px,2.6vw,28px); font-weight:800; line-height:1.35; margin-bottom:10px; }
+.featured-post p{ font-size:13.5px; color:rgba(255,255,255,.75); line-height:1.7; margin-bottom:18px; max-width:520px; }
+.featured-post .fp-link{
+  display:inline-flex; align-items:center; gap:8px; color:var(--white); font-weight:700; font-size:13px;
+  border-bottom:2px solid var(--primary); padding-bottom:3px; transition:gap .2s var(--ease), color .2s var(--ease);
+}
+.featured-post .fp-link:hover{ gap:12px; color:var(--primary-light); }
+
+.blog-filters{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+.filter-pill{
+  padding:9px 18px; border-radius:22px; border:1.5px solid var(--border); background:var(--white);
+  font-size:12.5px; font-weight:700; color:var(--text-secondary); cursor:pointer;
+  transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.filter-pill:hover{ transform:translateY(-2px); border-color:var(--primary); color:var(--primary-dark); }
+.filter-pill.active{ background:var(--primary); border-color:var(--primary); color:var(--white); }
+
+.blog-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:22px; margin-bottom:30px; width:100%; }
+.blog-card{
+  background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden;
+  display:flex; flex-direction:column; width:100%; transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.blog-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.blog-card.is-hidden{ display:none; }
+.no-results{ text-align:center; color:var(--text-secondary); font-size:14px; padding:30px 0; }
+
+.blog-thumb{ width:100%; height:200px; position:relative; }
+.blog-thumb img{ width:100%; height:100%; object-fit:cover; transition:transform .3s var(--ease); }
+.blog-card:hover .blog-thumb img{ transform:scale(1.07); }
+.blog-thumb .cat-tag{
+  position:absolute; top:12px; left:12px; background:rgba(255,255,255,.92); color:var(--text-primary);
+  font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.4px; padding:5px 10px; border-radius:16px; z-index:1;
+}
+.blog-body{ padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; }
+.blog-meta{ font-size:11.5px; color:var(--text-light); display:flex; gap:12px; flex-wrap:wrap; }
+.blog-meta span{ display:flex; align-items:center; gap:5px; }
+.blog-body h3{ font-size:15.5px; font-weight:800; line-height:1.4; }
+.blog-body h3 a{ transition:color .2s var(--ease); }
+.blog-body h3 a:hover{ color:var(--primary-dark); }
+.blog-body p{ font-size:13px; color:var(--text-secondary); line-height:1.65; flex:1; }
+.blog-readmore{
+  font-size:12.5px; font-weight:700; color:var(--primary-dark); display:inline-flex; align-items:center; gap:6px;
+  align-self:flex-start; transition:gap .2s var(--ease);
+}
+.blog-readmore:hover{ gap:10px; }
+
+.blog-pagination{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; flex-wrap:wrap; }
+.page-btn{
+  width:38px; height:38px; border-radius:10px; border:1.5px solid var(--border); background:var(--white);
+  display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:var(--text-secondary);
+  cursor:pointer; transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.page-btn:hover{ border-color:var(--primary); color:var(--primary-dark); }
+.page-btn.active{ background:var(--primary); border-color:var(--primary); color:var(--white); }
+.page-btn.nav-btn{ width:auto; padding:0 14px; gap:6px; }
+.page-btn:disabled{ opacity:.4; cursor:not-allowed; }
+
+/* Sidebar */
+.blog-sidebar{ display:flex; flex-direction:column; gap:22px; position:sticky; top:110px; }
+.side-card{ background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; }
+.side-card h4{ font-size:14px; font-weight:800; margin-bottom:18px; display:flex; align-items:center; gap:9px; }
+.side-card h4 i{ color:var(--primary); }
+
+.side-search{ display:flex; align-items:center; background:var(--light-gray); border-radius:30px; padding:0 6px 0 16px; }
+.side-search input{ border:none; background:transparent; outline:none; flex:1; min-width:0; padding:11px 6px; font-size:13px; }
+.side-search i{ background:var(--primary); color:var(--white); width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; cursor:pointer; transition:background .2s var(--ease); }
+.side-search i:hover{ background:var(--primary-dark); }
+
+.cat-list{ display:flex; flex-direction:column; gap:4px; }
+.cat-list li a{
+  display:flex; justify-content:space-between; align-items:center; padding:10px 4px; font-size:13px;
+  color:var(--text-secondary); border-bottom:1px dashed var(--border); transition:color .2s var(--ease), padding-left .2s var(--ease);
+}
+.cat-list li:last-child a{ border-bottom:none; }
+.cat-list li a:hover{ color:var(--primary-dark); padding-left:6px; }
+.cat-list li a span.count{ background:var(--light-gray); color:var(--text-light); font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:10px; }
+
+.recent-post{ display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); }
+.recent-post:last-child{ border-bottom:none; padding-bottom:0; }
+.recent-post .rp-body h5{ font-size:12.5px; font-weight:700; line-height:1.4; margin-bottom:4px; }
+.recent-post .rp-body h5 a:hover{ color:var(--primary-dark); }
+.recent-post .rp-body span{ font-size:11px; color:var(--text-light); }
+
+.tag-cloud{ display:flex; flex-wrap:wrap; gap:8px; }
+.tag-cloud a{
+  font-size:11.5px; font-weight:600; padding:7px 13px; border-radius:16px; background:var(--light-gray); color:var(--text-secondary);
+  transition:background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+}
+.tag-cloud a:hover{ background:var(--primary); color:var(--white); transform:translateY(-2px); }
+
+.side-newsletter{ background:linear-gradient(150deg, var(--secondary), #163b16 140%); color:var(--white); }
+.side-newsletter h4{ color:var(--white); }
+.side-newsletter h4 i{ color:var(--primary-light); }
+.side-newsletter p{ font-size:12.5px; color:rgba(255,255,255,.7); line-height:1.6; margin-bottom:16px; }
+.side-newsletter .form-group{ margin-bottom:12px; }
+.side-newsletter input{
+  width:100%; border:1.5px solid rgba(255,255,255,.22); background:rgba(255,255,255,.08); border-radius:var(--radius-sm);
+  padding:11px 14px; font-size:13px; color:var(--white);
+}
+.side-newsletter input::placeholder{ color:rgba(255,255,255,.55); }
+.side-newsletter input:focus{ outline:none; border-color:var(--primary-light); }
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer{ background:var(--primary-dark); color:rgb(247,247,247); margin-top:10px; }
+.footer a{ text-decoration:none; }
+.footer-grid{
+  max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1fr; gap:30px; padding:50px 30px 30px;
+}
+.footer-col .brand-title{ font-size:22px; font-weight:800; color:var(--white); margin-bottom:14px; }
+.footer-col h4{ font-size:14px; font-weight:700; color:var(--white); text-transform:uppercase; letter-spacing:.4px; margin-bottom:16px; }
+.footer-col .hotline-label{ font-size:12px; color:rgb(255,255,255); }
+.footer-col .hotline-num{ font-size:16px; font-weight:700; color:var(--white); margin:4px 0 12px; display:flex; align-items:center; gap:8px; }
+.footer-col .addr{ font-size:13px; line-height:1.6; display:flex; gap:8px; margin-bottom:10px; }
+.footer-col .mail-link{ font-size:13px; display:inline-flex; align-items:center; gap:8px; color:white; transition:color .2s var(--ease); }
+.footer-col .mail-link:hover{ color:black; }
+.footer-col ul li{ margin-bottom:12px; }
+.footer-col ul li a{ font-size:13.5px; color:rgb(255,255,255); transition:color .2s var(--ease), padding-left .2s var(--ease); }
+.footer-col ul li a:hover{ color:var(--secondary); padding-left:4px; }
+
+.social-row{ display:flex; gap:10px; margin-top:18px; }
+.social-row a{
+  width:34px; height:34px; border-radius:50%; background:rgb(255,255,255); color:#000; display:flex;
+  align-items:center; justify-content:center; font-size:14px; transition:background .2s var(--ease), transform .2s var(--ease);
+}
+.social-row a:hover{ background:var(--primary); color:white; transform:translateY(-3px); }
+
+.footer-bottom{
+  max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between;
+  padding:20px 30px; border-top:1px solid rgba(255,255,255,.1); font-size:12.5px; flex-wrap:wrap; gap:14px;
+}
+.pay-icons{ display:flex; gap:14px; font-size:20px; color:rgba(255,255,255,.75); }
+.mobile-link{ color:rgba(255,255,255,.75); transition:color .2s var(--ease); }
+.mobile-link:hover{ color:var(--primary-light); }
+
+@media (max-width:1100px){ .footer-grid{ grid-template-columns:1fr 1fr 1fr; } }
+@media (max-width:640px){
+  .footer-grid{ grid-template-columns:1fr 1fr; padding:36px 16px 20px; gap:24px; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; padding:16px; }
+}
+@media (max-width:420px){ .footer-grid{ grid-template-columns:1fr; } }
+
+/* =========================================================
+   SCROLL TO TOP
+========================================================= */
+.scroll-top{
+  position:fixed; right:22px; bottom:22px; width:46px; height:46px; border-radius:50%;
+  background:var(--primary); color:var(--white); font-size:16px; display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-md); opacity:0; transform:translateY(12px); pointer-events:none;
+  transition:opacity .3s var(--ease), transform .3s var(--ease), background .2s var(--ease); z-index:900;
+}
+.scroll-top.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+.scroll-top:hover{ background:var(--primary-dark); }
+
+/* =========================================================
+   SCROLL-REVEAL
+========================================================= */
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+@keyframes fadeInDown{
+  from{ opacity:0; transform:translateY(-14px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* =========================================================
+   RESPONSIVE — blog-specific
+========================================================= */
+@media (max-width:1100px){
+  .blog-layout{ grid-template-columns:1fr; }
+  .blog-sidebar{ position:static; }
+}
+@media (max-width:768px){
+  .page-hero{ padding:34px 20px; }
+  .section{ padding:6px 20px 46px; }
+  .featured-post{ min-height:320px; padding:24px; }
+  .blog-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:640px){
+  .blog-grid{ grid-template-columns:1fr; }
+  .blog-filters{ overflow-x:auto; flex-wrap:nowrap; padding-bottom:6px; }
+  .filter-pill{ white-space:nowrap; }
+}
+    </style>
 </head>
 <body>
     <div class="topbar">
         <header>
             <div>
                 <p>Hotline 24/7</p>
-                <p><strong>
-                    (025) 388 25 16
-                </strong>
-            </p>
+                <p><strong>(025) 388 25 16</strong></p>
             </div>
             <div>
-                <a href="./404.html"> Sell on Stackly</a>
+                <a href="./404.html">Sell on Stackly</a>
                 <a href="./404.html" class="highlight">Tract Order</a>
             </div>
         </header>
@@ -42,15 +463,8 @@
             </div>
             <div class="quick-links">
                 <div class="quick-nav">
-                   <p><a href="./404.html">
-                       <i class="fa-solid fa-cart-shopping"></i>
-                   </a>
-                </p>
-                   <p>
-                    <a href="./404.html">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    </p>
+                    <p><a href="./404.html"><i class="fa-solid fa-cart-shopping"></i></a></p>
+                    <p><a href="./404.html"><i class="fa-regular fa-heart"></i></a></p>
                     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
@@ -58,279 +472,376 @@
                     </button>
                 </div>
                 <div class="profile">
-                    <p><i class="fa-regular fa-user"></i></p>
+                    <p><i class="fa-regular fa-user" id="userIcon"></i></p>
                     <div class="profile-text">
                         <p>Welcome</p>
-                        <a href="./login.html">Login</a>/ <span>
-                            <a href="./signup.html">Register</a></span>
+                        <a href="./login.html">Login</a>/ <span><a href="./signup.html">Register</a></span>
                     </div>
                 </div>
             </div>
         </nav>
         <div class="nav-overlay" id="navOverlay"></div>
     </div>
+
     <div class="nav-footer">
         <div class="search-bar">
-            <p class="categories-txt">All Categories <span>
-                <i class="fa-solid fa-angle-down" ></i>
-            </span>
-        </p>
+            <p class="categories-txt">All Categories <span><i class="fa-solid fa-angle-down"></i></span></p>
             <input type="text" placeholder="Search anything...">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <p class="white">FREE SHIPPING OVER RS199</p>
-        <P class="white">30 DAYS MONEY BACK </P>
-        <P class="white">100% SECURE PAYMENT</P>
+        <p class="white">30 DAYS MONEY BACK</p>
+        <p class="white">100% SECURE PAYMENT</p>
     </div>
 
-<div class="page-hero has-image" style="background-image:url('./src/blog_9-1024x552.webp');">
-    <div class="crumb"><a href="./home.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Blog</span></div>
-    <h1>Guides, teardowns &amp; buying advice</h1>
-    <p>Straight answers on what to buy and why, written by the same team that sources everything on Stackly.</p>
-</div>
-
-<div class="section">
-  <div class="blog-layout">
-
-    <div class="blog-main">
-
-      <div class="featured-post reveal" style="background-image:url('./src/service_1\ \(1\).webp');">
-        <span class="fp-badge">Editor's Pick</span>
-        <div class="fp-body">
-          <div class="fp-meta">
-            <span><i class="fa-solid fa-user"></i> Tara Ahn</span>
-            <span><i class="fa-solid fa-calendar"></i> July 10, 2026</span>
-            <span><i class="fa-solid fa-clock"></i> 7 min read</span>
-          </div>
-          <h2>Laptop buying guide 2026: what actually matters beyond the spec sheet</h2>
-          <p>RAM and CPU numbers get all the attention, but battery health reporting, port selection, and repairability are what decide whether you're happy in year two. Here's what to check before you check out.</p>
-          <a href="#" class="fp-link">Read the full guide <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="blog-filters reveal">
-        <button class="filter-pill active" data-filter="all">All Posts</button>
-        <button class="filter-pill" data-filter="guides">Buying Guides</button>
-        <button class="filter-pill" data-filter="reviews">Reviews</button>
-        <button class="filter-pill" data-filter="tech">Tech News</button>
-        <button class="filter-pill" data-filter="tips">Tips &amp; Tricks</button>
-      </div>
-
-      <div class="blog-grid">
-
-        <div class="blog-card reveal" data-category="reviews">
-          <div class="blog-thumb"><img src="./src/images 2/Pasted image (7)-compressed.webp" alt="Headphones"><span class="cat-tag">Reviews</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 8, 2026</span><span><i class="fa-solid fa-clock"></i> 5 min</span></div>
-            <h3><a href="#">BOSO 2 Wireless On-Ear Headphones, three weeks in</a></h3>
-            <p>The noise cancelling holds up on flights, but the app's EQ presets are hit or miss. Full breakdown inside.</p>
-            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="guides">
-          <div class="blog-thumb"><img src="./src/images/Untitled design (16)-compressed.webp" alt="Camera"><span class="cat-tag">Guides</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 5, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
-            <h3><a href="#">DSLR vs mirrorless in 2026: which one should you actually buy</a></h3>
-            <p>Mirrorless has mostly won, but there's still a case for DSLR if you already own glass. Here's how to decide.</p>
-            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        
-
-        <div class="blog-card reveal" data-category="tips">
-          <div class="blog-thumb"><img src="./src/pngwing.com (1).webp" alt="Phone charging"><span class="cat-tag">Tips</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 28, 2026</span><span><i class="fa-solid fa-clock"></i> 3 min</span></div>
-            <h3><a href="#">5 charging habits that are quietly wrecking your battery</a></h3>
-            <p>Topping up overnight isn't the villain you think it is — but these five habits actually do the damage.</p>
-            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="reviews">
-          <div class="blog-thumb"><img src="./src/images/Pasted image (26)-compressed.webp" alt="Tablet"><span class="cat-tag">Reviews</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 24, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
-            <h3><a href="#">OPod Pro 12.9" review: the case for buying last year's tablet</a></h3>
-            <p>Same silicon as the newest model, better resale value, and it's currently $190 cheaper on Stackly.</p>
-            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="guides">
-          <div class="blog-thumb"><img src="./src/images/Pasted image (36)-compressed.webp" alt="Gaming PC"><span class="cat-tag">Guides</span></div>
-          <div class="blog-body">
-            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 20, 2026</span><span><i class="fa-solid fa-clock"></i> 8 min</span></div>
-            <h3><a href="#">Building a $900 gaming PC that doesn't feel like a compromise</a></h3>
-            <p>A full parts list, benchmarked at 1080p and 1440p, with swap-out options if your budget moves either way.</p>
-            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="blog-pagination reveal">
-        <button class="page-btn nav-btn" disabled><i class="fa-solid fa-arrow-left"></i> Prev</button>
-        <button class="page-btn active" data-page="1">1</button>
-        <button class="page-btn" data-page="2">2</button>
-        <button class="page-btn" data-page="3">3</button>
-        <button class="page-btn nav-btn" data-page="2">Next <i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-
+    <div class="page-hero has-image" style="background-image:url('./src/blog_9-1024x552.webp');">
+        <div class="crumb"><a href="./home.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Blog</span></div>
+        <h1>Guides, teardowns &amp; buying advice</h1>
+        <p>Straight answers on what to buy and why, written by the same team that sources everything on Stackly.</p>
     </div>
 
-    <aside class="blog-sidebar">
-      <div class="side-card reveal">
-        <h4><i class="fa-solid fa-magnifying-glass"></i> Search</h4>
-        <div class="side-search">
-          <input type="text" placeholder="Search articles...">
-          <i class="fa-solid fa-magnifying-glass"></i>
+    <div class="section">
+        <div class="blog-layout">
+
+            <div class="blog-main">
+
+                <div class="featured-post reveal" style="background-image:url('./src/service_1 (1).webp');">
+                    <span class="fp-badge">Editor's Pick</span>
+                    <div class="fp-body">
+                        <div class="fp-meta">
+                            <span><i class="fa-solid fa-user"></i> Tara Ahn</span>
+                            <span><i class="fa-solid fa-calendar"></i> July 10, 2026</span>
+                            <span><i class="fa-solid fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h2>Laptop buying guide 2026: what actually matters beyond the spec sheet</h2>
+                        <p>RAM and CPU numbers get all the attention, but battery health reporting, port selection, and repairability are what decide whether you're happy in year two. Here's what to check before you check out.</p>
+                        <a href="#" class="fp-link">Read the full guide <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="blog-filters reveal">
+                    <button class="filter-pill active" data-filter="all">All Posts</button>
+                    <button class="filter-pill" data-filter="guides">Buying Guides</button>
+                    <button class="filter-pill" data-filter="reviews">Reviews</button>
+                    <button class="filter-pill" data-filter="tech">Tech News</button>
+                    <button class="filter-pill" data-filter="tips">Tips &amp; Tricks</button>
+                </div>
+
+                <div class="blog-grid" id="blogGrid">
+
+                    <div class="blog-card reveal" data-category="reviews">
+                        <div class="blog-thumb"><img src="./src/images 2/Pasted image (7)-compressed.webp" alt="Headphones"><span class="cat-tag">Reviews</span></div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 8, 2026</span><span><i class="fa-solid fa-clock"></i> 5 min</span></div>
+                            <h3><a href="#">BOSO 2 Wireless On-Ear Headphones, three weeks in</a></h3>
+                            <p>The noise cancelling holds up on flights, but the app's EQ presets are hit or miss. Full breakdown inside.</p>
+                            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card reveal" data-category="guides">
+                        <div class="blog-thumb"><img src="./src/images/Untitled design (16)-compressed.webp" alt="Camera"><span class="cat-tag">Guides</span></div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 5, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
+                            <h3><a href="#">DSLR vs mirrorless in 2026: which one should you actually buy</a></h3>
+                            <p>Mirrorless has mostly won, but there's still a case for DSLR if you already own glass. Here's how to decide.</p>
+                            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card reveal" data-category="tips">
+                        <div class="blog-thumb"><img src="./src/pngwing.com (1).webp" alt="Phone charging"><span class="cat-tag">Tips</span></div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 28, 2026</span><span><i class="fa-solid fa-clock"></i> 3 min</span></div>
+                            <h3><a href="#">5 charging habits that are quietly wrecking your battery</a></h3>
+                            <p>Topping up overnight isn't the villain you think it is — but these five habits actually do the damage.</p>
+                            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card reveal" data-category="reviews">
+                        <div class="blog-thumb"><img src="./src/images/Pasted image (26)-compressed.webp" alt="Tablet"><span class="cat-tag">Reviews</span></div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 24, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
+                            <h3><a href="#">OPod Pro 12.9" review: the case for buying last year's tablet</a></h3>
+                            <p>Same silicon as the newest model, better resale value, and it's currently $190 cheaper on Stackly.</p>
+                            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card reveal" data-category="guides">
+                        <div class="blog-thumb"><img src="./src/images/Pasted image (36)-compressed.webp" alt="Gaming PC"><span class="cat-tag">Guides</span></div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jun 20, 2026</span><span><i class="fa-solid fa-clock"></i> 8 min</span></div>
+                            <h3><a href="#">Building a $900 gaming PC that doesn't feel like a compromise</a></h3>
+                            <p>A full parts list, benchmarked at 1080p and 1440p, with swap-out options if your budget moves either way.</p>
+                            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card reveal" data-category="tech">
+                        <div class="blog-thumb"><img src="./src/images 2/smartwatch.webp" alt="Smartwatch"><span class="cat-tag">Technology</span></div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 15, 2026</span><span><i class="fa-solid fa-clock"></i> 6 min</span></div>
+                            <h3><a href="#">Top 5 Smartwatches You Should Consider in 2026</a></h3>
+                            <p>Looking for the perfect smartwatch? We compare battery life, health tracking, display quality, and value to help you choose the best model.</p>
+                            <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="no-results" id="noResults" hidden>No posts match this category yet.</p>
+
+               
+            </div>
+
+            <aside class="blog-sidebar">
+                <div class="side-card reveal">
+                    <h4><i class="fa-solid fa-magnifying-glass"></i> Search</h4>
+                    <div class="side-search">
+                        <input type="text" placeholder="Search articles...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <div class="side-card reveal">
+                    <h4><i class="fa-solid fa-layer-group"></i> Categories</h4>
+                    <ul class="cat-list">
+                        <li><a href="#">Buying Guides <span class="count">18</span></a></li>
+                        <li><a href="#">Reviews <span class="count">27</span></a></li>
+                        <li><a href="#">Tech News <span class="count">14</span></a></li>
+                        <li><a href="#">Tips &amp; Tricks <span class="count">21</span></a></li>
+                        <li><a href="#">Deals Roundup <span class="count">9</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="side-card reveal">
+                    <h4><i class="fa-solid fa-clock-rotate-left"></i> Recent Posts</h4>
+                    <div class="recent-post">
+                        <div class="rp-body"><h5><a href="./404.html">BOSO 2 Headphones, three weeks in</a></h5><span>Jul 8, 2026</span></div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="rp-body"><h5><a href="./404.html">The DDR5 price drop, explained</a></h5><span>Jul 2, 2026</span></div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="rp-body"><h5><a href="./404.html">5 habits wrecking your battery</a></h5><span>Jun 28, 2026</span></div>
+                    </div>
+                </div>
+
+                <div class="side-card reveal">
+                    <h4><i class="fa-solid fa-tags"></i> Popular Tags</h4>
+                    <div class="tag-cloud">
+                        <a href="#">Laptops</a>
+                        <a href="#">Audio</a>
+                        <a href="#">Gaming PC</a>
+                        <a href="#">Cameras</a>
+                        <a href="#">Deals</a>
+                        <a href="#">Tablets</a>
+                        <a href="#">How-To</a>
+                    </div>
+                </div>
+
+                <div class="side-card side-newsletter reveal">
+                    <h4><i class="fa-solid fa-envelope-open-text"></i> Stay in the loop</h4>
+                    <p>New guides and early access to flash sales, once a week, no spam.</p>
+                    <form id="newsletterForm">
+                        <div class="form-group"><input type="email" placeholder="you@email.com" required></div>
+                        <button type="submit" class="btn-primary full"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+                    </form>
+                </div>
+            </aside>
+
         </div>
-      </div>
+    </div>
 
-      <div class="side-card reveal">
-        <h4><i class="fa-solid fa-layer-group"></i> Categories</h4>
-        <ul class="cat-list">
-          <li><a href="#">Buying Guides <span class="count">18</span></a></li>
-          <li><a href="#">Reviews <span class="count">27</span></a></li>
-          <li><a href="#">Tech News <span class="count">14</span></a></li>
-          <li><a href="#">Tips &amp; Tricks <span class="count">21</span></a></li>
-          <li><a href="#">Deals Roundup <span class="count">9</span></a></li>
-        </ul>
-      </div>
+    <div class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="brand-title">
+                    <div class="logos">
+                        <a href="./index.html">
+                            <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="hotline-label">Hotline 24/7</div>
+                <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
+                <div class="addr"><i class="fa-solid fa-location-dot"></i> MMR Complex,<br>Chinna Thirupathi,<br>Salem, Tamil Nadu 636008</div>
+                <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@Stackly.com</a>
 
-      <div class="side-card reveal">
-        <h4><i class="fa-solid fa-clock-rotate-left"></i> Recent Posts</h4>
-        <div class="recent-post">
-         
-          <div class="rp-body"><h5><a href="./404.html">BOSO 2 Headphones, three weeks in</a></h5><span>Jul 8, 2026</span></div>
+                <div class="social-row">
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Top Categories</h4>
+                <ul>
+                    <li><a href="./products.html">Laptops</a></li>
+                    <li><a href="./products.html">PC &amp; Computers</a></li>
+                    <li><a href="./products.html">Cell Phones</a></li>
+                    <li><a href="./products.html">Tablets</a></li>
+                    <li><a href="./products.html">Gaming &amp; VR</a></li>
+                    <li><a href="./products.html">Networks</a></li>
+                    <li><a href="./products.html">Cameras</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./products.html">Product</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Help Center</h4>
+                <ul>
+                    <li><a href="./404.html">Customer Service</a></li>
+                    <li><a href="./404.html">Policy</a></li>
+                    <li><a href="./404.html">Terms &amp; Conditions</a></li>
+                    <li><a href="./404.html">Track Order</a></li>
+                    <li><a href="./404.html">FAQs</a></li>
+                    <li><a href="./login.html">My Account</a></li>
+                    <li><a href="./404.html">Product Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Partner</h4>
+                <ul>
+                    <li><a href="./404.html">Become Seller</a></li>
+                    <li><a href="./404.html">Affiliate</a></li>
+                    <li><a href="./404.html">Advertise</a></li>
+                    <li><a href="./404.html">Partnership</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="recent-post">
-          <div class="rp-body"><h5><a href="./404.html">The DDR5 price drop, explained</a></h5><span>Jul 2, 2026</span></div>
+
+        <div class="footer-bottom">
+            <div>&copy; 2026 <strong>Stackly</strong>. All Rights Reserved</div>
+            <div class="pay-icons">
+                <i class="fa-brands fa-cc-paypal"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-stripe"></i>
+                <i class="fa-solid fa-k" title="Klarna"></i>
+            </div>
+            <a class="mobile-link" href="./404.html">Mobile Site</a>
         </div>
-        <div class="recent-post">
-          <div class="rp-body"><h5><a href="./404.html">5 habits wrecking your battery</a></h5><span>Jun 28, 2026</span></div>
-        </div>
-      </div>
-
-      <div class="side-card reveal">
-        <h4><i class="fa-solid fa-tags"></i> Popular Tags</h4>
-        <div class="tag-cloud">
-          <a href="#">Laptops</a>
-          <a href="#">Audio</a>
-          <a href="#">Gaming PC</a>
-          <a href="#">Cameras</a>
-          <a href="#">Deals</a>
-          <a href="#">Tablets</a>
-          <a href="#">How-To</a>
-        </div>
-      </div>
-
-      <div class="side-card side-newsletter reveal">
-        <h4><i class="fa-solid fa-envelope-open-text"></i> Stay in the loop</h4>
-        <p>New guides and early access to flash sales, once a week, no spam.</p>
-        <form onsubmit="return false;">
-          <div class="form-group"><input type="email" placeholder="you@email.com" required></div>
-          <button type="submit" class="btn-primary full"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
-        </form>
-      </div>
-    </aside>
-
-  </div>
-</div>
-
-
-<div class="footer">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <div class="brand-title"><div class="logos">
-                <a href="./index.html">
-                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
-                </a>
-            </div></div>
-      <div class="hotline-label">Hotline 24/7</div>
-      <div class="hotline-num"><i class="fa-solid fa-phone"></i> (025) 3686 25 16</div>
-       <div class="addr"><i class="fa-solid fa-location-dot"></i>  MMR Complex,<br>
-                Chinna Thirupathi,<br>
-                Salem, Tamil Nadu 636008</div>
-      <a class="mail-link" href="#"><i class="fa-solid fa-envelope"></i> contact@Stackly.com</a>
-
-
-      <div class="social-row">
-        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
-        <a href="./404.html"><i class="fa-brands fa-youtube"></i></a>
-        <a href="./404.html"><i class="fa-brands fa-pinterest-p"></i></a>
-      </div>
     </div>
 
-    <div class="footer-col">
-      <h4>Top Categories</h4>
-      <ul>
-        <li><a href="./products.html">Laptops</a></li>
-        <li><a href="./products.html">PC &amp; Computers</a></li>
-        <li><a href="./products.html">Cell Phones</a></li>
-        <li><a href="./products.html">Tablets</a></li>
-        <li><a href="./products.html">Gaming &amp; VR</a></li>
-        <li><a href="./products.html">Networks</a></li>
-        <li><a href="./products.html">Cameras</a></li>
-      </ul>
-    </div>
+    <button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="./home.html">Home </a></li>
-        <li><a href="./about.html">About</a></li>
-        <li><a href="./products.html">Product</a></li>
-        <li><a href="./blog.html">Blog</a></li>
-        <li><a href="./contact.html">contact</a></li>
-      </ul>
-    </div>
+    <script >
+      document.addEventListener('DOMContentLoaded', () => {
 
-    <div class="footer-col">
-      <h4>Help Center</h4>
-      <ul>
-        <li><a href="./404.html">Customer Service</a></li>
-        <li><a href="./404.html">Policy</a></li>
-        <li><a href="./404.html">Terms &amp; Conditions</a></li>
-        <li><a href="./404.html">Track Order</a></li>
-        <li><a href="./404.html">FAQs</a></li>
-        <li><a href="./login.html">My Account</a></li>
-        <li><a href="./404.html">Product Support</a></li>
-      </ul>
-    </div>
+  /* ---------- Mobile nav drawer ---------- */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
 
-    <div class="footer-col">
-      <h4>Partner</h4>
-      <ul>
-        <li><a href="./404.html">Become Seller</a></li>
-        <li><a href="./404.html">Affiliate</a></li>
-        <li><a href="./404.html">Advertise</a></li>
-        <li><a href="./404.html">Partnership</a></li>
-      </ul>
-    </div>
-  </div>
+  function closeMenu(){
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('show');
+  }
+  function toggleMenu(){
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    navOverlay.classList.toggle('show', isOpen);
+  }
+  if (hamburger && navLinks && navOverlay){
+    hamburger.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', closeMenu);
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
 
-  <div class="footer-bottom">
-    <div>&copy; 2026 <strong>Stackly</strong>. All Rights Reserved</div>
-    <div class="pay-icons">
-      <i class="fa-brands fa-cc-paypal"></i>
-      <i class="fa-brands fa-cc-mastercard"></i>
-      <i class="fa-brands fa-cc-visa"></i>
-      <i class="fa-brands fa-cc-stripe"></i>
-      <i class="fa-solid fa-k" title="Klarna"></i>
-    </div>
-    <a class="mobile-link" href="./404.html">Mobile Site</a>
-  </div>
-</div>
-<button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-<script src="navbar.js"></script>
-<script src="pages.js"></script>
+  /* ---------- Scroll-reveal ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
 
+  /* ---------- Scroll-to-top button ---------- */
+  const scrollTopBtn = document.getElementById('scrollTop');
+  if (scrollTopBtn){
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ---------- Blog category filter ---------- */
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const blogCards = document.querySelectorAll('.blog-card');
+  const noResults = document.getElementById('noResults');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const filter = pill.dataset.filter;
+      let visibleCount = 0;
+
+      blogCards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !match);
+        if (match) visibleCount++;
+      });
+
+      if (noResults) noResults.hidden = visibleCount !== 0;
+    });
+  });
+
+  /* ---------- Blog card click-through ---------- */
+  blogCards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      // Don't hijack clicks on the actual link inside the card
+      if (e.target.closest('a')) return;
+      window.location.href = '404.html';
+    });
+  });
+
+  /* ---------- Newsletter form (front-end only) ---------- */
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm){
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = newsletterForm.querySelector('input[type="email"]');
+      if (input && input.value){
+        alert('Thanks for subscribing!');
+        input.value = '';
+      }
+    });
+  }
+
+});
+    </script>
 </body>
 </html>

@@ -118,3 +118,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+const loginPage=document.getElementById('userIcon')
+loginPage.addEventListener('click',()=>{
+  window.location.href='login.html'
+})
+
+const searchBtn=document.querySelector('.fa-magnifying-glass')
+searchBtn.addEventListener('click',()=>{
+  window.location.href='404.html'
+})

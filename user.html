@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./dashboard.css" />
+    <link rel="stylesheet" href="./user.css" />
     <link rel="stylesheet" href="./dashboard2.css">
     <title>User Dashboard — ShopStack</title>
 </head>
@@ -103,21 +103,25 @@
                         <span class="kpi-icon"><i class="fa-solid fa-cart-shopping"></i></span>
                         <h3>24</h3>
                         <p>Total orders</p>
+                        <span class="kpi-trend kpi-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 4 this month</span>
                     </div>
                     <div class="kpi-card">
                         <span class="kpi-icon"><i class="fa-solid fa-dollar-sign"></i></span>
                         <h3>$4,283</h3>
                         <p>Total spent</p>
+                        <span class="kpi-trend kpi-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 18.2%</span>
                     </div>
                     <div class="kpi-card">
                         <span class="kpi-icon"><i class="fa-solid fa-heart"></i></span>
                         <h3>8</h3>
                         <p>Wishlist items</p>
+                        <span class="kpi-trend kpi-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 2 new</span>
                     </div>
                     <div class="kpi-card">
                         <span class="kpi-icon"><i class="fa-solid fa-truck"></i></span>
                         <h3>3</h3>
                         <p>Active shipments</p>
+                        <span class="kpi-trend kpi-trend-down"><i class="fa-solid fa-arrow-trend-down"></i> 1 delayed</span>
                     </div>
                 </div>
 
@@ -138,6 +142,58 @@
                         <span class="quick-action-icon"><i class="fa-solid fa-headset"></i></span>
                         Support
                     </a>
+                </div>
+
+                <!-- ===== NEW: Overview charts row ===== -->
+                <div class="content-grid overview-charts">
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Spending trend</h2>
+                            <div class="panel-head-actions">
+                                <span class="chart-legend-inline"><span class="dot-swatch" style="--c:var(--secondary)"></span>Spend</span>
+                                <span class="chart-legend-inline"><span class="dot-swatch dot-swatch-line" style="--c:var(--primary)"></span>Orders</span>
+                            </div>
+                        </div>
+                        <div class="line-chart-wrap">
+                            <svg class="line-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Personal spending and order count trend over the last 7 months">
+                                <g class="line-chart-grid">
+                                    <line x1="0" y1="10" x2="560" y2="10"></line>
+                                    <line x1="0" y1="62" x2="560" y2="62"></line>
+                                    <line x1="0" y1="114" x2="560" y2="114"></line>
+                                    <line x1="0" y1="166" x2="560" y2="166"></line>
+                                    <line x1="0" y1="200" x2="560" y2="200"></line>
+                                </g>
+                                <polygon class="line-chart-area" points="0,170 93,142 186,178 280,96 373,148 466,110 560,44 560,200 0,200"></polygon>
+                                <polyline class="line-chart-path line-chart-path-revenue" points="0,170 93,142 186,178 280,96 373,148 466,110 560,44"></polyline>
+                                <polyline class="line-chart-path line-chart-path-orders" points="0,188 93,182 186,186 280,164 373,168 466,150 560,128"></polyline>
+                                <g class="line-chart-dots">
+                                    <circle cx="560" cy="44" r="5"></circle>
+                                </g>
+                            </svg>
+                            <div class="line-chart-labels">
+                                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>My order status</h2>
+                        </div>
+                        <div class="donut-wrap">
+                            <div class="donut-chart" style="--p1:45; --p2:30; --p3:25;">
+                                <div class="donut-center">
+                                    <strong>24</strong>
+                                    <span>orders</span>
+                                </div>
+                            </div>
+                            <ul class="legend-list donut-legend">
+                                <li><span class="legend-dot" style="--c:var(--primary)"></span> Delivered <strong>45%</strong></li>
+                                <li><span class="legend-dot" style="--c:var(--secondary)"></span> Shipped <strong>30%</strong></li>
+                                <li><span class="legend-dot" style="--c:var(--accent)"></span> Processing <strong>25%</strong></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-grid">

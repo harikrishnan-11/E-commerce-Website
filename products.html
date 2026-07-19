@@ -12,8 +12,8 @@
 </head>
 <body>
 
-<div class="topbar">
-        <header>
+   <div class="topbar">
+        <header >
             <div>
                 <p>Hotline 24/7</p>
                 <p><strong>
@@ -22,18 +22,18 @@
             </p>
             </div>
             <div>
-                <a href="./404.html"> Sell on Stackly</a>
+                <a href="./contact.html"> Sell on Stackly</a>
                 <a href="./404.html" class="highlight">Tract Order</a>
             </div>
         </header>
         <nav class="nav-container">
             <div class="logos">
                 <a href="./index.html">
-                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="">
+                    <img src="./src/logo/Untitled design (7)-compressed.webp" alt="Stackly logo">
                 </a>
             </div>
-            <div class="nav-links">
-                <a href="./home.html">Home</a>
+            <div class="nav-links" id="navLinks">
+                <a href="./home.html" >Home</a>
                 <a href="./about.html">About</a>
                 <a href="./products.html" class="active">Products</a>
                 <a href="./blog.html">Blog</a>
@@ -51,14 +51,14 @@
                         <i class="fa-regular fa-heart"></i>
                     </a>
                     </p>
-                    <div class="hamburger" id="hamburger">
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                 </div>
                 <div class="profile">
-                    <p><i class="fa-regular fa-user"></i></p>
+                     <p><i class="fa-regular fa-user" id="userIcon"></i></p>
                     <div class="profile-text">
                         <p>Welcome</p>
                         <a href="./login.html">Login</a>/ <span>
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </nav>
+        <div class="nav-overlay" id="navOverlay"></div>
     </div>
     <div class="nav-footer">
         <div class="search-bar">
@@ -74,8 +75,10 @@
                 <i class="fa-solid fa-angle-down" ></i>
             </span>
         </p>
-            <input type="text" placeholder="Search anything..." id="productSearch">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search anything...">
+            <a href="./404.html"> 
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
         </div>
         <p class="white">FREE SHIPPING OVER RS199</p>
         <P class="white">30 DAYS MONEY BACK </P>
@@ -233,9 +236,6 @@
                             <i class="fa-solid fa-grip"></i>
                         </button>
 
-                        <button id="listViewBtn">
-                            <i class="fa-solid fa-list"></i>
-                        </button>
 
                     </div>
 
@@ -416,6 +416,7 @@ setInterval(()=>{
     showSlide(current);
 },5000);
 </script>
+<script src="nav.js"></script>
 <script src="./navbar.js"></script>
 <script src="./products-data.js"></script>
 <script src="./products.js"></script>

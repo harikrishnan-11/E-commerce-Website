@@ -29,7 +29,6 @@
     const sidebar = document.getElementById("sidebar");
 
     const gridViewBtn = document.getElementById("gridViewBtn");
-    const listViewBtn = document.getElementById("listViewBtn");
 
     let state = {
         categories: [],
@@ -211,7 +210,8 @@
                 </div>
                 <div class="price">${priceHtml}</div>
                 ${stockBadge}
-                <button class="add-cart" ${p.stock ? "" : "disabled"}>${p.stock ? "Add To Cart" : "Notify Me"}</button>
+                <button class="add-cart" >${p.stock ? "Add To Cart" : "Notify Me"}</button>
+
             </div>
         </div>`;
     }
@@ -368,13 +368,8 @@
     gridViewBtn.addEventListener("click", () => {
         grid.classList.remove("list-view");
         gridViewBtn.classList.add("active");
-        listViewBtn.classList.remove("active");
     });
-    listViewBtn.addEventListener("click", () => {
-        grid.classList.add("list-view");
-        listViewBtn.classList.add("active");
-        gridViewBtn.classList.remove("active");
-    });
+   
 
     // ---------- Mobile filter drawer ----------
     function openDrawer() {
@@ -396,3 +391,9 @@
     updateCategoryCounts();
     render();
 })();
+
+document.querySelectorAll(".add-cart").forEach(button =>{
+    button.addEventListener('click',()=>{
+        window.location.href='404.html'
+    })
+})

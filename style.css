@@ -464,7 +464,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 50px;
+  gap: 20;
   font-size: 2rem;
   color: rgb(0, 0, 0);
 }
@@ -578,7 +578,7 @@ img {
 
   .hero4 {
     font-size: 1.4rem;
-    gap: 24px;
+    gap: 15px;
   }
 }
 
@@ -1644,11 +1644,6 @@ a.view-all:hover i {
     grid-template-columns: 1fr;
   }
 
-  .split-promo {
-    width: 100% !important;
-    height: auto !important;
-    padding: 24px !important;
-  }
 
   .cat-icon-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1697,6 +1692,12 @@ a.view-all:hover i {
 
   .card-head h2 {
     font-size: 14px;
+  }
+    .cat-icon-grid {
+    grid-template-columns:1fr;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
   }
 }
 
@@ -1834,6 +1835,11 @@ a.view-all:hover i {
 
   .banner-visual {
     margin-left: 0;
+  }
+    .split-promo {
+    width: 250px !important;
+    height: auto !important;
+    padding: 24px !important;
   }
 }
 
