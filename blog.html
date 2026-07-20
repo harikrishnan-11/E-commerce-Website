@@ -1573,7 +1573,7 @@
               <h3><a href="#">BOSO 2 Wireless On-Ear Headphones, three weeks in</a></h3>
               <p>The noise cancelling holds up on flights, but the app's EQ presets are hit or miss. Full breakdown
                 inside.</p>
-              <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="./404.html" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
 
@@ -1586,7 +1586,7 @@
               <h3><a href="#">DSLR vs mirrorless in 2026: which one should you actually buy</a></h3>
               <p>Mirrorless has mostly won, but there's still a case for DSLR if you already own glass. Here's how to
                 decide.</p>
-              <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="./404.html" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
 
@@ -1599,7 +1599,7 @@
               <h3><a href="#">5 charging habits that are quietly wrecking your battery</a></h3>
               <p>Topping up overnight isn't the villain you think it is — but these five habits actually do the damage.
               </p>
-              <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="./404.html" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
 
@@ -1611,7 +1611,7 @@
                     class="fa-solid fa-clock"></i> 6 min</span></div>
               <h3><a href="#">OPod Pro 12.9" review: the case for buying last year's tablet</a></h3>
               <p>Same silicon as the newest model, better resale value, and it's currently $190 cheaper on Stackly.</p>
-              <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="./404.html" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
 
@@ -1624,12 +1624,12 @@
               <h3><a href="#">Building a $900 gaming PC that doesn't feel like a compromise</a></h3>
               <p>A full parts list, benchmarked at 1080p and 1440p, with swap-out options if your budget moves either
                 way.</p>
-              <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="./404.html" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
 
           <div class="blog-card reveal" data-category="tech">
-            <div class="blog-thumb"><img src="./src/images 2/smartwatch.webp" alt="Smartwatch"><span
+            <div class="blog-thumb"><img src="./src/hero img/Pasted image-compressed.webp" alt="Smartwatch"><span
                 class="cat-tag">Technology</span></div>
             <div class="blog-body">
               <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> Jul 15, 2026</span><span><i
@@ -1637,7 +1637,7 @@
               <h3><a href="#">Top 5 Smartwatches You Should Consider in 2026</a></h3>
               <p>Looking for the perfect smartwatch? We compare battery life, health tracking, display quality, and
                 value to help you choose the best model.</p>
-              <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="./404.html" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
 
@@ -1877,16 +1877,7 @@
         });
       });
 
-      /* ---------- Blog card click-through ---------- */
-      blogCards.forEach(card => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', (e) => {
-          // Don't hijack clicks on the actual link inside the card
-          if (e.target.closest('a')) return;
-          window.location.href = '404.html';
-        });
-      });
-
+      
       /* ---------- Newsletter form (front-end only) ---------- */
       const newsletterForm = document.getElementById('newsletterForm');
       if (newsletterForm) {
@@ -1902,6 +1893,7 @@
 
     });
   </script>
+  <script src="./navbar.js"></script>
 </body>
 
 </html>
